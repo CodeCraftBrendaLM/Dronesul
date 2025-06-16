@@ -1,0 +1,719 @@
+html {
+  scroll-behavior: smooth;
+}
+
+#servicos,
+#beneficios,
+#depoimentos,
+#galeria,
+#contato {
+  scroll-margin-top: 50px; 
+}
+
+
+/* Estilos gerais do corpo da página */
+body {
+  font-family: 'Poppins', sans-serif; /* Fonte padrão da página */
+  background-color: #ffffff;          /* Cor de fundo branca */
+  color: #000000;                     /* Cor do texto */
+  margin: 0;
+  padding: 0;
+}
+
+/* ========================= */
+/*        TOPO / HEADER      */
+/* ========================= */
+
+.topo {
+  position: fixed; /* Fixa o topo na tela */
+  top: 0;
+  width: 100%;
+  z-index: 1000; /* Garante que fique acima de outros elementos */
+  background-color: #ffffff;
+  box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+  padding: 5px 0;
+}
+
+
+/* Container do topo com alinhamento horizontal */
+.topo .container {
+  display: flex;                       /* Itens lado a lado */
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 40px;
+  gap: 20px;
+}
+
+/* Logo da empresa */
+.logo {
+  height: 90px;
+  margin: 0;
+}
+
+/* ========================= */
+/*       MENU DE NAVEGAÇÃO   */
+/* ========================= */
+
+.menu {
+  display: flex;
+  justify-content: center;
+  flex: 1;
+  gap: 30px; /* Espaçamento entre os links */
+}
+
+.menu a {
+  font-weight: 500;
+  font-size: 16px;
+  color: #000000;
+  text-decoration: none;
+  position: relative;
+  padding: 10px 5px;
+  transition: color 0.3s ease;
+}
+
+/* Efeito hover nos links do menu */
+.menu a:hover {
+  color: #08828f;
+  border-bottom: 2px solid #08828f; /* Linha ao passar o mouse */
+}
+
+/* Botão "Fale Conosco" no topo */
+.btn.fale-conosco {
+  background-color: #0599ab;
+  color: white;
+  font-weight: bold;
+  padding: 10px 18px;
+  border-radius: 8px;
+  text-decoration: none;
+  transition: background 0.3s ease, transform 0.2s ease;
+}
+
+.btn.fale-conosco:hover {
+  background-color: #08828f;
+  transform: scale(1.05); /* Aumenta levemente o botão */
+}
+
+/* ========================= */
+/*           BANNER          */
+/* ========================= */
+
+.banner {
+  background: linear-gradient(to right, #08828f, #0599ab, #9fb81a, #b9d818);
+  padding: 180px 40px 80px; /* aumentamos o topo */
+  color: white;
+}
+
+
+/* Layout do conteúdo do banner */
+.banner-flex {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 40px;
+}
+
+/* Texto do banner */
+.banner-texto {
+  flex: 1;
+  min-width: 300px;
+}
+
+/* Título do banner */
+.banner h1 {
+  font-family: 'League Spartan', sans-serif;
+  font-size: 42px;
+  line-height: 1.2;
+  margin-bottom: 15px;
+  color: white;
+}
+
+/* Parágrafo do banner */
+.banner p {
+  font-size: 18px;
+  line-height: 1.5;
+  margin: 10px 0 30px;
+  color: #f0f0f0;
+}
+
+/* Imagem do banner */
+.banner-imagem {
+  flex: 1;
+  text-align: center;
+  min-width: 300px;
+}
+
+.banner-imagem img {
+  width: 600px;
+  height: auto;
+  max-height: 320px;
+  object-fit: cover;
+  border: 5px solid #ffffff;
+  border-radius: 16px;
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+}
+
+/* Botões do banner */
+.botoes {
+  display: flex;
+  gap: 20px;
+}
+
+/* Estilos base dos botões */
+.btn {
+  padding: 12px 24px;
+  font-weight: bold;
+  border: none;
+  border-radius: 8px;
+  text-decoration: none;
+  color: white;
+  transition: transform 0.2s;
+}
+
+.btn:hover {
+  transform: scale(1.05);
+}
+
+/* Botão verde */
+.btn.verde {
+  background-color: #9fb81a;
+  border: 1px solid #ffffff;
+  border-radius: 16px;
+}
+
+/* Botão azul */
+.btn.azul {
+  background-color: #0599ab;
+  border: 1px solid #ffffff;
+  border-radius: 16px;
+}
+
+/* ========================= */
+/*      SEÇÃO CURSOS         */
+/* ========================= */
+
+.servicos {
+  background-color: #e9f2f3;
+  padding: 80px 40px;
+  text-align: center;
+}
+
+/* Título da seção cursos */
+.servicos h2 {
+  font-family: 'League Spartan', sans-serif;
+  font-size: 36px;
+  margin-bottom: 10px;
+}
+
+/* Subtítulo da seção */
+.subtitulo {
+  font-size: 18px;
+  margin-bottom: 40px;
+  color: #0e3346;
+}
+
+/* Grade de cards responsiva */
+.grade-servicos {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 30px;
+}
+
+/* Card individual de curso */
+.card-servicos {
+  background: white;
+  border-radius: 12px;
+  overflow: hidden;
+  box-shadow: 0 0 15px rgba(0,0,0,0.1);
+  transition: transform 0.3s ease;
+  padding-bottom: 20px;
+}
+
+/* Efeito hover no card */
+.card-servicos:hover {
+  transform: scale(1.05);
+}
+
+/* Imagem do card */
+.card-servicos img {
+  width: 100%;
+  height: 200px; /* Altura fixa */
+  object-fit: cover; /* Corta para manter o enquadramento */
+  display: block;
+  border-bottom: 5px solid #08828f;
+}
+
+/* Título do card */
+.card-servicos h3 {
+  font-size: 20px;
+  color: #08828f;
+  margin: 20px 0 10px;
+}
+
+/* Parágrafo do card */
+.card-servicos p {
+  padding: 0 20px;
+  font-size: 14px;
+  color: #333;
+}
+
+/* Botão "saiba mais" */
+.btn.saiba-mais {
+  display: inline-block;
+  margin-top: 15px;
+  background-color: #9fb81a;
+  color: white;
+  padding: 8px 16px; /* Menor que antes */
+  font-size: 12px;   /* Diminuído */
+  border-radius: 6px; /* Mais discreto */
+  text-decoration: none;
+  transition: background 0.3s, transform 0.2s;
+}
+
+.btn.saiba-mais:hover {
+  background-color: #b9d818;
+  transform: scale(1.05);
+} 
+
+.porque {
+  padding: 80px 40px;
+  text-align: center;
+  background-color: #ffffff;
+}
+
+.porque h2 {
+  font-family: 'League Spartan', sans-serif;
+  font-size: 36px;
+  margin-bottom: 10px;
+  color: #0e3346;
+}
+
+.porque .subtitulo {
+  font-size: 18px;
+  color: #0e3346;
+  margin-bottom: 50px;
+}
+
+/* Grade com os cards de benefício (6 no total, responsivos) */
+.grid-cards {
+  display: grid; /* Usa grid layout */
+  grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); /* Cria colunas responsivas com mínimo de 320px */
+  gap: 30px; /* Espaço entre os cards */
+  margin-top: 40px; /* Espaçamento acima da grade */
+}
+
+/* Card branco com borda arredondada e ícone à esquerda  (movimento)*/
+.card-info {
+  background-color: #ffffff;
+  border: 2px solid #08828f;
+  border-radius: 12px;
+  padding: 20px;
+  display: flex;
+  align-items: flex-start;
+  gap: 20px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  cursor: default;
+}
+
+.card-info:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.12);
+}
+
+
+/* Círculo que envolve o ícone (pode ter cor verde ou azul) */
+.icone-circulo {
+  width: 50px;
+  height: 50px;
+  border-radius: 50%; /* Deixa o container redondo */
+  background-color: #ccc; /* Cor de fundo padrão (substituída pelas classes de cor) */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0; /* Evita que o círculo encolha se o texto for grande */
+}
+
+/* Ícone PNG dentro do círculo */
+.icone-circulo img {
+  width: 40px;
+  height: 40px;
+  object-fit: contain; /* Mantém a proporção do ícone sem esticar */
+}
+
+/* Cor de fundo verde dos círculos (intercalado) */
+.cor-verde {
+  background-color: #9fb81a;
+}
+
+/* Cor de fundo azul dos círculos (intercalado) */
+.cor-azul {
+  background-color: #08828f;
+}
+
+/* Container do texto ao lado do ícone */
+.texto-card {
+  text-align: left; /* Alinha o texto à esquerda */
+}
+
+/* Título do benefício */
+.texto-card h3 {
+  font-size: 16px;
+  font-weight: bold;
+  color: #0e3346; /* Azul escuro */
+  margin-bottom: 6px;
+}
+
+/* Descrição do benefício */
+.texto-card p {
+  font-size: 14px;
+  color: #333333;
+  line-height: 1.4;
+  margin: 0;
+}
+
+.depoimentos {
+  padding: 80px 40px;
+  background: linear-gradient(to right, #08828f, #0599ab, #9fb81a, #b9d818);
+  text-align: center;
+  color: white;
+}
+
+.depoimentos h2,
+.depoimentos .subtitulo {
+  color: white;
+}
+
+.card-depoimento .texto {
+  color: #333;
+}
+
+.card-depoimento .autor {
+  color: #08828f;
+}
+
+
+.depoimentos h2 {
+  font-family: 'League Spartan', sans-serif;
+  font-size: 32px;
+  margin-bottom: 10px;
+  color: #ffffff;
+}
+
+.depoimentos .subtitulo {
+  font-size: 18px;
+  color: #ffffff;
+  margin-bottom: 50px;
+}
+
+.depoimentos-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 30px;
+}
+
+.card-depoimento {
+  background-color: white;
+  padding: 30px 20px;
+  border-radius: 16px;
+  box-shadow: 0 6px 20px rgba(0,0,0,0.05);
+  text-align: left;
+  transition: transform 0.3s ease;
+}
+
+.card-depoimento:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 10px 24px rgba(0,0,0,0.1);
+}
+
+.card-depoimento .texto {
+  font-size: 15px;
+  color: #333333;
+  line-height: 1.6;
+  margin-bottom: 20px;
+}
+
+.card-depoimento .autor {
+  font-size: 14px;
+  color: #08828f;
+  line-height: 1.4;
+}
+
+/* ========================= */
+/*        GALERIA            */
+/* ========================= */
+
+.galeria {
+  padding: 80px 40px;
+  background-color: #ffffff;
+  text-align: center;
+}
+
+.galeria h2 {
+  font-family: 'League Spartan', sans-serif;
+  font-size: 32px;
+  color: #0e3346;
+  margin-bottom: 10px;
+}
+
+.galeria .subtitulo {
+  font-size: 16px;
+  color: #333;
+  margin-bottom: 50px;
+  max-width: 700px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+/* Grade fixa com 4 colunas */
+.galeria-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr); /* 4 colunas fixas */
+  gap: 30px;
+  justify-items: center;
+}
+
+.galeria-grid img {
+  width: 100%;
+  max-width: 280px;
+  height: 200px;
+  object-fit: cover;
+  border-radius: 16px;
+  border: 2px solid #08828f; /* Borda azul */
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+/* Efeito de movimento ao passar o mouse */
+.galeria-grid img:hover {
+  transform: scale(1.05) translateY(-4px); /* Aumenta levemente e sobe um pouco */
+  box-shadow: 0 12px 24px rgba(0, 0, 0, 0.15); /* Sombra para profundidade */
+}
+
+/* ========================= */
+/*    CHAMADA PARA AÇÃO CTA  */
+/* ========================= */
+
+.cta {
+  background-color: #058492;
+  color: white;
+  text-align: center;
+  padding: 60px 30px;
+  border-radius: 30px;
+  margin: 80px 40px;
+}
+
+.cta h2 {
+  font-family: 'League Spartan', sans-serif;
+  font-size: 28px;
+  margin-bottom: 15px;
+}
+
+.cta p {
+  font-size: 16px;
+  line-height: 1.5;
+  margin-bottom: 30px;
+}
+
+.cta .btn-whats {
+  background-color: white;
+  color: #058492;
+  font-weight: bold;
+  padding: 12px 28px;
+  border-radius: 30px;
+  text-decoration: none;
+  transition: background 0.3s ease, transform 0.2s ease;
+}
+
+.cta .btn-whats:hover {
+  background-color: #d9f3f5;
+  transform: scale(1.05);
+}
+
+
+.contato {
+  padding: 80px 40px;
+  background-color: #f9f9f9;
+}
+
+.contato-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 40px;
+  align-items: start;
+}
+
+.contato-info h2 {
+  font-family: 'League Spartan', sans-serif;
+  font-size: 28px;
+  margin-bottom: 10px;
+}
+
+.lista-info {
+  list-style: none;
+  padding: 0;
+  margin: 20px 0;
+}
+
+.lista-info li {
+  margin-bottom: 18px;
+  font-size: 15px;
+  color: #333;
+}
+
+.lista-info strong {
+  color: #0e3346;
+}
+
+.redes-sociais {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 15px;
+  margin-top: 30px;
+}
+
+.redes-sociais img {
+  width: 40px;
+  height: 40px;
+  transition: transform 0.2s ease;
+}
+
+.redes-sociais img:hover {
+  transform: scale(1.1);
+}
+
+/* Formulário */
+.formulario {
+  background-color: #eaf4f6;
+  padding: 30px;
+  border-radius: 12px;
+  box-shadow: 0 0 10px rgba(0,0,0,0.05);
+}
+
+.formulario h3 {
+  font-size: 22px;
+  margin-bottom: 20px;
+  color: #0e3346;
+}
+
+.formulario input,
+.formulario select,
+.formulario textarea {
+  width: 100%;
+  margin-bottom: 15px;
+  padding: 12px;
+  border: 1px solid #ccc;
+  border-radius: 6px;
+  font-size: 14px;
+  font-family: 'Poppins', sans-serif;
+}
+
+.formulario button {
+  background-color: #0599ab;
+  color: white;
+  font-weight: bold;
+  padding: 12px;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  width: 100%;
+  transition: background 0.3s ease, transform 0.2s;
+}
+
+.formulario button:hover {
+  background-color: #08828f;
+  transform: scale(1.02);
+}
+
+
+.rodape {
+  background-color: #e9f2f3;
+  padding: 60px 40px 20px;
+  text-align: center;
+}
+
+.logo-footer {
+  width: 140px;
+  margin: 0 auto 20px;
+  display: block;
+}
+
+.missao {
+  font-size: 15px;
+  color: #0e3346;
+  margin-bottom: 40px;
+  max-width: 700px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.rodape-layout {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  align-items: flex-start;
+  gap: 40px;
+  max-width: 1100px;
+  margin: 0 auto;
+  text-align: left;
+}
+
+.coluna {
+  min-width: 200px;
+}
+
+.coluna h4 {
+  font-size: 16px;
+  color: #0e3346;
+  margin-bottom: 12px;
+}
+
+.coluna p,
+.coluna li {
+  font-size: 14px;
+  color: #333;
+  margin-bottom: 6px;
+  list-style: none;
+}
+
+.coluna ul {
+  padding: 0;
+  margin: 0;
+}
+
+.coluna a {
+  color: #08828f;
+  text-decoration: none;
+  transition: color 0.3s;
+}
+
+.coluna a:hover {
+  color: #0599ab;
+}
+
+/* Centraliza a coluna do meio */
+.central {
+  text-align: center;
+}
+
+/* Alinha cursos à esquerda e navegação à direita */
+.esquerda {
+  text-align: left;
+}
+.direita {
+  text-align: right;
+}
+
+.rodape-copy {
+  border-top: 1px solid #ccc;
+  margin-top: 40px;
+  padding-top: 15px;
+  font-size: 13px;
+  color: #666;
+}
+
+
+
+
+/* =============================== */
+/* PÁGINA DE CURSO - PILOTAGEM    */
+/* =============================== */
+
