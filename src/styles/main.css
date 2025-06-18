@@ -749,39 +749,77 @@ body {
 
 
 /* Ajustes para telas menores que 991px (Ex: Tablets, iPads) */
+/* --- Media Queries para Responsividade --- */
+
+/* Ajustes para telas menores que 1200px (Ex: notebooks menores, tablets em paisagem) */
+@media (max-width: 1199px) {
+    .container {
+        padding: 0 20px; /* Reduz o padding lateral do container */
+    }
+
+    .banner h1 {
+        font-size: 38px;
+    }
+
+    .banner p {
+        font-size: 16px;
+    }
+
+    .grade-servicos {
+        grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); /* Volta a ser responsivo, talvez com um min-width menor */
+    }
+
+    .grid-cards {
+        grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); /* Permite 2 colunas para telas de tablet */
+    }
+
+    .galeria-grid {
+        grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); /* Galeria pode ter 2 ou 3 colunas */
+    }
+}
+
+
+/* Ajustes para telas menores que 991px (Ex: Tablets, iPads e Celulares maiores) */
 @media (max-width: 991px) {
     /* Header/Topo */
     .topo .container {
         flex-direction: column; /* Coloca logo, menu e botão um abaixo do outro */
         padding: 10px 20px; /* Ajusta o padding */
         align-items: center;
+        gap: 0; /* Remover gap para ter mais controle individual */
     }
 
     .logo {
         height: 70px; /* Diminui a logo */
-        margin-bottom: 10px;
+        margin-bottom: 10px; /* Espaço abaixo da logo */
     }
 
     .menu {
         flex-wrap: wrap; /* Permite que os itens do menu quebrem linha */
         justify-content: center;
         gap: 15px; /* Reduz o espaço entre os itens do menu */
-        margin-bottom: 10px; /* Espaço entre o menu e o botão */
+        margin: 10px 0; /* Espaço acima e abaixo do menu */
+        width: 100%; /* Garante que o menu ocupe a largura total disponível */
     }
 
     .menu a {
-        font-size: 15px;
+        font-size: 14px; /* Diminui a fonte dos links */
         padding: 5px 8px; /* Reduz o padding dos links do menu */
     }
 
+    /* Botão "Fale Conosco" no topo */
     .btn.fale-conosco {
         padding: 8px 15px; /* Reduz o padding do botão */
         font-size: 14px;
+        margin-top: 10px; /* Adiciona espaço acima do botão, separando-o do menu */
     }
 
     /* Banner */
     .banner {
-        padding: 150px 20px 60px; /* Ajusta padding para telas menores */
+        padding-top: 220px; /* Ajuste para ter espaço suficiente abaixo do header fixo (PODE PRECISAR DE AJUSTE) */
+        padding-bottom: 60px;
+        padding-left: 20px; /* Garante padding lateral consistente */
+        padding-right: 20px; /* Garante padding lateral consistente */
     }
 
     .banner-flex {
@@ -861,7 +899,7 @@ body {
     .lista-info li {
         text-align: center; /* Centraliza os itens da lista */
     }
-    
+
     .redes-sociais {
         justify-content: center; /* Centraliza ícones de redes sociais */
     }
@@ -879,6 +917,16 @@ body {
     .coluna ul {
         display: inline-block; /* Permite centralizar a lista ul */
     }
+
+    /* Importante para seções com ID de âncora e cabeçalho fixo */
+    #servicos,
+    #beneficios,
+    #depoimentos,
+    #galeria,
+    #contato {
+        /* Aumentar o scroll-margin-top para acomodar o header maior no mobile (PODE PRECISAR DE AJUSTE) */
+        scroll-margin-top: 200px;
+    }
 }
 
 /* Ajustes para telas MUITO pequenas, como celulares em modo retrato (max-width: 575px) */
@@ -891,8 +939,31 @@ body {
     .subtitulo { font-size: 15px !important; }
 
 
+    .topo .container {
+        padding: 5px 15px; /* Reduz mais o padding do topo */
+    }
+
+    .logo {
+        height: 60px; /* Logo um pouco menor ainda */
+    }
+
+    .menu {
+        gap: 10px; /* Espaço menor entre os links */
+    }
+
+    .menu a {
+        font-size: 13px; /* Fonte ainda menor */
+        padding: 4px 6px;
+    }
+
+    .btn.fale-conosco {
+        width: 90%; /* Botão ocupa quase a largura total */
+        max-width: 250px; /* Para não ficar gigante em celulares maiores */
+        margin-top: 8px; /* Reduz um pouco a margem */
+    }
+
     .banner {
-        padding-top: 120px; /* Reduz mais o padding superior para não empurrar muito */
+        padding-top: 180px; /* Reduz mais o padding superior do banner (PODE PRECISAR DE AJUSTE) */
     }
 
     .botoes {
@@ -910,7 +981,7 @@ body {
     .grid-cards,
     .grade-servicos,
     .galeria-grid,
-    .depoimentos-grid { /* Adiciona depoimentos-grid aqui também */
+    .depoimentos-grid {
         grid-template-columns: 1fr; /* Uma única coluna para telas pequenas */
     }
 
@@ -931,8 +1002,16 @@ body {
     .rodape-copy {
         font-size: 12px;
     }
-}
 
+    /* Importante para seções com ID de âncora e cabeçalho fixo */
+    #servicos,
+    #beneficios,
+    #depoimentos,
+    #galeria,
+    #contato {
+        scroll-margin-top: 180px; /* Pode precisar de ajuste aqui também (PODE PRECISAR DE AJUSTE) */
+    }
+}
 
 
 /* =============================== */
