@@ -336,9 +336,9 @@ body {
 
 /* Ícone PNG dentro do círculo */
 .icone-circulo img {
-  width: 40px;
-  height: 40px;
-  object-fit: contain; /* Mantém a proporção do ícone sem esticar */
+  width: 130px;
+  height: 100px;
+  object-fit: fill; /* Mantém a proporção do ícone sem esticar */
 }
 
 /* Cor de fundo verde dos círculos (intercalado) */
@@ -924,7 +924,7 @@ body {
     #depoimentos,
     #galeria,
     #contato {
-        /* Aumentar o scroll-margin-top para acomodar o header maior no mobile*/
+        /* Aumentar o scroll-margin-top para acomodar o header maior no mobile */
         scroll-margin-top: 200px;
     }
 }
