@@ -214,9 +214,9 @@ body {
 
 /* Grade de cards responsiva */
 .grade-servicos {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-  gap: 30px;
+    display: grid;
+    grid-template-columns: repeat(4, 1fr); /* FIXO: Cria 4 colunas de largura igual */
+    gap: 30px;
 }
 
 /* Card individual de curso */
@@ -296,10 +296,10 @@ body {
 
 /* Grade com os cards de benefício (6 no total, responsivos) */
 .grid-cards {
-  display: grid; /* Usa grid layout */
-  grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); /* Cria colunas responsivas com mínimo de 320px */
-  gap: 30px; /* Espaço entre os cards */
-  margin-top: 40px; /* Espaçamento acima da grade */
+    display: grid; /* Usa grid layout */
+    grid-template-columns: repeat(3, 1fr); /* FIXO: Cria 3 colunas de largura igual */
+    gap: 30px; /* Espaço entre os cards */
+    margin-top: 40px; /* Espaçamento acima da grade */
 }
 
 /* Card branco com borda arredondada e ícone à esquerda  (movimento)*/
@@ -710,6 +710,228 @@ body {
   color: #666;
 }
 
+
+/* Seu CSS existente para desktop fica aqui, antes das media queries */
+
+/* Exemplo: .topo, .menu, .banner, .grid-cards, .grade-servicos, .galeria-grid, etc. */
+
+
+/* --- Media Queries para Responsividade --- */
+
+/* Ajustes para telas menores que 1200px (Ex: notebooks menores, tablets em paisagem) */
+@media (max-width: 1199px) {
+    /* Exemplo: Reduzir um pouco o padding geral, talvez o tamanho de fontes */
+    .container {
+        padding: 0 20px; /* Reduz o padding lateral do container */
+    }
+
+    .banner h1 {
+        font-size: 38px;
+    }
+
+    .banner p {
+        font-size: 16px;
+    }
+
+    /* Adaptação para 3 colunas em 'Cursos' e 2 em 'Benefícios' */
+    .grade-servicos {
+        grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); /* Volta a ser responsivo, talvez com um min-width menor */
+    }
+
+    .grid-cards {
+        grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); /* Permite 2 colunas para telas de tablet */
+    }
+
+    .galeria-grid {
+        grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); /* Galeria pode ter 2 ou 3 colunas */
+    }
+}
+
+
+/* Ajustes para telas menores que 991px (Ex: Tablets, iPads) */
+@media (max-width: 991px) {
+    /* Header/Topo */
+    .topo .container {
+        flex-direction: column; /* Coloca logo, menu e botão um abaixo do outro */
+        padding: 10px 20px; /* Ajusta o padding */
+        align-items: center;
+    }
+
+    .logo {
+        height: 70px; /* Diminui a logo */
+        margin-bottom: 10px;
+    }
+
+    .menu {
+        flex-wrap: wrap; /* Permite que os itens do menu quebrem linha */
+        justify-content: center;
+        gap: 15px; /* Reduz o espaço entre os itens do menu */
+        margin-bottom: 10px; /* Espaço entre o menu e o botão */
+    }
+
+    .menu a {
+        font-size: 15px;
+        padding: 5px 8px; /* Reduz o padding dos links do menu */
+    }
+
+    .btn.fale-conosco {
+        padding: 8px 15px; /* Reduz o padding do botão */
+        font-size: 14px;
+    }
+
+    /* Banner */
+    .banner {
+        padding: 150px 20px 60px; /* Ajusta padding para telas menores */
+    }
+
+    .banner-flex {
+        flex-direction: column; /* Coloca texto e imagem um abaixo do outro */
+        text-align: center;
+    }
+
+    .banner-texto {
+        min-width: unset; /* Remove o min-width para permitir que ele ocupe a largura total */
+    }
+
+    .banner h1 {
+        font-size: 32px;
+    }
+
+    .banner p {
+        font-size: 15px;
+    }
+
+    .banner-imagem img {
+        width: 100%; /* Imagem do banner ocupa a largura total */
+        max-width: 400px; /* Limita o tamanho máximo para não ficar gigante em tablets */
+        height: auto;
+        margin-top: 30px;
+    }
+
+    .botoes {
+        justify-content: center; /* Centraliza os botões */
+    }
+
+    /* Seções com padding geral */
+    .servicos, .porque, .depoimentos, .galeria, .contato, .cta, .rodape {
+        padding: 60px 20px; /* Reduz o padding horizontal geral das seções */
+    }
+
+    .subtitulo {
+        font-size: 16px;
+    }
+
+    /* Cards de Benefícios (Por que escolher) */
+    .grid-cards {
+        grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); /* 1 ou 2 colunas */
+        gap: 20px; /* Reduz o espaço entre os cards */
+    }
+
+    /* Cards de Cursos (Serviços) */
+    .grade-servicos {
+        grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); /* 1 ou 2 colunas */
+        gap: 20px;
+    }
+
+    /* Galeria */
+    .galeria-grid {
+        grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); /* 1 ou 2 colunas */
+        gap: 20px;
+    }
+
+    .galeria-grid img {
+        max-width: 100%; /* Ajusta a largura máxima para preencher o espaço */
+    }
+
+    /* CTA (Chamada para Ação) */
+    .cta {
+        margin: 60px 20px; /* Ajusta as margens laterais */
+        padding: 40px 20px;
+    }
+
+    /* Contato */
+    .contato-grid {
+        grid-template-columns: 1fr; /* Uma coluna para informações e formulário */
+    }
+
+    .contato-info, .formulario {
+        text-align: center; /* Centraliza o conteúdo nessas seções no celular */
+    }
+
+    .lista-info li {
+        text-align: center; /* Centraliza os itens da lista */
+    }
+    
+    .redes-sociais {
+        justify-content: center; /* Centraliza ícones de redes sociais */
+    }
+
+    /* Rodapé */
+    .rodape-layout {
+        grid-template-columns: 1fr; /* Colunas do rodapé uma abaixo da outra */
+        text-align: center; /* Centraliza o texto das colunas */
+    }
+
+    .coluna.esquerda, .coluna.direita {
+        text-align: center; /* Sobrescreve alinhamentos específicos para centralizar no mobile */
+    }
+
+    .coluna ul {
+        display: inline-block; /* Permite centralizar a lista ul */
+    }
+}
+
+/* Ajustes para telas MUITO pequenas, como celulares em modo retrato (max-width: 575px) */
+@media (max-width: 575px) {
+    /* Fontes maiores */
+    h1 { font-size: 28px !important; }
+    h2 { font-size: 28px !important; } /* Ajusta o tamanho de h2 */
+    h3 { font-size: 18px !important; } /* Ajusta o tamanho de h3 */
+    p { font-size: 14px !important; } /* Ajusta o tamanho de parágrafos */
+    .subtitulo { font-size: 15px !important; }
+
+
+    .banner {
+        padding-top: 120px; /* Reduz mais o padding superior para não empurrar muito */
+    }
+
+    .botoes {
+        flex-direction: column; /* Botões um abaixo do outro */
+        gap: 10px;
+    }
+
+    .btn.verde, .btn.azul {
+        width: 100%; /* Botões do banner ocupam a largura total */
+        max-width: 250px; /* Limita o tamanho máximo para não ficarem muito largos */
+        margin: 0 auto; /* Centraliza os botões */
+    }
+
+    /* Adaptação dos grids para 1 coluna */
+    .grid-cards,
+    .grade-servicos,
+    .galeria-grid,
+    .depoimentos-grid { /* Adiciona depoimentos-grid aqui também */
+        grid-template-columns: 1fr; /* Uma única coluna para telas pequenas */
+    }
+
+    .card-info {
+        flex-direction: column; /* Ícone e texto um abaixo do outro */
+        align-items: center;
+        text-align: center;
+    }
+
+    .icone-circulo {
+        margin-bottom: 10px;
+    }
+
+    .texto-card {
+        text-align: center;
+    }
+
+    .rodape-copy {
+        font-size: 12px;
+    }
+}
 
 
 
