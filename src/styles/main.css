@@ -924,8 +924,189 @@ body {
     #depoimentos,
     #galeria,
     #contato {
-        /* Aumentar o scroll-margin-top para acomodar o header maior no mobile (PODE PRECISAR DE AJUSTE) */
+        /* Aumentar o scroll-margin-top para acomodar o header maior no mobile*/
         scroll-margin-top: 200px;
+    }
+}
+
+/* --- Media Queries para Responsividade --- */
+
+/* Ajustes para telas menores que 1200px (Ex: notebooks menores, tablets em paisagem) */
+@media (max-width: 1199px) {
+    .container {
+        padding: 0 20px; /* Reduz o padding lateral do container */
+    }
+
+    .banner h1 {
+        font-size: 38px;
+    }
+
+    .banner p {
+        font-size: 16px;
+    }
+
+    .grade-servicos {
+        grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); /* Volta a ser responsivo, talvez com um min-width menor */
+    }
+
+    .grid-cards {
+        grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); /* Permite 2 colunas para telas de tablet */
+    }
+
+    .galeria-grid {
+        grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); /* Galeria pode ter 2 ou 3 colunas */
+    }
+}
+
+
+/* Ajustes para telas menores que 991px (Ex: Tablets, iPads e Celulares maiores) */
+@media (max-width: 991px) {
+    /* Header/Topo */
+    .topo .container {
+        flex-direction: column; /* Coloca logo, menu e botão um abaixo do outro */
+        padding: 10px 20px; /* Ajusta o padding */
+        align-items: center;
+        gap: 0; /* Remover gap para ter mais controle individual */
+    }
+
+    .logo {
+        height: 70px; /* Diminui a logo */
+        margin-bottom: 10px; /* Espaço abaixo da logo */
+    }
+
+    .menu {
+        flex-wrap: wrap; /* Permite que os itens do menu quebrem linha */
+        justify-content: center;
+        gap: 15px; /* Reduz o espaço entre os itens do menu */
+        margin: 10px 0; /* Espaço acima e abaixo do menu */
+        width: 100%; /* Garante que o menu ocupe a largura total disponível */
+    }
+
+    .menu a {
+        font-size: 14px; /* Diminui a fonte dos links */
+        padding: 5px 8px; /* Reduz o padding dos links do menu */
+    }
+
+    /* Botão "Fale Conosco" no topo */
+    .btn.fale-conosco {
+        padding: 8px 15px; /* Reduz o padding do botão */
+        font-size: 14px;
+        margin-top: 10px; /* Adiciona espaço acima do botão, separando-o do menu */
+    }
+
+    /* Banner */
+    .banner {
+        /* Aumento do padding-top para evitar que o header cubra o conteúdo */
+        padding-top: 250px; /* VALOR AJUSTADO */
+        padding-bottom: 60px;
+        padding-left: 20px; /* Garante padding lateral consistente */
+        padding-right: 20px; /* Garante padding lateral consistente */
+    }
+
+    .banner-flex {
+        flex-direction: column; /* Coloca texto e imagem um abaixo do outro */
+        text-align: center;
+    }
+
+    .banner-texto {
+        min-width: unset; /* Remove o min-width para permitir que ele ocupe a largura total */
+    }
+
+    .banner h1 {
+        font-size: 32px;
+    }
+
+    .banner p {
+        font-size: 15px;
+    }
+
+    .banner-imagem img {
+        width: 100%; /* Imagem do banner ocupa a largura total */
+        max-width: 400px; /* Limita o tamanho máximo para não ficar gigante em tablets */
+        height: auto;
+        margin-top: 30px;
+    }
+
+    .botoes {
+        justify-content: center; /* Centraliza os botões */
+    }
+
+    /* Seções com padding geral */
+    .servicos, .porque, .depoimentos, .galeria, .contato, .cta, .rodape {
+        padding: 60px 20px; /* Reduz o padding horizontal geral das seções */
+    }
+
+    .subtitulo {
+        font-size: 16px;
+    }
+
+    /* Cards de Benefícios (Por que escolher) */
+    .grid-cards {
+        grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); /* 1 ou 2 colunas */
+        gap: 20px; /* Reduz o espaço entre os cards */
+    }
+
+    /* Cards de Cursos (Serviços) */
+    .grade-servicos {
+        grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); /* 1 ou 2 colunas */
+        gap: 20px;
+    }
+
+    /* Galeria */
+    .galeria-grid {
+        grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); /* 1 ou 2 colunas */
+        gap: 20px;
+    }
+
+    .galeria-grid img {
+        max-width: 100%; /* Ajusta a largura máxima para preencher o espaço */
+    }
+
+    /* CTA (Chamada para Ação) */
+    .cta {
+        margin: 60px 20px; /* Ajusta as margens laterais */
+        padding: 40px 20px;
+    }
+
+    /* Contato */
+    .contato-grid {
+        grid-template-columns: 1fr; /* Uma coluna para informações e formulário */
+    }
+
+    .contato-info, .formulario {
+        text-align: center; /* Centraliza o conteúdo nessas seções no celular */
+    }
+
+    .lista-info li {
+        text-align: center; /* Centraliza os itens da lista */
+    }
+
+    .redes-sociais {
+        justify-content: center; /* Centraliza ícones de redes sociais */
+    }
+
+    /* Rodapé */
+    .rodape-layout {
+        grid-template-columns: 1fr; /* Colunas do rodapé uma abaixo da outra */
+        text-align: center; /* Centraliza o texto das colunas */
+    }
+
+    .coluna.esquerda, .coluna.direita {
+        text-align: center; /* Sobrescreve alinhamentos específicos para centralizar no mobile */
+    }
+
+    .coluna ul {
+        display: inline-block; /* Permite centralizar a lista ul */
+    }
+
+    /* Importante para seções com ID de âncora e cabeçalho fixo */
+    #servicos,
+    #beneficios,
+    #depoimentos,
+    #galeria,
+    #contato {
+        /* Aumento do scroll-margin-top para acomodar o header maior no mobile */
+        scroll-margin-top: 250px; /* VALOR AJUSTADO (Pode ser necessário ajuste fino) */
     }
 }
 
@@ -963,7 +1144,8 @@ body {
     }
 
     .banner {
-        padding-top: 180px; /* Reduz mais o padding superior do banner (PODE PRECISAR DE AJUSTE) */
+        /* Aumento do padding-top para evitar que o header cubra o conteúdo */
+        padding-top: 200px; /* VALOR AJUSTADO (Pode ser necessário ajuste fino) */
     }
 
     .botoes {
@@ -1009,7 +1191,8 @@ body {
     #depoimentos,
     #galeria,
     #contato {
-        scroll-margin-top: 180px; /* Pode precisar de ajuste aqui também (PODE PRECISAR DE AJUSTE) */
+        /* Aumento do scroll-margin-top para acomodar o header maior no mobile */
+        scroll-margin-top: 200px; /* VALOR AJUSTADO */
     }
 }
 
