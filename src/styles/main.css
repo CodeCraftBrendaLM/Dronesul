@@ -93,6 +93,69 @@ body {
   transform: scale(1.05); /* Aumenta levemente o botão */
 }
 
+/* =============================== */
+/*     Estilos Específicos para Mobile Menu (Hambúrguer)  */
+/* =============================== */
+
+/* Oculta o botão hambúrguer por padrão (visível apenas em mobile) */
+.hamburger-menu {
+    display: none; /* Oculta em desktop */
+    background: none;
+    border: none;
+    cursor: pointer;
+    padding: 10px;
+    position: relative; /* Para posicionar as barras */
+    z-index: 1001; /* Acima de outros elementos */
+}
+
+.hamburger-menu .bar {
+    display: block;
+    width: 25px;
+    height: 3px;
+    background-color: #0e3346; /* Cor escura para as barras do hambúrguer */
+    margin: 5px auto;
+    transition: all 0.3s ease-in-out;
+    border-radius: 2px;
+}
+
+/* Estado "aberto" do hambúrguer */
+.hamburger-menu.is-active .bar:nth-child(1) {
+    transform: translateY(8px) rotate(45deg);
+}
+
+.hamburger-menu.is-active .bar:nth-child(2) {
+    opacity: 0;
+}
+
+.hamburger-menu.is-active .bar:nth-child(3) {
+    transform: translateY(-8px) rotate(-45deg);
+}
+
+/* Container do menu mobile - oculto por padrão no desktop */
+.menu-mobile-container {
+    display: flex; /* Mantém flex em desktop */
+    flex: 1; /* Permite que ocupe o espaço disponível */
+    justify-content: center;
+    align-items: center;
+    gap: 30px; /* Gap padrão de desktop */
+}
+
+/* Ajustes para o menu e botão dentro do container em desktop */
+.menu {
+    display: flex; /* Exibe o menu em desktop */
+    justify-content: center;
+    flex: 1;
+    gap: 30px;
+}
+
+.btn.fale-conosco {
+    display: inline-block; /* Exibe o botão em desktop */
+    /* Remova as propriedades 'display: block', 'width', 'max-width', 'margin-left/right: auto'
+       que você colocou nas media queries 991px e 575px,
+       pois elas serão redefinidas AGORA na media query mobile.
+       Mantenha apenas os estilos de desktop aqui (padding, font-weight, etc.) */
+}
+
 /* ========================= */
 /*           BANNER          */
 /* ========================= */
@@ -336,8 +399,8 @@ body {
 
 /* Ícone PNG dentro do círculo */
 .icone-circulo img {
-  width: 130px;
-  height: 100px;
+  width: 50px;
+  height: 50px;
   object-fit: fill; /* Mantém a proporção do ícone sem esticar */
 }
 
@@ -465,21 +528,23 @@ body {
   margin-right: auto;
 }
 
-/* Grade fixa com 4 colunas */
+/* Grade da galeria com 3 colunas e centralização */
 .galeria-grid {
   display: grid;
-  grid-template-columns: repeat(4, 1fr); /* 4 colunas fixas */
-  gap: 30px;
-  justify-items: center;
+  grid-template-columns: repeat(3, 1fr); /* MUDANÇA: De 4 para 3 colunas */
+  gap: 30px; /* Espaçamento entre as imagens */
+  justify-content: center; /* MUDANÇA: Centraliza o grid dentro do container pai */
+  max-width: 1200px; /* Opcional: Limita a largura máxima do grid para melhor centralização em telas muito largas */
+  margin: 0 auto; /* Opcional: Centraliza o grid se max-width for usado */
 }
 
 .galeria-grid img {
   width: 100%;
-  max-width: 280px;
-  height: 200px;
+  max-width: 380px; /* MUDANÇA: Aumenta a largura máxima para as imagens ficarem maiores */
+  height: 250px; /* MUDANÇA: Aumenta a altura para as imagens ficarem maiores */
   object-fit: cover;
   border-radius: 16px;
-  border: 2px solid #08828f; /* Borda azul */
+  border: 2px solid #08828f;
   transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
 
@@ -711,44 +776,11 @@ body {
 }
 
 
-/* Seu CSS existente para desktop fica aqui, antes das media queries */
-
-/* Exemplo: .topo, .menu, .banner, .grid-cards, .grade-servicos, .galeria-grid, etc. */
 
 
-/* --- Media Queries para Responsividade --- */
-
-/* Ajustes para telas menores que 1200px (Ex: notebooks menores, tablets em paisagem) */
-@media (max-width: 1199px) {
-    /* Exemplo: Reduzir um pouco o padding geral, talvez o tamanho de fontes */
-    .container {
-        padding: 0 20px; /* Reduz o padding lateral do container */
-    }
-
-    .banner h1 {
-        font-size: 38px;
-    }
-
-    .banner p {
-        font-size: 16px;
-    }
-
-    /* Adaptação para 3 colunas em 'Cursos' e 2 em 'Benefícios' */
-    .grade-servicos {
-        grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); /* Volta a ser responsivo, talvez com um min-width menor */
-    }
-
-    .grid-cards {
-        grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); /* Permite 2 colunas para telas de tablet */
-    }
-
-    .galeria-grid {
-        grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); /* Galeria pode ter 2 ou 3 colunas */
-    }
-}
 
 
-/* Ajustes para telas menores que 991px (Ex: Tablets, iPads) */
+
 /* --- Media Queries para Responsividade --- */
 
 /* Ajustes para telas menores que 1200px (Ex: notebooks menores, tablets em paisagem) */
@@ -783,40 +815,78 @@ body {
 @media (max-width: 991px) {
     /* Header/Topo */
     .topo .container {
-        flex-direction: column; /* Coloca logo, menu e botão um abaixo do outro */
-        padding: 10px 20px; /* Ajusta o padding */
+        flex-direction: row; /* Volta a ser linha para logo e hambúrguer */
+        justify-content: space-between; /* Espaço entre logo e hambúrguer */
         align-items: center;
-        gap: 0; /* Remover gap para ter mais controle individual */
+        padding: 5px 20px; /* Ajusta o padding para ser mais compacto */
     }
 
     .logo {
-        height: 70px; /* Diminui a logo */
-        margin-bottom: 10px; /* Espaço abaixo da logo */
+        height: 70px; /* Mantém o tamanho da logo */
+        margin-bottom: 0; /* Remove a margem inferior */
     }
 
-    .menu {
-        flex-wrap: wrap; /* Permite que os itens do menu quebrem linha */
-        justify-content: center;
-        gap: 15px; /* Reduz o espaço entre os itens do menu */
-        margin: 10px 0; /* Espaço acima e abaixo do menu */
-        width: 100%; /* Garante que o menu ocupe a largura total disponível */
+    /* Exibe o botão hambúrguer apenas no mobile */
+    .hamburger-menu {
+        display: block; /* Visível no mobile */
+    }
+
+    /* Esconde o menu e o botão "Fale Conosco" por padrão no mobile */
+    .menu-mobile-container {
+        display: none; /* Oculto por padrão */
+        flex-direction: column; /* Itens um abaixo do outro */
+        position: absolute; /* Posição para cobrir a tela */
+        top: 80px; /* Altura abaixo do header (AJUSTE CONFORME A ALTURA FINAL DO SEU HEADER NO MOBILE) */
+        left: 0;
+        width: 100%;
+        background-color: #ffffff; /* Cor de fundo do menu aberto */
+        box-shadow: 0 8px 16px rgba(0,0,0,0.1);
+        padding: 20px 0;
+        z-index: 999;
+        transition: transform 0.3s ease-out; /* Para animação de abertura */
+        transform: translateY(-100%); /* Esconde ele para cima */
+    }
+
+    /* Estado "aberto" do menu mobile */
+    .menu-mobile-container.is-active {
+        transform: translateY(0); /* Mostra ele deslizando para baixo */
+        display: flex; /* Volta a exibir o flexbox para seus itens */
+    }
+
+    /* Estilos dos links dentro do menu mobile */
+    .menu { /* Seletor .menu que está dentro de .menu-mobile-container */
+        flex-direction: column; /* Links um abaixo do outro */
+        width: 100%;
+        gap: 0; /* Remove gap */
+        margin: 0;
     }
 
     .menu a {
-        font-size: 14px; /* Diminui a fonte dos links */
-        padding: 5px 8px; /* Reduz o padding dos links do menu */
+        padding: 15px 20px; /* Aumenta padding para cliques mais fáceis */
+        font-size: 17px; /* Aumenta a fonte para melhor legibilidade */
+        border-bottom: 1px solid #eee; /* Linha separadora */
+        text-align: center; /* Centraliza o texto */
+        color: #0e3346; /* Cor do texto */
     }
 
-    /* Botão "Fale Conosco" no topo */
+    .menu a:hover {
+        background-color: #f0f0f0;
+        border-bottom: 1px solid #08828f;
+    }
+
+    /* Botão "Fale Conosco" dentro do menu mobile */
     .btn.fale-conosco {
-        padding: 8px 15px; /* Reduz o padding do botão */
-        font-size: 14px;
-        margin-top: 10px; /* Adiciona espaço acima do botão, separando-o do menu */
+        display: block; /* Ocupa a largura total */
+        width: calc(100% - 40px); /* Ocupa 100% menos o padding lateral */
+        max-width: 300px; /* Limita a largura máxima do botão */
+        margin: 20px auto 10px auto; /* Centraliza e adiciona espaço */
+        padding: 12px 20px; /* Padding maior para o botão */
+        font-size: 16px; /* Fonte maior para o botão */
     }
 
     /* Banner */
     .banner {
-        padding-top: 220px; /* Ajuste para ter espaço suficiente abaixo do header fixo (PODE PRECISAR DE AJUSTE) */
+        padding-top: 100px; /* Ajuste para ter espaço abaixo do header (altura do header + respiro) */
         padding-bottom: 60px;
         padding-left: 20px; /* Garante padding lateral consistente */
         padding-right: 20px; /* Garante padding lateral consistente */
@@ -924,197 +994,16 @@ body {
     #depoimentos,
     #galeria,
     #contato {
-        /* Aumentar o scroll-margin-top para acomodar o header maior no mobile */
-        scroll-margin-top: 200px;
+        scroll-margin-top: 100px; /* Coordenar com o padding-top do banner */
     }
 }
 
-/* --- Media Queries para Responsividade --- */
-
-/* Ajustes para telas menores que 1200px (Ex: notebooks menores, tablets em paisagem) */
-@media (max-width: 1199px) {
-    .container {
-        padding: 0 20px; /* Reduz o padding lateral do container */
-    }
-
-    .banner h1 {
-        font-size: 38px;
-    }
-
-    .banner p {
-        font-size: 16px;
-    }
-
-    .grade-servicos {
-        grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); /* Volta a ser responsivo, talvez com um min-width menor */
-    }
-
-    .grid-cards {
-        grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); /* Permite 2 colunas para telas de tablet */
-    }
-
-    .galeria-grid {
-        grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); /* Galeria pode ter 2 ou 3 colunas */
-    }
-}
-
-
-/* Ajustes para telas menores que 991px (Ex: Tablets, iPads e Celulares maiores) */
-@media (max-width: 991px) {
-    /* Header/Topo */
-    .topo .container {
-        flex-direction: column; /* Coloca logo, menu e botão um abaixo do outro */
-        padding: 10px 20px; /* Ajusta o padding */
-        align-items: center;
-        gap: 0; /* Remover gap para ter mais controle individual */
-    }
-
-    .logo {
-        height: 70px; /* Diminui a logo */
-        margin-bottom: 10px; /* Espaço abaixo da logo */
-    }
-
-    .menu {
-        flex-wrap: wrap; /* Permite que os itens do menu quebrem linha */
-        justify-content: center;
-        gap: 15px; /* Reduz o espaço entre os itens do menu */
-        margin: 10px 0; /* Espaço acima e abaixo do menu */
-        width: 100%; /* Garante que o menu ocupe a largura total disponível */
-    }
-
-    .menu a {
-        font-size: 14px; /* Diminui a fonte dos links */
-        padding: 5px 8px; /* Reduz o padding dos links do menu */
-    }
-
-    /* Botão "Fale Conosco" no topo */
-    .btn.fale-conosco {
-        padding: 8px 15px; /* Reduz o padding do botão */
-        font-size: 14px;
-        margin-top: 10px; /* Adiciona espaço acima do botão, separando-o do menu */
-    }
-
-    /* Banner */
-    .banner {
-        /* Aumento do padding-top para evitar que o header cubra o conteúdo */
-        padding-top: 250px; /* VALOR AJUSTADO */
-        padding-bottom: 60px;
-        padding-left: 20px; /* Garante padding lateral consistente */
-        padding-right: 20px; /* Garante padding lateral consistente */
-    }
-
-    .banner-flex {
-        flex-direction: column; /* Coloca texto e imagem um abaixo do outro */
-        text-align: center;
-    }
-
-    .banner-texto {
-        min-width: unset; /* Remove o min-width para permitir que ele ocupe a largura total */
-    }
-
-    .banner h1 {
-        font-size: 32px;
-    }
-
-    .banner p {
-        font-size: 15px;
-    }
-
-    .banner-imagem img {
-        width: 100%; /* Imagem do banner ocupa a largura total */
-        max-width: 400px; /* Limita o tamanho máximo para não ficar gigante em tablets */
-        height: auto;
-        margin-top: 30px;
-    }
-
-    .botoes {
-        justify-content: center; /* Centraliza os botões */
-    }
-
-    /* Seções com padding geral */
-    .servicos, .porque, .depoimentos, .galeria, .contato, .cta, .rodape {
-        padding: 60px 20px; /* Reduz o padding horizontal geral das seções */
-    }
-
-    .subtitulo {
-        font-size: 16px;
-    }
-
-    /* Cards de Benefícios (Por que escolher) */
-    .grid-cards {
-        grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); /* 1 ou 2 colunas */
-        gap: 20px; /* Reduz o espaço entre os cards */
-    }
-
-    /* Cards de Cursos (Serviços) */
-    .grade-servicos {
-        grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); /* 1 ou 2 colunas */
-        gap: 20px;
-    }
-
-    /* Galeria */
-    .galeria-grid {
-        grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); /* 1 ou 2 colunas */
-        gap: 20px;
-    }
-
-    .galeria-grid img {
-        max-width: 100%; /* Ajusta a largura máxima para preencher o espaço */
-    }
-
-    /* CTA (Chamada para Ação) */
-    .cta {
-        margin: 60px 20px; /* Ajusta as margens laterais */
-        padding: 40px 20px;
-    }
-
-    /* Contato */
-    .contato-grid {
-        grid-template-columns: 1fr; /* Uma coluna para informações e formulário */
-    }
-
-    .contato-info, .formulario {
-        text-align: center; /* Centraliza o conteúdo nessas seções no celular */
-    }
-
-    .lista-info li {
-        text-align: center; /* Centraliza os itens da lista */
-    }
-
-    .redes-sociais {
-        justify-content: center; /* Centraliza ícones de redes sociais */
-    }
-
-    /* Rodapé */
-    .rodape-layout {
-        grid-template-columns: 1fr; /* Colunas do rodapé uma abaixo da outra */
-        text-align: center; /* Centraliza o texto das colunas */
-    }
-
-    .coluna.esquerda, .coluna.direita {
-        text-align: center; /* Sobrescreve alinhamentos específicos para centralizar no mobile */
-    }
-
-    .coluna ul {
-        display: inline-block; /* Permite centralizar a lista ul */
-    }
-
-    /* Importante para seções com ID de âncora e cabeçalho fixo */
-    #servicos,
-    #beneficios,
-    #depoimentos,
-    #galeria,
-    #contato {
-        /* Aumento do scroll-margin-top para acomodar o header maior no mobile */
-        scroll-margin-top: 250px; /* VALOR AJUSTADO (Pode ser necessário ajuste fino) */
-    }
-}
 
 /* Ajustes para telas MUITO pequenas, como celulares em modo retrato (max-width: 575px) */
 @media (max-width: 575px) {
     /* Fontes maiores */
-    h1 { font-size: 28px !important; }
-    h2 { font-size: 28px !important; } /* Ajusta o tamanho de h2 */
+    h1 { font-size: 24px !important; } /* Ajuste de fonte para o h1 do banner */
+    h2 { font-size: 26px !important; } /* Ajusta o tamanho de h2 */
     h3 { font-size: 18px !important; } /* Ajusta o tamanho de h3 */
     p { font-size: 14px !important; } /* Ajusta o tamanho de parágrafos */
     .subtitulo { font-size: 15px !important; }
@@ -1128,24 +1017,35 @@ body {
         height: 60px; /* Logo um pouco menor ainda */
     }
 
-    .menu {
+    .menu { /* Este seletor afeta os links dentro do menu mobile */
         gap: 10px; /* Espaço menor entre os links */
     }
 
     .menu a {
-        font-size: 13px; /* Fonte ainda menor */
-        padding: 4px 6px;
+        font-size: 16px; /* Ajuste no menu se precisar */
+        padding: 12px 15px;
     }
 
+    /* Botão "Fale Conosco" dentro do menu mobile */
     .btn.fale-conosco {
-        width: 90%; /* Botão ocupa quase a largura total */
-        max-width: 250px; /* Para não ficar gigante em celulares maiores */
-        margin-top: 8px; /* Reduz um pouco a margem */
+        font-size: 15px;
+        padding: 10px 15px;
     }
 
     .banner {
-        /* Aumento do padding-top para evitar que o header cubra o conteúdo */
-        padding-top: 200px; /* VALOR AJUSTADO (Pode ser necessário ajuste fino) */
+        padding-top: 90px; /* Ajuste mais para telas menores */
+        padding-bottom: 40px; /* Reduz o padding inferior para diminuir a altura do banner */
+    }
+
+    /* Ajuste do espaçamento do h1 no banner para dar mais ar */
+    .banner h1 {
+        margin-top: 15px; /* Adiciona um pouco mais de espaço acima do h1 */
+        margin-bottom: 10px;
+    }
+
+    /* Ajuste do p no banner */
+    .banner p {
+        margin: 10px 0 20px; /* Reduz a margem inferior do parágrafo */
     }
 
     .botoes {
@@ -1191,8 +1091,7 @@ body {
     #depoimentos,
     #galeria,
     #contato {
-        /* Aumento do scroll-margin-top para acomodar o header maior no mobile */
-        scroll-margin-top: 200px; /* VALOR AJUSTADO */
+        scroll-margin-top: 90px;
     }
 }
 
