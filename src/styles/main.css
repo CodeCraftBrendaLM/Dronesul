@@ -721,12 +721,6 @@ body {
 /* ESTILOS PARA MOBILE MENU (Hambúrguer)   */
 /* =============================== */
 
-/* OCULTA ELEMENTOS DE DESKTOP EM MOBILE */
-.menu-desktop,
-.btn.fale-conosco-desktop {
-    display: none;
-}
-
 
 /* --- Media Queries para Responsividade --- */
 
