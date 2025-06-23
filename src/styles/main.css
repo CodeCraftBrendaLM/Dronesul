@@ -114,12 +114,6 @@ body {
   border-radius: 2px;
 }
 
-/* Exibe o botão hambúrguer para telas pequenas */
-@media (max-width: 991px) {
-  .hamburger-menu {
-    display: block;
-  }
-}
 
 
 
@@ -771,6 +765,7 @@ body {
     }
 }
 
+
 @media (min-width: 992px) {
   .hamburger-menu,
   .menu-mobile-container {
@@ -789,6 +784,7 @@ body {
 }
 .menu-mobile-container.is-active {
   display: flex; /* mostra quando o JS adiciona a classe */
+  transform: translateY(0);
 }
 
 
@@ -1000,6 +996,11 @@ body {
 
 /* Ajustes para telas MUITO pequenas, como celulares em modo retrato (max-width: 575px) */
 @media (max-width: 575px) {
+  .menu-mobile-container.is-active {
+  display: flex;
+  transform: translateY(0);
+}
+
     /* Fontes */
     h1 { font-size: 24px !important; }
     h2 { font-size: 26px !important; }
