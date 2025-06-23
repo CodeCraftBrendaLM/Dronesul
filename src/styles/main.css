@@ -94,6 +94,33 @@ body {
     transform: scale(1.05);
 }
 
+/* Estilo geral do botão hambúrguer e suas barras */
+.hamburger-menu {
+  display: none; /* padrão oculto, vai aparecer na media query */
+  cursor: pointer;
+  background: none;
+  border: none;
+  padding: 10px;
+  z-index: 1100;
+  position: relative;
+}
+
+.hamburger-menu .bar {
+  display: block;
+  width: 25px;
+  height: 3px;
+  margin: 5px 0;
+  background-color: #000;
+  border-radius: 2px;
+}
+
+/* Exibe o botão hambúrguer para telas pequenas */
+@media (max-width: 991px) {
+  .hamburger-menu {
+    display: block;
+  }
+}
+
 
 
 /* ========================= */
