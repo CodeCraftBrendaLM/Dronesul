@@ -754,6 +754,17 @@ body {
 
 /* Ajustes para telas menores que 991px (Ex: Tablets, iPads e Celulares maiores) */
 @media (max-width: 991px) {
+
+.hamburger-menu {
+        display: block; /* Mostra o botão */
+        cursor: pointer;
+        background: none;
+        border: none;
+        padding: 10px;
+        z-index: 1100; /* Garantir que fique acima do header */
+        position: relative;
+    }
+
     /* MOSTRA ELEMENTOS DE MOBILE E OCULTA DE DESKTOP */
     .menu-desktop,
     .btn.fale-conosco-desktop {
