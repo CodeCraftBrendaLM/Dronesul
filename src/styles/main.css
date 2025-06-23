@@ -53,10 +53,7 @@ body {
     display: flex;
 }
 
-.hamburger-menu,
-.menu-mobile-container {
-    display: none; 
-}
+
 
 .menu-desktop { /* Nova classe para o menu de desktop */
     display: flex;
@@ -97,11 +94,7 @@ body {
     transform: scale(1.05);
 }
 
-/* OCULTA ELEMENTOS DE MOBILE EM DESKTOP POR PADRÃO */
-.hamburger-menu,
-.menu-mobile-container {
-    display: none;
-}
+
 
 /* ========================= */
 /* BANNER            */
@@ -751,6 +744,12 @@ body {
     }
 }
 
+@media (min-width: 992px) {
+  .hamburger-menu,
+  .menu-mobile-container {
+      display: none;
+  }
+}
 
 /* Ajustes para telas menores que 991px (Ex: Tablets, iPads e Celulares maiores) */
 @media (max-width: 991px) {
