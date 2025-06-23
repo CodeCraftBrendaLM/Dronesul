@@ -754,6 +754,17 @@ body {
 /* Ajustes para telas menores que 991px (Ex: Tablets, iPads e Celulares maiores) */
 @media (max-width: 991px) {
 
+  .hamburger-menu {
+  display: block;
+}
+.menu-mobile-container {
+  display: none; /* oculto inicialmente */
+}
+.menu-mobile-container.is-active {
+  display: flex; /* mostra quando o JS adiciona a classe */
+}
+
+
 .hamburger-menu {
         display: block; /* Mostra o botão */
         cursor: pointer;
