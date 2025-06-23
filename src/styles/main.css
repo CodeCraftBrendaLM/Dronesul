@@ -1,5 +1,5 @@
 html {
-  scroll-behavior: smooth;
+    scroll-behavior: smooth;
 }
 
 #servicos,
@@ -7,778 +7,716 @@ html {
 #depoimentos,
 #galeria,
 #contato {
-  scroll-margin-top: 50px; 
+    scroll-margin-top: 50px; /* Valor padrão para desktop */
 }
-
 
 /* Estilos gerais do corpo da página */
 body {
-  font-family: 'Poppins', sans-serif; /* Fonte padrão da página */
-  background-color: #ffffff;          /* Cor de fundo branca */
-  color: #000000;                     /* Cor do texto */
-  margin: 0;
-  padding: 0;
+    font-family: 'Poppins', sans-serif;
+    background-color: #ffffff;
+    color: #000000;
+    margin: 0;
+    padding: 0;
 }
 
 /* ========================= */
-/*        TOPO / HEADER      */
+/* TOPO / HEADER      */
 /* ========================= */
 
 .topo {
-  position: fixed; /* Fixa o topo na tela */
-  top: 0;
-  width: 100%;
-  z-index: 1000; /* Garante que fique acima de outros elementos */
-  background-color: #ffffff;
-  box-shadow: 0 2px 10px rgba(0,0,0,0.05);
-  padding: 5px 0;
+    position: fixed;
+    top: 0;
+    width: 100%;
+    z-index: 1000;
+    background-color: #ffffff;
+    box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+    padding: 5px 0;
 }
 
-
-/* Container do topo com alinhamento horizontal */
 .topo .container {
-  display: flex;                       /* Itens lado a lado */
-  align-items: center;
-  justify-content: space-between;
-  padding: 0 40px;
-  gap: 20px;
-}
-
-/* Logo da empresa */
-.logo {
-  height: 90px;
-  margin: 0;
-}
-
-/* ========================= */
-/*       MENU DE NAVEGAÇÃO   */
-/* ========================= */
-
-.menu {
-  display: flex;
-  justify-content: center;
-  flex: 1;
-  gap: 30px; /* Espaçamento entre os links */
-}
-
-.menu a {
-  font-weight: 500;
-  font-size: 16px;
-  color: #000000;
-  text-decoration: none;
-  position: relative;
-  padding: 10px 5px;
-  transition: color 0.3s ease;
-}
-
-/* Efeito hover nos links do menu */
-.menu a:hover {
-  color: #08828f;
-  border-bottom: 2px solid #08828f; /* Linha ao passar o mouse */
-}
-
-/* Botão "Fale Conosco" no topo */
-.btn.fale-conosco {
-  background-color: #0599ab;
-  color: white;
-  font-weight: bold;
-  padding: 10px 18px;
-  border-radius: 8px;
-  text-decoration: none;
-  transition: background 0.3s ease, transform 0.2s ease;
-}
-
-.btn.fale-conosco:hover {
-  background-color: #08828f;
-  transform: scale(1.05); /* Aumenta levemente o botão */
-}
-
-/* =============================== */
-/*     Estilos Específicos para Mobile Menu (Hambúrguer)  */
-/* =============================== */
-
-/* Oculta o botão hambúrguer por padrão (visível apenas em mobile) */
-.hamburger-menu {
-    display: none; /* Oculta em desktop */
-    background: none;
-    border: none;
-    cursor: pointer;
-    padding: 10px;
-    position: relative; /* Para posicionar as barras */
-    z-index: 1001; /* Acima de outros elementos */
-}
-
-.hamburger-menu .bar {
-    display: block;
-    width: 25px;
-    height: 3px;
-    background-color: #0e3346; /* Cor escura para as barras do hambúrguer */
-    margin: 5px auto;
-    transition: all 0.3s ease-in-out;
-    border-radius: 2px;
-}
-
-/* Estado "aberto" do hambúrguer */
-.hamburger-menu.is-active .bar:nth-child(1) {
-    transform: translateY(8px) rotate(45deg);
-}
-
-.hamburger-menu.is-active .bar:nth-child(2) {
-    opacity: 0;
-}
-
-.hamburger-menu.is-active .bar:nth-child(3) {
-    transform: translateY(-8px) rotate(-45deg);
-}
-
-/* Container do menu mobile - oculto por padrão no desktop */
-.menu-mobile-container {
-    display: flex; /* Mantém flex em desktop */
-    flex: 1; /* Permite que ocupe o espaço disponível */
-    justify-content: center;
+    display: flex;
     align-items: center;
-    gap: 30px; /* Gap padrão de desktop */
+    justify-content: space-between;
+    padding: 0 40px;
 }
 
-/* Ajustes para o menu e botão dentro do container em desktop */
-.menu {
-    display: flex; /* Exibe o menu em desktop */
+.logo {
+    height: 90px;
+    margin: 0;
+}
+
+/* ========================= */
+/* MENU DE NAVEGAÇÃO DESKTOP   */
+/* ========================= */
+
+.menu-desktop { /* Nova classe para o menu de desktop */
+    display: flex;
     justify-content: center;
     flex: 1;
     gap: 30px;
 }
 
-.btn.fale-conosco {
-    display: inline-block; /* Exibe o botão em desktop */
-    /* Remova as propriedades 'display: block', 'width', 'max-width', 'margin-left/right: auto'
-       que você colocou nas media queries 991px e 575px,
-       pois elas serão redefinidas AGORA na media query mobile.
-       Mantenha apenas os estilos de desktop aqui (padding, font-weight, etc.) */
+.menu-desktop a {
+    font-weight: 500;
+    font-size: 16px;
+    color: #000000;
+    text-decoration: none;
+    position: relative;
+    padding: 10px 5px;
+    transition: color 0.3s ease;
+}
+
+/* Efeito hover nos links do menu desktop */
+.menu-desktop a:hover {
+    color: #08828f;
+    border-bottom: 2px solid #08828f; /* LINHA DE HOVER PARA DESKTOP */
+}
+
+/* Botão "Fale Conosco" DESKTOP */
+.btn.fale-conosco-desktop { /* Nova classe para o botão de desktop */
+    background-color: #0599ab;
+    color: white;
+    font-weight: bold;
+    padding: 10px 18px;
+    border-radius: 8px;
+    text-decoration: none;
+    transition: background 0.3s ease, transform 0.2s ease;
+}
+
+.btn.fale-conosco-desktop:hover {
+    background-color: #08828f;
+    transform: scale(1.05);
+}
+
+/* OCULTA ELEMENTOS DE MOBILE EM DESKTOP POR PADRÃO */
+.hamburger-menu,
+.menu-mobile-container {
+    display: none;
 }
 
 /* ========================= */
-/*           BANNER          */
+/* BANNER            */
 /* ========================= */
 
 .banner {
-  background: linear-gradient(to right, #08828f, #0599ab, #9fb81a, #b9d818);
-  padding: 180px 40px 80px; /* aumentamos o topo */
-  color: white;
+    background: linear-gradient(to right, #08828f, #0599ab, #9fb81a, #b9d818);
+    padding: 180px 40px 80px;
+    color: white;
 }
-
 
 /* Layout do conteúdo do banner */
 .banner-flex {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  flex-wrap: wrap;
-  gap: 40px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    gap: 40px;
 }
 
 /* Texto do banner */
 .banner-texto {
-  flex: 1;
-  min-width: 300px;
+    flex: 1;
+    min-width: 300px;
 }
 
 /* Título do banner */
 .banner h1 {
-  font-family: 'League Spartan', sans-serif;
-  font-size: 42px;
-  line-height: 1.2;
-  margin-bottom: 15px;
-  color: white;
+    font-family: 'League Spartan', sans-serif;
+    font-size: 42px;
+    line-height: 1.2;
+    margin-bottom: 15px;
+    color: white;
 }
 
 /* Parágrafo do banner */
 .banner p {
-  font-size: 18px;
-  line-height: 1.5;
-  margin: 10px 0 30px;
-  color: #f0f0f0;
+    font-size: 18px;
+    line-height: 1.5;
+    margin: 10px 0 30px;
+    color: #f0f0f0;
 }
 
 /* Imagem do banner */
 .banner-imagem {
-  flex: 1;
-  text-align: center;
-  min-width: 300px;
+    flex: 1;
+    text-align: center;
+    min-width: 300px;
 }
 
 .banner-imagem img {
-  width: 600px;
-  height: auto;
-  max-height: 320px;
-  object-fit: cover;
-  border: 5px solid #ffffff;
-  border-radius: 16px;
-  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+    width: 600px;
+    height: auto;
+    max-height: 320px;
+    object-fit: cover;
+    border: 5px solid #ffffff;
+    border-radius: 16px;
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
 }
 
 /* Botões do banner */
 .botoes {
-  display: flex;
-  gap: 20px;
+    display: flex;
+    gap: 20px;
 }
 
 /* Estilos base dos botões */
 .btn {
-  padding: 12px 24px;
-  font-weight: bold;
-  border: none;
-  border-radius: 8px;
-  text-decoration: none;
-  color: white;
-  transition: transform 0.2s;
+    padding: 12px 24px;
+    font-weight: bold;
+    border: none;
+    border-radius: 8px;
+    text-decoration: none;
+    color: white;
+    transition: transform 0.2s;
 }
 
 .btn:hover {
-  transform: scale(1.05);
+    transform: scale(1.05);
 }
 
 /* Botão verde */
 .btn.verde {
-  background-color: #9fb81a;
-  border: 1px solid #ffffff;
-  border-radius: 16px;
+    background-color: #9fb81a;
+    border: 1px solid #ffffff;
+    border-radius: 16px;
 }
 
 /* Botão azul */
 .btn.azul {
-  background-color: #0599ab;
-  border: 1px solid #ffffff;
-  border-radius: 16px;
+    background-color: #0599ab;
+    border: 1px solid #ffffff;
+    border-radius: 16px;
 }
 
 /* ========================= */
-/*      SEÇÃO CURSOS         */
+/* SEÇÃO CURSOS         */
 /* ========================= */
 
 .servicos {
-  background-color: #e9f2f3;
-  padding: 80px 40px;
-  text-align: center;
+    background-color: #e9f2f3;
+    padding: 80px 40px;
+    text-align: center;
 }
 
 /* Título da seção cursos */
 .servicos h2 {
-  font-family: 'League Spartan', sans-serif;
-  font-size: 36px;
-  margin-bottom: 10px;
+    font-family: 'League Spartan', sans-serif;
+    font-size: 36px;
+    margin-bottom: 10px;
 }
 
 /* Subtítulo da seção */
 .subtitulo {
-  font-size: 18px;
-  margin-bottom: 40px;
-  color: #0e3346;
+    font-size: 18px;
+    margin-bottom: 40px;
+    color: #0e3346;
 }
 
 /* Grade de cards responsiva */
 .grade-servicos {
     display: grid;
-    grid-template-columns: repeat(4, 1fr); /* FIXO: Cria 4 colunas de largura igual */
+    grid-template-columns: repeat(4, 1fr);
     gap: 30px;
 }
 
 /* Card individual de curso */
 .card-servicos {
-  background: white;
-  border-radius: 12px;
-  overflow: hidden;
-  box-shadow: 0 0 15px rgba(0,0,0,0.1);
-  transition: transform 0.3s ease;
-  padding-bottom: 20px;
+    background: white;
+    border-radius: 12px;
+    overflow: hidden;
+    box-shadow: 0 0 15px rgba(0,0,0,0.1);
+    transition: transform 0.3s ease;
+    padding-bottom: 20px;
 }
 
 /* Efeito hover no card */
 .card-servicos:hover {
-  transform: scale(1.05);
+    transform: scale(1.05);
 }
 
 /* Imagem do card */
 .card-servicos img {
-  width: 100%;
-  height: 200px; /* Altura fixa */
-  object-fit: cover; /* Corta para manter o enquadramento */
-  display: block;
-  border-bottom: 5px solid #08828f;
+    width: 100%;
+    height: 200px;
+    object-fit: cover;
+    display: block;
+    border-bottom: 5px solid #08828f;
 }
 
 /* Título do card */
 .card-servicos h3 {
-  font-size: 20px;
-  color: #08828f;
-  margin: 20px 0 10px;
+    font-size: 20px;
+    color: #08828f;
+    margin: 20px 0 10px;
 }
 
 /* Parágrafo do card */
 .card-servicos p {
-  padding: 0 20px;
-  font-size: 14px;
-  color: #333;
+    padding: 0 20px;
+    font-size: 14px;
+    color: #333;
 }
 
 /* Botão "saiba mais" */
 .btn.saiba-mais {
-  display: inline-block;
-  margin-top: 15px;
-  background-color: #9fb81a;
-  color: white;
-  padding: 8px 16px; /* Menor que antes */
-  font-size: 12px;   /* Diminuído */
-  border-radius: 6px; /* Mais discreto */
-  text-decoration: none;
-  transition: background 0.3s, transform 0.2s;
+    display: inline-block;
+    margin-top: 15px;
+    background-color: #9fb81a;
+    color: white;
+    padding: 8px 16px;
+    font-size: 12px;
+    border-radius: 6px;
+    text-decoration: none;
+    transition: background 0.3s, transform 0.2s;
 }
 
 .btn.saiba-mais:hover {
-  background-color: #b9d818;
-  transform: scale(1.05);
-} 
+    background-color: #b9d818;
+    transform: scale(1.05);
+}
 
 .porque {
-  padding: 80px 40px;
-  text-align: center;
-  background-color: #ffffff;
+    padding: 80px 40px;
+    text-align: center;
+    background-color: #ffffff;
 }
 
 .porque h2 {
-  font-family: 'League Spartan', sans-serif;
-  font-size: 36px;
-  margin-bottom: 10px;
-  color: #0e3346;
+    font-family: 'League Spartan', sans-serif;
+    font-size: 36px;
+    margin-bottom: 10px;
+    color: #0e3346;
 }
 
 .porque .subtitulo {
-  font-size: 18px;
-  color: #0e3346;
-  margin-bottom: 50px;
+    font-size: 18px;
+    color: #0e3346;
+    margin-bottom: 50px;
 }
 
 /* Grade com os cards de benefício (6 no total, responsivos) */
 .grid-cards {
-    display: grid; /* Usa grid layout */
-    grid-template-columns: repeat(3, 1fr); /* FIXO: Cria 3 colunas de largura igual */
-    gap: 30px; /* Espaço entre os cards */
-    margin-top: 40px; /* Espaçamento acima da grade */
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 30px;
+    margin-top: 40px;
 }
 
 /* Card branco com borda arredondada e ícone à esquerda  (movimento)*/
 .card-info {
-  background-color: #ffffff;
-  border: 2px solid #08828f;
-  border-radius: 12px;
-  padding: 20px;
-  display: flex;
-  align-items: flex-start;
-  gap: 20px;
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
-  transition: transform 0.3s ease, box-shadow 0.3s ease;
-  cursor: default;
+    background-color: #ffffff;
+    border: 2px solid #08828f;
+    border-radius: 12px;
+    padding: 20px;
+    display: flex;
+    align-items: flex-start;
+    gap: 20px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    cursor: default;
 }
 
 .card-info:hover {
-  transform: translateY(-6px);
-  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.12);
+    transform: translateY(-6px);
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.12);
 }
-
 
 /* Círculo que envolve o ícone (pode ter cor verde ou azul) */
 .icone-circulo {
-  width: 50px;
-  height: 50px;
-  border-radius: 50%; /* Deixa o container redondo */
-  background-color: #ccc; /* Cor de fundo padrão (substituída pelas classes de cor) */
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  flex-shrink: 0; /* Evita que o círculo encolha se o texto for grande */
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    background-color: #ccc;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
 }
 
 /* Ícone PNG dentro do círculo */
 .icone-circulo img {
-  width: 50px;
-  height: 50px;
-  object-fit: fill; /* Mantém a proporção do ícone sem esticar */
+    width: 50px;
+    height: 50px;
+    object-fit: fill;
 }
 
 /* Cor de fundo verde dos círculos (intercalado) */
 .cor-verde {
-  background-color: #9fb81a;
+    background-color: #9fb81a;
 }
 
 /* Cor de fundo azul dos círculos (intercalado) */
 .cor-azul {
-  background-color: #08828f;
+    background-color: #08828f;
 }
 
 /* Container do texto ao lado do ícone */
 .texto-card {
-  text-align: left; /* Alinha o texto à esquerda */
+    text-align: left;
 }
 
 /* Título do benefício */
 .texto-card h3 {
-  font-size: 16px;
-  font-weight: bold;
-  color: #0e3346; /* Azul escuro */
-  margin-bottom: 6px;
+    font-size: 16px;
+    font-weight: bold;
+    color: #0e3346;
+    margin-bottom: 6px;
 }
 
 /* Descrição do benefício */
 .texto-card p {
-  font-size: 14px;
-  color: #333333;
-  line-height: 1.4;
-  margin: 0;
+    font-size: 14px;
+    color: #333333;
+    line-height: 1.4;
+    margin: 0;
 }
 
 .depoimentos {
-  padding: 80px 40px;
-  background: linear-gradient(to right, #08828f, #0599ab, #9fb81a, #b9d818);
-  text-align: center;
-  color: white;
+    padding: 80px 40px;
+    background: linear-gradient(to right, #08828f, #0599ab, #9fb81a, #b9d818);
+    text-align: center;
+    color: white;
 }
 
 .depoimentos h2,
 .depoimentos .subtitulo {
-  color: white;
+    color: white;
 }
 
 .card-depoimento .texto {
-  color: #333;
+    color: #333;
 }
 
 .card-depoimento .autor {
-  color: #08828f;
+    color: #08828f;
 }
 
-
 .depoimentos h2 {
-  font-family: 'League Spartan', sans-serif;
-  font-size: 32px;
-  margin-bottom: 10px;
-  color: #ffffff;
+    font-family: 'League Spartan', sans-serif;
+    font-size: 32px;
+    margin-bottom: 10px;
+    color: #ffffff;
 }
 
 .depoimentos .subtitulo {
-  font-size: 18px;
-  color: #ffffff;
-  margin-bottom: 50px;
+    font-size: 18px;
+    color: #ffffff;
+    margin-bottom: 50px;
 }
 
 .depoimentos-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-  gap: 30px;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 30px;
 }
 
 .card-depoimento {
-  background-color: white;
-  padding: 30px 20px;
-  border-radius: 16px;
-  box-shadow: 0 6px 20px rgba(0,0,0,0.05);
-  text-align: left;
-  transition: transform 0.3s ease;
+    background-color: white;
+    padding: 30px 20px;
+    border-radius: 16px;
+    box-shadow: 0 6px 20px rgba(0,0,0,0.05);
+    text-align: left;
+    transition: transform 0.3s ease;
 }
 
 .card-depoimento:hover {
-  transform: translateY(-6px);
-  box-shadow: 0 10px 24px rgba(0,0,0,0.1);
+    transform: translateY(-6px);
+    box-shadow: 0 10px 24px rgba(0,0,0,0.1);
 }
 
 .card-depoimento .texto {
-  font-size: 15px;
-  color: #333333;
-  line-height: 1.6;
-  margin-bottom: 20px;
+    font-size: 15px;
+    color: #333333;
+    line-height: 1.6;
+    margin-bottom: 20px;
 }
 
 .card-depoimento .autor {
-  font-size: 14px;
-  color: #08828f;
-  line-height: 1.4;
+    font-size: 14px;
+    color: #08828f;
+    line-height: 1.4;
 }
 
 /* ========================= */
-/*        GALERIA            */
+/* GALERIA           */
 /* ========================= */
 
 .galeria {
-  padding: 80px 40px;
-  background-color: #ffffff;
-  text-align: center;
+    padding: 80px 40px;
+    background-color: #ffffff;
+    text-align: center;
 }
 
 .galeria h2 {
-  font-family: 'League Spartan', sans-serif;
-  font-size: 32px;
-  color: #0e3346;
-  margin-bottom: 10px;
+    font-family: 'League Spartan', sans-serif;
+    font-size: 32px;
+    color: #0e3346;
+    margin-bottom: 10px;
 }
 
 .galeria .subtitulo {
-  font-size: 16px;
-  color: #333;
-  margin-bottom: 50px;
-  max-width: 700px;
-  margin-left: auto;
-  margin-right: auto;
+    font-size: 16px;
+    color: #333;
+    margin-bottom: 50px;
+    max-width: 700px;
+    margin-left: auto;
+    margin-right: auto;
 }
 
 /* Grade da galeria com 3 colunas e centralização */
 .galeria-grid {
-  display: grid;
-  grid-template-columns: repeat(3, 1fr); /* MUDANÇA: De 4 para 3 colunas */
-  gap: 30px; /* Espaçamento entre as imagens */
-  justify-content: center; /* MUDANÇA: Centraliza o grid dentro do container pai */
-  max-width: 1200px; /* Opcional: Limita a largura máxima do grid para melhor centralização em telas muito largas */
-  margin: 0 auto; /* Opcional: Centraliza o grid se max-width for usado */
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 30px;
+    justify-content: center;
+    max-width: 1200px;
+    margin: 0 auto;
 }
 
 .galeria-grid img {
-  width: 100%;
-  max-width: 380px; /* MUDANÇA: Aumenta a largura máxima para as imagens ficarem maiores */
-  height: 250px; /* MUDANÇA: Aumenta a altura para as imagens ficarem maiores */
-  object-fit: cover;
-  border-radius: 16px;
-  border: 2px solid #08828f;
-  transition: transform 0.3s ease, box-shadow 0.3s ease;
+    width: 100%;
+    max-width: 380px;
+    height: 250px;
+    object-fit: cover;
+    border-radius: 16px;
+    border: 2px solid #08828f;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
 
 /* Efeito de movimento ao passar o mouse */
 .galeria-grid img:hover {
-  transform: scale(1.05) translateY(-4px); /* Aumenta levemente e sobe um pouco */
-  box-shadow: 0 12px 24px rgba(0, 0, 0, 0.15); /* Sombra para profundidade */
+    transform: scale(1.05) translateY(-4px);
+    box-shadow: 0 12px 24px rgba(0, 0, 0, 0.15);
 }
 
 /* ========================= */
-/*    CHAMADA PARA AÇÃO CTA  */
+/* CHAMADA PARA AÇÃO CTA   */
 /* ========================= */
 
 .cta {
-  background-color: #058492;
-  color: white;
-  text-align: center;
-  padding: 60px 30px;
-  border-radius: 30px;
-  margin: 80px 40px;
+    background-color: #058492;
+    color: white;
+    text-align: center;
+    padding: 60px 30px;
+    border-radius: 30px;
+    margin: 80px 40px;
 }
 
 .cta h2 {
-  font-family: 'League Spartan', sans-serif;
-  font-size: 28px;
-  margin-bottom: 15px;
+    font-family: 'League Spartan', sans-serif;
+    font-size: 28px;
+    margin-bottom: 15px;
 }
 
 .cta p {
-  font-size: 16px;
-  line-height: 1.5;
-  margin-bottom: 30px;
+    font-size: 16px;
+    line-height: 1.5;
+    margin-bottom: 30px;
 }
 
 .cta .btn-whats {
-  background-color: white;
-  color: #058492;
-  font-weight: bold;
-  padding: 12px 28px;
-  border-radius: 30px;
-  text-decoration: none;
-  transition: background 0.3s ease, transform 0.2s ease;
+    background-color: white;
+    color: #058492;
+    font-weight: bold;
+    padding: 12px 28px;
+    border-radius: 30px;
+    text-decoration: none;
+    transition: background 0.3s ease, transform 0.2s ease;
 }
 
 .cta .btn-whats:hover {
-  background-color: #d9f3f5;
-  transform: scale(1.05);
+    background-color: #d9f3f5;
+    transform: scale(1.05);
 }
 
-
 .contato {
-  padding: 80px 40px;
-  background-color: #f9f9f9;
+    padding: 80px 40px;
+    background-color: #f9f9f9;
 }
 
 .contato-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-  gap: 40px;
-  align-items: start;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 40px;
+    align-items: start;
 }
 
 .contato-info h2 {
-  font-family: 'League Spartan', sans-serif;
-  font-size: 28px;
-  margin-bottom: 10px;
+    font-family: 'League Spartan', sans-serif;
+    font-size: 28px;
+    margin-bottom: 10px;
 }
 
 .lista-info {
-  list-style: none;
-  padding: 0;
-  margin: 20px 0;
+    list-style: none;
+    padding: 0;
+    margin: 20px 0;
 }
 
 .lista-info li {
-  margin-bottom: 18px;
-  font-size: 15px;
-  color: #333;
+    margin-bottom: 18px;
+    font-size: 15px;
+    color: #333;
 }
 
 .lista-info strong {
-  color: #0e3346;
+    color: #0e3346;
 }
 
 .redes-sociais {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 15px;
-  margin-top: 30px;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 15px;
+    margin-top: 30px;
 }
 
 .redes-sociais img {
-  width: 40px;
-  height: 40px;
-  transition: transform 0.2s ease;
+    width: 40px;
+    height: 40px;
+    transition: transform 0.2s ease;
 }
 
 .redes-sociais img:hover {
-  transform: scale(1.1);
+    transform: scale(1.1);
 }
 
 /* Formulário */
 .formulario {
-  background-color: #eaf4f6;
-  padding: 30px;
-  border-radius: 12px;
-  box-shadow: 0 0 10px rgba(0,0,0,0.05);
+    background-color: #eaf4f6;
+    padding: 30px;
+    border-radius: 12px;
+    box-shadow: 0 0 10px rgba(0,0,0,0.05);
 }
 
 .formulario h3 {
-  font-size: 22px;
-  margin-bottom: 20px;
-  color: #0e3346;
+    font-size: 22px;
+    margin-bottom: 20px;
+    color: #0e3346;
 }
 
 .formulario input,
 .formulario select,
 .formulario textarea {
-  width: 100%;
-  margin-bottom: 15px;
-  padding: 12px;
-  border: 1px solid #ccc;
-  border-radius: 6px;
-  font-size: 14px;
-  font-family: 'Poppins', sans-serif;
+    width: 100%;
+    margin-bottom: 15px;
+    padding: 12px;
+    border: 1px solid #ccc;
+    border-radius: 6px;
+    font-size: 14px;
+    font-family: 'Poppins', sans-serif;
 }
 
 .formulario button {
-  background-color: #0599ab;
-  color: white;
-  font-weight: bold;
-  padding: 12px;
-  border: none;
-  border-radius: 8px;
-  cursor: pointer;
-  width: 100%;
-  transition: background 0.3s ease, transform 0.2s;
+    background-color: #0599ab;
+    color: white;
+    font-weight: bold;
+    padding: 12px;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    width: 100%;
+    transition: background 0.3s ease, transform 0.2s;
 }
 
 .formulario button:hover {
-  background-color: #08828f;
-  transform: scale(1.02);
+    background-color: #08828f;
+    transform: scale(1.02);
 }
 
-
 .rodape {
-  background-color: #e9f2f3;
-  padding: 60px 40px 20px;
-  text-align: center;
+    background-color: #e9f2f3;
+    padding: 60px 40px 20px;
+    text-align: center;
 }
 
 .logo-footer {
-  width: 140px;
-  margin: 0 auto 20px;
-  display: block;
+    width: 140px;
+    margin: 0 auto 20px;
+    display: block;
 }
 
 .missao {
-  font-size: 15px;
-  color: #0e3346;
-  margin-bottom: 40px;
-  max-width: 700px;
-  margin-left: auto;
-  margin-right: auto;
+    font-size: 15px;
+    color: #0e3346;
+    margin-bottom: 40px;
+    max-width: 700px;
+    margin-left: auto;
+    margin-right: auto;
 }
 
 .rodape-layout {
-  display: grid;
-  grid-template-columns: 1fr 1fr 1fr;
-  align-items: flex-start;
-  gap: 40px;
-  max-width: 1100px;
-  margin: 0 auto;
-  text-align: left;
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    align-items: flex-start;
+    gap: 40px;
+    max-width: 1100px;
+    margin: 0 auto;
+    text-align: left;
 }
 
 .coluna {
-  min-width: 200px;
+    min-width: 200px;
 }
 
 .coluna h4 {
-  font-size: 16px;
-  color: #0e3346;
-  margin-bottom: 12px;
+    font-size: 16px;
+    color: #0e3346;
+    margin-bottom: 12px;
 }
 
 .coluna p,
 .coluna li {
-  font-size: 14px;
-  color: #333;
-  margin-bottom: 6px;
-  list-style: none;
+    font-size: 14px;
+    color: #333;
+    margin-bottom: 6px;
+    list-style: none;
 }
 
 .coluna ul {
-  padding: 0;
-  margin: 0;
+    padding: 0;
+    margin: 0;
 }
 
 .coluna a {
-  color: #08828f;
-  text-decoration: none;
-  transition: color 0.3s;
+    color: #08828f;
+    text-decoration: none;
+    transition: color 0.3s;
 }
 
 .coluna a:hover {
-  color: #0599ab;
+    color: #0599ab;
 }
 
 /* Centraliza a coluna do meio */
 .central {
-  text-align: center;
+    text-align: center;
 }
 
 /* Alinha cursos à esquerda e navegação à direita */
 .esquerda {
-  text-align: left;
+    text-align: left;
 }
 .direita {
-  text-align: right;
+    text-align: right;
 }
 
 .rodape-copy {
-  border-top: 1px solid #ccc;
-  margin-top: 40px;
-  padding-top: 15px;
-  font-size: 13px;
-  color: #666;
+    border-top: 1px solid #ccc;
+    margin-top: 40px;
+    padding-top: 15px;
+    font-size: 13px;
+    color: #666;
 }
 
+/* =============================== */
+/* ESTILOS PARA MOBILE MENU (Hambúrguer)   */
+/* =============================== */
 
-
-
-
+/* OCULTA ELEMENTOS DE DESKTOP EM MOBILE */
+.menu-desktop,
+.btn.fale-conosco-desktop {
+    display: none;
+}
 
 
 /* --- Media Queries para Responsividade --- */
@@ -786,7 +724,7 @@ body {
 /* Ajustes para telas menores que 1200px (Ex: notebooks menores, tablets em paisagem) */
 @media (max-width: 1199px) {
     .container {
-        padding: 0 20px; /* Reduz o padding lateral do container */
+        padding: 0 20px;
     }
 
     .banner h1 {
@@ -798,107 +736,117 @@ body {
     }
 
     .grade-servicos {
-        grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); /* Volta a ser responsivo, talvez com um min-width menor */
+        grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
     }
 
     .grid-cards {
-        grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); /* Permite 2 colunas para telas de tablet */
+        grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
     }
 
     .galeria-grid {
-        grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); /* Galeria pode ter 2 ou 3 colunas */
+        grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
     }
 }
 
 
 /* Ajustes para telas menores que 991px (Ex: Tablets, iPads e Celulares maiores) */
 @media (max-width: 991px) {
-    /* Header/Topo */
+    /* MOSTRA ELEMENTOS DE MOBILE E OCULTA DE DESKTOP */
+    .menu-desktop,
+    .btn.fale-conosco-desktop {
+        display: none; /* OCULTA desktop em mobile */
+    }
+
+    /* Header/Topo Mobile */
     .topo .container {
-        flex-direction: row; /* Volta a ser linha para logo e hambúrguer */
-        justify-content: space-between; /* Espaço entre logo e hambúrguer */
+        flex-direction: row;
+        justify-content: space-between;
         align-items: center;
-        padding: 5px 20px; /* Ajusta o padding para ser mais compacto */
+        padding: 5px 20px;
     }
 
     .logo {
-        height: 70px; /* Mantém o tamanho da logo */
-        margin-bottom: 0; /* Remove a margem inferior */
+        height: 70px;
+        margin-bottom: 0;
     }
 
-    /* Exibe o botão hambúrguer apenas no mobile */
+    /* Exibe o botão hambúrguer */
     .hamburger-menu {
-        display: block; /* Visível no mobile */
+        display: block;
     }
 
-    /* Esconde o menu e o botão "Fale Conosco" por padrão no mobile */
+    /* Container do menu mobile - oculto por padrão, ativado por JS */
     .menu-mobile-container {
-        display: none; /* Oculto por padrão */
-        flex-direction: column; /* Itens um abaixo do outro */
-        position: absolute; /* Posição para cobrir a tela */
-        top: 80px; /* Altura abaixo do header (AJUSTE CONFORME A ALTURA FINAL DO SEU HEADER NO MOBILE) */
+        display: none;
+        flex-direction: column;
+        position: absolute;
+        top: 80px; /* Ajuste se o header mobile tiver altura diferente */
         left: 0;
         width: 100%;
-        background-color: #ffffff; /* Cor de fundo do menu aberto */
+        background-color: #ffffff;
         box-shadow: 0 8px 16px rgba(0,0,0,0.1);
         padding: 20px 0;
         z-index: 999;
-        transition: transform 0.3s ease-out; /* Para animação de abertura */
-        transform: translateY(-100%); /* Esconde ele para cima */
+        transition: transform 0.3s ease-out;
+        transform: translateY(-100%);
     }
 
     /* Estado "aberto" do menu mobile */
     .menu-mobile-container.is-active {
-        transform: translateY(0); /* Mostra ele deslizando para baixo */
-        display: flex; /* Volta a exibir o flexbox para seus itens */
+        transform: translateY(0);
+        display: flex;
     }
 
     /* Estilos dos links dentro do menu mobile */
-    .menu { /* Seletor .menu que está dentro de .menu-mobile-container */
-        flex-direction: column; /* Links um abaixo do outro */
+    .menu-mobile { /* Use a nova classe para mobile */
+        flex-direction: column;
         width: 100%;
-        gap: 0; /* Remove gap */
+        gap: 0;
         margin: 0;
     }
 
-    .menu a {
-        padding: 15px 20px; /* Aumenta padding para cliques mais fáceis */
-        font-size: 17px; /* Aumenta a fonte para melhor legibilidade */
-        border-bottom: 1px solid #eee; /* Linha separadora */
-        text-align: center; /* Centraliza o texto */
-        color: #0e3346; /* Cor do texto */
+    .menu-mobile a {
+        padding: 15px 20px;
+        font-size: 17px;
+        border-bottom: 1px solid #eee;
+        text-align: center;
+        color: #0e3346;
     }
 
-    .menu a:hover {
+    .menu-mobile a:hover {
         background-color: #f0f0f0;
         border-bottom: 1px solid #08828f;
     }
 
-    /* Botão "Fale Conosco" dentro do menu mobile */
-    .btn.fale-conosco {
-        display: block; /* Ocupa a largura total */
-        width: calc(100% - 40px); /* Ocupa 100% menos o padding lateral */
-        max-width: 300px; /* Limita a largura máxima do botão */
-        margin: 20px auto 10px auto; /* Centraliza e adiciona espaço */
-        padding: 12px 20px; /* Padding maior para o botão */
-        font-size: 16px; /* Fonte maior para o botão */
+    /* Botão "Fale Conosco" MOBILE */
+    .btn.fale-conosco-mobile { /* Use a nova classe para mobile */
+        display: block;
+        width: calc(100% - 40px);
+        max-width: 300px;
+        margin: 20px auto 10px auto;
+        padding: 12px 20px;
+        font-size: 16px;
+    }
+    .btn.fale-conosco-mobile:hover {
+        background-color: #08828f;
+        transform: scale(1.05);
     }
 
     /* Banner */
     .banner {
-        padding-top: 100px; /* Ajuste para ter espaço abaixo do header (altura do header + respiro) */
+        padding-top: 100px; /* Coordenar com a altura do header mobile */
         padding-bottom: 60px;
-        padding-left: 20px; /* Garante padding lateral consistente */
-        padding-right: 20px; /* Garante padding lateral consistente */
+        padding-left: 20px;
+        padding-right: 20px;
     }
 
     .banner-flex {
-        flex-direction: column; /* Coloca texto e imagem um abaixo do outro */
+        flex-direction: column;
         text-align: center;
     }
 
     .banner-texto {
-        min-width: unset; /* Remove o min-width para permitir que ele ocupe a largura total */
+        min-width: unset;
     }
 
     .banner h1 {
@@ -910,19 +858,19 @@ body {
     }
 
     .banner-imagem img {
-        width: 100%; /* Imagem do banner ocupa a largura total */
-        max-width: 400px; /* Limita o tamanho máximo para não ficar gigante em tablets */
+        width: 100%;
+        max-width: 400px;
         height: auto;
         margin-top: 30px;
     }
 
     .botoes {
-        justify-content: center; /* Centraliza os botões */
+        justify-content: center;
     }
 
     /* Seções com padding geral */
     .servicos, .porque, .depoimentos, .galeria, .contato, .cta, .rodape {
-        padding: 60px 20px; /* Reduz o padding horizontal geral das seções */
+        padding: 60px 20px;
     }
 
     .subtitulo {
@@ -931,61 +879,61 @@ body {
 
     /* Cards de Benefícios (Por que escolher) */
     .grid-cards {
-        grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); /* 1 ou 2 colunas */
-        gap: 20px; /* Reduz o espaço entre os cards */
+        grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+        gap: 20px;
     }
 
     /* Cards de Cursos (Serviços) */
     .grade-servicos {
-        grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); /* 1 ou 2 colunas */
+        grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
         gap: 20px;
     }
 
     /* Galeria */
     .galeria-grid {
-        grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); /* 1 ou 2 colunas */
+        grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
         gap: 20px;
     }
 
     .galeria-grid img {
-        max-width: 100%; /* Ajusta a largura máxima para preencher o espaço */
+        max-width: 100%;
     }
 
     /* CTA (Chamada para Ação) */
     .cta {
-        margin: 60px 20px; /* Ajusta as margens laterais */
+        margin: 60px 20px;
         padding: 40px 20px;
     }
 
     /* Contato */
     .contato-grid {
-        grid-template-columns: 1fr; /* Uma coluna para informações e formulário */
+        grid-template-columns: 1fr;
     }
 
     .contato-info, .formulario {
-        text-align: center; /* Centraliza o conteúdo nessas seções no celular */
+        text-align: center;
     }
 
     .lista-info li {
-        text-align: center; /* Centraliza os itens da lista */
+        text-align: center;
     }
 
     .redes-sociais {
-        justify-content: center; /* Centraliza ícones de redes sociais */
+        justify-content: center;
     }
 
     /* Rodapé */
     .rodape-layout {
-        grid-template-columns: 1fr; /* Colunas do rodapé uma abaixo da outra */
-        text-align: center; /* Centraliza o texto das colunas */
+        grid-template-columns: 1fr;
+        text-align: center;
     }
 
     .coluna.esquerda, .coluna.direita {
-        text-align: center; /* Sobrescreve alinhamentos específicos para centralizar no mobile */
+        text-align: center;
     }
 
     .coluna ul {
-        display: inline-block; /* Permite centralizar a lista ul */
+        display: inline-block;
     }
 
     /* Importante para seções com ID de âncora e cabeçalho fixo */
@@ -994,69 +942,69 @@ body {
     #depoimentos,
     #galeria,
     #contato {
-        scroll-margin-top: 100px; /* Coordenar com o padding-top do banner */
+        scroll-margin-top: 100px;
     }
 }
 
 
 /* Ajustes para telas MUITO pequenas, como celulares em modo retrato (max-width: 575px) */
 @media (max-width: 575px) {
-    /* Fontes maiores */
-    h1 { font-size: 24px !important; } /* Ajuste de fonte para o h1 do banner */
-    h2 { font-size: 26px !important; } /* Ajusta o tamanho de h2 */
-    h3 { font-size: 18px !important; } /* Ajusta o tamanho de h3 */
-    p { font-size: 14px !important; } /* Ajusta o tamanho de parágrafos */
+    /* Fontes */
+    h1 { font-size: 24px !important; }
+    h2 { font-size: 26px !important; }
+    h3 { font-size: 18px !important; }
+    p { font-size: 14px !important; }
     .subtitulo { font-size: 15px !important; }
 
-
     .topo .container {
-        padding: 5px 15px; /* Reduz mais o padding do topo */
+        padding: 5px 15px;
     }
 
     .logo {
-        height: 60px; /* Logo um pouco menor ainda */
+        height: 60px;
     }
 
-    .menu { /* Este seletor afeta os links dentro do menu mobile */
-        gap: 10px; /* Espaço menor entre os links */
+    /* Ajuste do 'top' do menu-mobile-container para a altura do topo */
+    .menu-mobile-container {
+        top: 70px; /* Se o topo ficar com ~70px de altura */
     }
 
-    .menu a {
-        font-size: 16px; /* Ajuste no menu se precisar */
+    .menu-mobile a { /* Usar a nova classe para mobile */
+        font-size: 16px;
         padding: 12px 15px;
     }
 
-    /* Botão "Fale Conosco" dentro do menu mobile */
-    .btn.fale-conosco {
+    .btn.fale-conosco-mobile { /* Usar a nova classe para mobile */
         font-size: 15px;
         padding: 10px 15px;
+        max-width: 250px;
     }
 
     .banner {
-        padding-top: 90px; /* Ajuste mais para telas menores */
-        padding-bottom: 40px; /* Reduz o padding inferior para diminuir a altura do banner */
+        padding-top: 90px;
+        padding-bottom: 40px;
     }
 
     /* Ajuste do espaçamento do h1 no banner para dar mais ar */
     .banner h1 {
-        margin-top: 15px; /* Adiciona um pouco mais de espaço acima do h1 */
+        margin-top: 15px;
         margin-bottom: 10px;
     }
 
     /* Ajuste do p no banner */
     .banner p {
-        margin: 10px 0 20px; /* Reduz a margem inferior do parágrafo */
+        margin: 10px 0 20px;
     }
 
     .botoes {
-        flex-direction: column; /* Botões um abaixo do outro */
+        flex-direction: column;
         gap: 10px;
     }
 
     .btn.verde, .btn.azul {
-        width: 100%; /* Botões do banner ocupam a largura total */
-        max-width: 250px; /* Limita o tamanho máximo para não ficarem muito largos */
-        margin: 0 auto; /* Centraliza os botões */
+        width: 100%;
+        max-width: 250px;
+        margin: 0 auto;
     }
 
     /* Adaptação dos grids para 1 coluna */
@@ -1064,11 +1012,11 @@ body {
     .grade-servicos,
     .galeria-grid,
     .depoimentos-grid {
-        grid-template-columns: 1fr; /* Uma única coluna para telas pequenas */
+        grid-template-columns: 1fr;
     }
 
     .card-info {
-        flex-direction: column; /* Ícone e texto um abaixo do outro */
+        flex-direction: column;
         align-items: center;
         text-align: center;
     }
@@ -1085,7 +1033,6 @@ body {
         font-size: 12px;
     }
 
-    /* Importante para seções com ID de âncora e cabeçalho fixo */
     #servicos,
     #beneficios,
     #depoimentos,
@@ -1094,9 +1041,3 @@ body {
         scroll-margin-top: 90px;
     }
 }
-
-
-/* =============================== */
-/* PÁGINA DE CURSO - PILOTAGEM    */
-/* =============================== */
-

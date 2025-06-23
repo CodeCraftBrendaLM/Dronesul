@@ -3,6 +3,7 @@
 <head>
   <meta charset="UTF-8" /> <!-- Define a codificação de caracteres para UTF-8 -->
   <meta name="viewport" content="width=device-width, initial-scale=1.0" /> <!-- Torna o layout responsivo para dispositivos móveis -->
+  <base href="/Dronesul/"> <title>Dronesul</title>
   <title>Dronesul</title> <!-- Título da aba do navegador --> <link rel="icon" type="image/x-icon" href="src/images/logo.png">
 
   <!-- Fontes do Google Fonts -->
@@ -16,30 +17,39 @@
 
   <!-- TOPO DO SITE / MENU -->
 <header class="topo">
-  <div class="container">
-    <!-- Logo da empresa -->
-    <img src="src/images/logo.png" alt="Logo Dronesul" class="logo">
+    <div class="container">
+        <img src="src/images/logo.png" alt="Logo Dronesul" class="logo">
 
-    <button class="hamburger-menu" aria-label="Abrir Menu">
+        <nav class="menu-desktop"> 
+            <a href="#home">Home</a>
+            <a href="#servicos">Serviços</a>
+            <a href="#beneficios">Benefícios</a>
+            <a href="#depoimentos">Depoimentos</a>
+            <a href="#galeria">Galeria</a>
+            <a href="#contato">Contato</a>
+        </nav>
+        <a href="https://api.whatsapp.com/send?phone=5553991269559&text=Olá,%20estou%20no%20site%20da%20Drone%20Sul%20e%20gostaria%20de%20algumas%20informa%C3%A7%C3%B5es%E2%80%A6" class="btn fale-conosco-desktop">Fale Conosco</a> 
+
+        <button class="hamburger-menu" aria-label="Abrir Menu">
             <span class="bar"></span>
             <span class="bar"></span>
             <span class="bar"></span>
         </button>
 
-    <!-- Menu de navegação -->
-    <nav class="menu-mobile-container">
-      <a href="#topo">Home</a>
-      <a href="#servicos">Serviços</a>
-      <a href="#beneficios">Benefícios</a>
-      <a href="#depoimentos">Depoimentos</a>
-      <a href="#galeria">Galeria</a>
-      <a href="#contato">Contato</a>
-    </nav>
-
-
-    <!-- Botão de contato via WhatsApp -->
-    <a href="https://api.whatsapp.com/send?phone=5553991269559&text=Olá,%20estou%20no%20site%20da%20Drone%20Sul%20e%20gostaria%20de%20algumas%20informa%C3%A7%C3%B5es%E2%80%A6" class="btn fale-conosco">Fale Conosco</a>
-  </div>
+        <div class="menu-mobile-container">
+            <nav class="menu-mobile"> 
+                <a href="#home">Home</a>
+                <a href="#servicos">Serviços</a>
+                <a href="#beneficios">Benefícios</a>
+                <a href="#depoimentos">Depoimentos</a>
+                <a href="#galeria">Galeria</a>
+                <a href="#contato">Contato</a>
+            </nav>
+            <a href="    https://api.whatsapp.com/send?phone=5553991269559&text=Olá,%20estou%20no%20site%20da%20Drone%20Sul%20e%20gostaria%20de%20algumas%20informa%C3%A7%C3%B5es%E2%80%A6" class="btn fale-conosco-mobile">Fale Conosco</a> 
+        </div>
+    </div>
+</header>
+    </div>
 </header>
 
 <!-- BANNER PRINCIPAL -->
@@ -68,7 +78,7 @@
 <section class="servicos" id="servicos">
   <div class="container">
     <h2>Nossos Serviços</h2>
-    <p class="subtitulo">Oferecemos servilos completos em diversas áreas de atuação com drones, desde o básico até aplicações altamente especializadas.</p>
+    <p class="subtitulo">Oferecemos serviços completos em diversas áreas de atuação com drones, desde o básico até aplicações altamente especializadas.</p>
 
     <!-- Grade com os cards dos cursos -->
     <div class="grade-servicos">
@@ -78,7 +88,7 @@
         <img src="src/images/2.jpg" alt="Cursos de Pilotagem">
         <h3>Cursos de <br>Pilotagem</h3>
         <p>Do básico ao profissional: aprenda legislação, segurança e prática.</p>
-        <a href="#" class="btn saiba-mais">Saiba mais →</a>
+        <a href="cursos/pilotagem.html" class="btn saiba-mais">Saiba mais →</a>
       </div>
 
       <!-- Curso 2 -->
@@ -312,15 +322,15 @@
 
     <!-- Coluna da direita -->
     <div class="coluna direita">
-      <h4>Navegação</h4>
-      <ul>
-        <li><a href="#">Home</a></li>
-        <li><a href="#">Serviços</a></li>
-        <li><a href="#">Benefícios</a></li>
-        <li><a href="#">Depoimentos</a></li>
-        <li><a href="#">Galeria</a></li>
-        <li><a href="#">Contato</a></li>
-      </ul>
+    <h4>Navegação</h4>
+    <ul>
+        <li><a href="#home">Home</a></li>
+        <li><a href="#servicos">Serviços</a></li>
+        <li><a href="#beneficios">Benefícios</a></li>
+        <li><a href="#depoimentos">Depoimentos</a></li>
+        <li><a href="#galeria">Galeria</a></li>
+        <li><a href="#contato">Contato</a></li>
+    </ul>
     </div>
   </div>
 
