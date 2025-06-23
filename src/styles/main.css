@@ -48,6 +48,15 @@ body {
 /* ========================= */
 /* MENU DE NAVEGAÇÃO DESKTOP   */
 /* ========================= */
+.menu-desktop,
+.btn.fale-conosco-desktop {
+    display: flex;
+}
+
+.hamburger-menu,
+.menu-mobile-container {
+    display: none; 
+}
 
 .menu-desktop { /* Nova classe para o menu de desktop */
     display: flex;
