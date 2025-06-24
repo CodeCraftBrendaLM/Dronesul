@@ -784,6 +784,7 @@ body {
 }
 .menu-mobile-container.is-active {
   display: flex; /* mostra quando o JS adiciona a classe */
+  flex-direction: column;
   transform: translateY(0);
 }
 
@@ -841,6 +842,7 @@ body {
     /* Estado "aberto" do menu mobile */
     .menu-mobile-container.is-active {
         transform: translateY(0);
+        flex-direction: column;
         display: flex;
     }
 
@@ -998,6 +1000,7 @@ body {
 @media (max-width: 575px) {
   .menu-mobile-container.is-active {
   display: flex;
+  flex-direction: column;
   transform: translateY(0);
 }
 
