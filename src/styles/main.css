@@ -739,6 +739,43 @@ body {
 /* --- Media Queries para Responsividade --- */
 
 /* Ajustes para telas menores que 1200px (Ex: notebooks menores, tablets em paisagem) */
+.menu-mobile-container.is-active {
+    display: flex; /* Mostra o contêiner do menu */
+    flex-direction: column; /* Alinha os itens do menu verticalmente */
+    transform: translateY(0); /* Animação para o menu deslizar para baixo */
+}
+
+/* Estilos para os itens dentro do menu mobile */
+/* Assumo que você tem uma <ul> com a classe .menu-mobile dentro do .menu-mobile-container */
+.menu-mobile {
+    list-style: none; /* Remove marcadores de lista */
+    margin: 0;
+    padding: 0;
+    display: flex; /* Necessário para flex-direction no próprio <ul> */
+    flex-direction: column; /* Garante que os itens da lista fiquem um abaixo do outro */
+    width: 100%;
+    gap: 0; /* Controla o espaçamento vertical entre os itens da lista */
+}
+
+.menu-mobile li {
+    width: 100%; /* Faz cada item da lista ocupar a largura total */
+    text-align: center; /* Centraliza o texto do item */
+}
+
+.menu-mobile li a {
+    padding: 15px 20px; /* Aumenta a área clicável */
+    font-size: 17px; /* Tamanho da fonte dos links */
+    border-bottom: 1px solid #eee; /* Linha separadora entre os itens */
+    color: #0e3346; /* Cor do texto do link */
+    display: block; /* Essencial para que o padding e a largura funcionem em toda a área do link */
+    text-decoration: none; /* Remove sublinhado dos links */
+}
+
+.menu-mobile li a:hover {
+    background-color: #f0f0f0; /* Fundo ao passar o mouse */
+    border-bottom: 1px solid #08828f; /* Destaque na borda ao passar o mouse */
+}
+
 @media (max-width: 1199px) {
     .container {
         padding: 0 20px;

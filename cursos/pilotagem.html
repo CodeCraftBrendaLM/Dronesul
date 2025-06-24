@@ -1039,7 +1039,7 @@ border: none;
 
   /* BANNER CURSO */
   .banner-curso {
-    height: 350px; /* Altura ajustada para celular */
+    height: 300px; /* **AJUSTADO:** Altura reduzida para deixar mais espaço para o texto e botão */
     display: flex; /* Para centralizar o texto */
     flex-direction: column;
     justify-content: center;
@@ -1063,12 +1063,12 @@ border: none;
   }
 
   .banner-texto h2 {
-    font-size: 2rem; /* Ajustado para celular */
+    font-size: 1.8rem; /* **AJUSTADO:** Fonte ligeiramente menor */
     margin-bottom: 5px; /* Ajustado */
   }
 
   .banner-texto p {
-    font-size: 1rem; /* Ajustado para celular */
+    font-size: 0.9rem; /* **AJUSTADO:** Fonte ligeiramente menor */
     margin-top: 0;
   }
 
@@ -1077,7 +1077,7 @@ border: none;
     top: auto;
     left: auto;
     transform: none;
-    margin-top: 20px; /* Adiciona margem acima do botão */
+    margin-top: 20px; /* Adiciona margem acima do botão para separá-lo do texto */
     padding: 10px 20px; /* Ajustado para celular */
     display: inline-block; /* Para o padding funcionar corretamente */
   }
@@ -1118,8 +1118,11 @@ border: none;
 
   .pre-requisito {
     margin-top: 30px; /* Ajusta margem */
+    background-color: #b8cbcd;
     padding: 12px 15px;
+    border-radius: 5px;
     font-size: 0.9rem;
+    color: #000000;
   }
 
   .publico-lista li {
@@ -1193,13 +1196,15 @@ border: none;
   }
 
   .grade-planos {
-    grid-template-columns: 1fr; /* Uma coluna em telas pequenas */
+    grid-template-columns: 1fr; /* **MANTIDO:** Uma coluna em telas pequenas, ideal para rolar verticalmente */
     gap: 30px; /* Ajusta o espaçamento */
   }
 
   .plano-card {
     padding: 25px 20px; /* Ajusta padding */
-    max-width: 300px; /* Permite que o card se expanda um pouco mais */
+    max-width: 300px; /* Mantém um max-width para não ficar gigante em tablets pequenos */
+    width: calc(100% - 40px); /* **ADICIONADO:** Garante que o card ocupe a largura total menos o padding */
+    margin: 0 auto; /* Centraliza o card na tela */
   }
 
   .plano-card h3 {
@@ -1550,6 +1555,7 @@ border: none;
   .plano-card {
     padding: 30px 20px;
     max-width: 260px; /* Volta para o max-width original */
+    width: 100%; /* Reseta para o comportamento padrão no desktop */
   }
 
   .plano-card h3 {
@@ -1731,19 +1737,46 @@ border: none;
 
 /* Media Query para telas muito pequenas (largura máxima de 480px) */
 @media (max-width: 480px) {
+  .banner-curso {
+      height: 250px; /* **AJUSTADO:** Altura ainda menor para telas muito pequenas */
+  }
+
   .banner-texto h2 {
-    font-size: 1.8rem;
+      font-size: 1.5rem; /* **AJUSTADO:** Fonte ainda menor */
   }
 
   .banner-texto p {
-    font-size: 0.9rem;
+      font-size: 0.8rem; /* **AJUSTADO:** Fonte ainda menor */
+  }
+
+  .btn-inscreva {
+      padding: 8px 15px; /* **AJUSTADO:** Botão menor para telas muito pequenas */
+      font-size: 0.85rem;
   }
 
   .cta h2 {
-    font-size: 1.6rem;
+      font-size: 1.6rem;
   }
   .cta p {
-    font-size: 0.85rem;
+      font-size: 0.85rem;
+  }
+
+  /* Ajustes para os cards de plano em telas muito pequenas */
+  .plano-card {
+      padding: 20px 15px; /* Reduzir padding do card */
+  }
+
+  .plano-card h3 {
+      font-size: 1.1rem; /* Fonte do título do plano menor */
+  }
+
+  .plano-card ul li {
+      font-size: 0.85rem; /* Fonte da lista de itens do plano menor */
+  }
+
+  .btn-plano {
+      padding: 8px 18px; /* Botão do plano menor */
+      font-size: 0.8rem;
   }
 }
 </style>
