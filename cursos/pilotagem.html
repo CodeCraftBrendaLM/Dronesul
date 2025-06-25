@@ -7,14 +7,18 @@
   <link rel="stylesheet" href="../src/styles/main.css">
   <style>
     .topo-voltar {
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      padding: 5px;
-      background-color: #ffffff;
-      border-bottom: 3px solid #08828f;
-      position: fixed;
-    }
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 5px;
+    background-color: #ffffff;
+    border-bottom: 3px solid #08828f;
+    position: fixed; /* Fixa o elemento na tela */
+    top: 0; /* Alinha o elemento ao topo da viewport */
+    width: 100%; /* Garante que ele ocupe toda a largura da viewport */
+    z-index: 1000; /* Garante que ele fique acima de outros conteúdos */
+    /* ---------------------------------- */
+  }
 
     .btn-voltar {
       text-decoration: none;
