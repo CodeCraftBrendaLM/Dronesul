@@ -6,6 +6,15 @@
   <title>Curso de Pilotagem | DroneSul</title> <link rel="icon" type="image/x-icon" href="../src/images/logo.png">
   <link rel="stylesheet" href="../src/styles/main.css">
   <style>
+    body {
+  padding-top: 70px; /* Isso empurra todo o conteúdo para baixo do header fixo */
+  /* Certifique-se de que outras propriedades do body que você já tem estejam aqui */
+  font-family: 'Poppins', sans-serif; /* Exemplo de uma propriedade que você já tem */
+  margin: 0;
+  padding: 0 0 0 0; /* Reajustar o padding geral para incluir o padding-top */
+  box-sizing: border-box;
+} 
+
     .topo-voltar {
     display: flex;
     justify-content: space-between;
@@ -58,6 +67,13 @@
 </section>
 
 <style>
+  .body {
+    padding-top: 70px;
+    font-family: 'Poppins', sans-serif;
+    margin: 0;
+    box-sizing: border-box;
+  }
+
   .banner-curso {
   position: relative;
   width: 100%;
@@ -1415,6 +1431,11 @@ border: none;
 /* MEDIA QUERIES para telas maiores (tablets e desktops) */
 @media (min-width: 769px) {
   /* Reverte ou ajusta para layout de desktop */
+
+  body {
+    padding-top: 65px; /* Ajuste para a altura do cabeçalho no mobile */
+  }
+}
   .topo-voltar {
     padding: 5px;
   }
@@ -1738,10 +1759,13 @@ border: none;
     padding-top: 15px;
     font-size: 13px;
   }
-}
+
 
 /* Media Query para telas muito pequenas (largura máxima de 480px) */
 @media (max-width: 480px) {
+  body {
+    padding-top: 60px; /* Ajuste para a altura do cabeçalho em telas muito pequenas */
+  }
   .banner-curso {
       height: 250px; /* **AJUSTADO:** Altura ainda menor para telas muito pequenas */
   }
