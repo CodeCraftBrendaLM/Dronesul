@@ -1154,7 +1154,7 @@
     <h2>Do Básico ao Profissional</h2>
     <p>Inicie sua carreira como piloto profissional de drones</p>
   </div>
-  <a href="#inscricao" class="btn-inscreva">Inscreva-se agora</a>
+  <a href="https://api.whatsapp.com/send?phone=5553991269559&text=Ol%C3%A1,%20estou%20no%20site%20da%20Drone%20Sul%20e%20gostaria%20de%20algumas%20informa%C3%A7%C3%B5es%E2%80%A6" class="btn-inscreva">Inscreva-se agora</a>
 </section>
 
 <section class="jornada-publico">
@@ -1698,6 +1698,40 @@
     font-size: 13px;
     color: #666;
 }
+
+@media (max-width: 768px) {
+  .rodape-layout {
+    grid-template-columns: 1fr;
+    text-align: center;
+    gap: 20px;
+  }
+
+  .esquerda, .direita, .central {
+    text-align: center;
+  }
+
+  .coluna {
+    min-width: auto;
+  }
+}
+
+@media (max-width: 600px) {
+  .topo-voltar {
+    flex-direction: row;
+    justify-content: space-between;
+    flex-wrap: nowrap;
+  }
+
+  .btn-voltar {
+    font-size: 0.9rem;
+    padding: 8px 12px;
+  }
+
+  .logo-header {
+    height: 50px; /* ajuste de tamanho se quiser */
+  }
+}
+
 </style>
 
 </body>
