@@ -1,0 +1,1695 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Curso de Mapeamento | DroneSul</title>
+    <link rel="icon" type="image/x-icon" href="../src/images/logo.png">
+    <link rel="stylesheet" href="../src/styles/main.css">
+    
+    <style>
+        /* Estilos Gerais (Padrão para Desktop) */
+        body {
+            font-family: 'Poppins', sans-serif;
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            overflow-x: hidden; /* Evita rolagem horizontal indesejada */
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        /* TOPO / HEADER (Menu de Retorno) */
+        .topo-voltar {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 10px 20px;
+            background-color: #ffffff;
+            border-bottom: 3px solid #08828f;
+            position: fixed;
+            top: 0;
+            width: 100%;
+            z-index: 1000;
+            box-sizing: border-box;
+        }
+
+        .btn-voltar {
+            text-decoration: none;
+            font-size: 1rem;
+            color: #ffffff;
+            background-color: #08828f;
+            border: 2px solid;
+            padding: 10px 15px;
+            border-radius: 15px;
+            transition: background-color 0.3s;
+        }
+
+        .btn-voltar:hover {
+            background-color: #9fb81a;
+            color: white;
+        }
+
+        .logo-header {
+            height: 60px;
+        }
+
+        /* Padding para o body para compensar o header fixo */
+        body {
+            padding-top: 80px;
+        }
+
+        /* BANNER CURSO */
+        .banner-curso {
+            position: relative;
+            width: 100%;
+            height: 400px;
+            overflow: hidden;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+        }
+
+        .banner-img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            filter: brightness(0.75);
+            position: absolute;
+            top: 0;
+            left: 0;
+            z-index: -1;
+        }
+
+        .banner-texto {
+            position: relative;
+            top: auto;
+            left: auto;
+            transform: none;
+            text-align: center;
+            color: white;
+            padding: 0 20px;
+        }
+
+        .banner-texto h2 {
+            font-size: 2.5rem;
+            font-weight: bold;
+            margin-bottom: -8px;
+        }
+
+        .banner-texto p {
+            font-size: 1.2rem;
+        }
+
+        .btn-inscreva {
+            position: relative;
+            top: auto;
+            left: auto;
+            transform: none;
+            margin-top: 20px;
+            margin-bottom: 20px;
+            background-color: #9fb81a;
+            color: white;
+            padding: 12px 25px;
+            border-radius: 15px;
+            text-decoration: none;
+            transition: background-color 0.3s;
+            display: inline-block;
+        }
+
+        .btn-inscreva:hover {
+            background-color: #08828f;
+        }
+
+        /* JORNADA PÚBLICO */
+        .jornada-publico {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-between;
+            padding: 60px 20px;
+            max-width: 1200px;
+            margin: 0 auto;
+            gap: 40px;
+        }
+
+        .jornada-coluna, .publico-coluna {
+            flex: 1 1 480px;
+            background-color: #e9f2f3;
+            padding: 30px;
+            border-radius: 12px;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+        }
+
+        .jornada-coluna h3,
+        .publico-coluna h3 {
+            font-size: 1.5rem;
+            color: #007b8f;
+            margin-bottom: 20px;
+        }
+
+        .jornada-coluna p {
+            margin-bottom: 20px;
+            font-size: 1rem;
+            line-height: 1.6;
+            color: #000000;
+        }
+
+        .checklist,
+        .publico-lista {
+            list-style: none;
+            padding-left: 0;
+        }
+
+        .checklist li,
+        .publico-lista li {
+            display: flex;
+            align-items: flex-start;
+            margin-bottom: 10px;
+            font-size: 1rem;
+            color: #000000;
+        }
+
+        .checklist li span,
+        .publico-lista li span {
+            margin-right: 10px;
+            font-size: 1.2rem;
+            color: #007b8f;
+            line-height: 1;
+        }
+
+        .pre-requisito {
+            margin-top: 50px;
+            background-color: #b8cbcd;
+            padding: 15px 20px;
+            border-radius: 5px;
+            font-size: 1rem;
+            color: #000000;
+        }
+
+        .publico-lista li {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            margin-bottom: 15px;
+            font-size: 1rem;
+            color: #000000;
+        }
+
+        .publico-lista img {
+            width: 24px;
+            height: 24px;
+            object-fit: contain;
+            flex-shrink: 0;
+        }
+
+        /* CONTEÚDO PROGRAMÁTICO */
+        .conteudo-programatico {
+            padding: 60px 20px;
+            max-width: 1200px;
+            margin: 0 auto;
+            background-color: #f9f9f9;
+        }
+
+        .conteudo-programatico h2 {
+            text-align: center;
+            font-size: 2.2rem;
+            color: #007b8f;
+            margin-bottom: 10px;
+        }
+
+        .conteudo-programatico .subtitulo {
+            text-align: center;
+            font-size: 1rem;
+            color: #333;
+            margin-bottom: 20px;
+        }
+
+        /* Novo contêiner para o layout de 2 colunas */
+        .conteudo-programatico-layout {
+            display: grid;
+            grid-template-columns: 2fr 1fr;
+            gap: 40px;
+            align-items: start;
+            margin-top: 40px;
+        }
+
+        .conteudo-programatico-info {
+            text-align: left;
+        }
+
+        .introducao-conteudo {
+            font-size: 1rem;
+            line-height: 1.6;
+            color: #555;
+            text-align: left;
+            max-width: none;
+            margin: 0 0 30px 0;
+        }
+
+        .conteudo-programatico-cta {
+            text-align: left;
+            margin-top: 0;
+        }
+
+        .conteudo-programatico-cta .btn.verde {
+            background-color: #9fb81a;
+            color: white;
+            padding: 12px 30px;
+            border-radius: 25px;
+            text-decoration: none;
+            font-weight: bold;
+            transition: background-color 0.3s ease, transform 0.2s ease;
+            display: inline-block;
+        }
+
+        .conteudo-programatico-cta .btn.verde:hover {
+            background-color: #7d990f;
+            transform: scale(1.05);
+        }
+
+        .conteudo-programatico-grid {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 15px;
+            margin-top: 0;
+        }
+
+        .modulo-item {
+            background-color: white;
+            border-radius: 8px;
+            box-shadow: 0 4px 8px rgba(0,0,0,0.05);
+            overflow: hidden;
+            border-left: 5px solid #007b8f;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .modulo-question {
+            width: 100%;
+            padding: 18px 20px;
+            background: none;
+            border: none;
+            outline: none;
+            font-size: 1.05rem;
+            font-weight: bold;
+            color: #007b8f;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            cursor: pointer;
+            text-align: left;
+        }
+
+        .modulo-question h3 {
+            margin: 0;
+            font-size: inherit;
+            color: inherit;
+            flex-grow: 1;
+        }
+
+        .modulo-icon {
+            font-size: 1.2rem;
+            transition: transform 0.3s;
+            color: #9fb81a;
+            flex-shrink: 0;
+            margin-left: 10px;
+        }
+
+        .modulo-answer {
+            display: none;
+            padding: 0 20px 15px;
+            font-size: 0.95rem;
+            color: #333;
+            flex-grow: 1;
+        }
+
+        .modulo-item.active .modulo-answer {
+            display: block;
+        }
+
+        .modulo-item.active .modulo-icon {
+            transform: rotate(180deg);
+        }
+
+        .modulo-answer ul {
+            list-style: none;
+            padding: 0;
+            margin-top: 10px;
+        }
+
+        .modulo-answer ul li {
+            font-size: 0.9rem;
+            color: #555;
+            margin-bottom: 5px;
+            padding-left: 25px;
+            position: relative;
+            line-height: 1.5;
+        }
+
+        .modulo-answer ul li::before {
+            content: '✓';
+            color: #9fb81a;
+            font-weight: bold;
+            position: absolute;
+            left: 0;
+            top: 0;
+            line-height: inherit;
+        }
+
+        /* BENEFÍCIOS DO CURSO */
+        .porque {
+            padding: 60px 20px;
+        }
+
+        .porque h2 {
+            text-align: center;
+            color: #08828f;
+            font-size: 2.2rem;
+        }
+
+        .porque .subtitulo {
+            text-align: center;
+            color: #000000;
+            font-size: 1rem;
+            margin-bottom: 40px;
+        }
+
+        .grid-cards {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 30px;
+            margin-top: 40px;
+        }
+
+        .card-info {
+            background-color: #ffffff;
+            border: 2px solid #9fb81a;
+            border-radius: 12px;
+            padding: 30px;
+            display: flex;
+            align-items: flex-start;
+            gap: 20px;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            cursor: default;
+        }
+
+        .card-info:hover {
+            transform: translateY(-6px);
+            box-shadow: 0 8px 24px rgba(0, 0, 0, 0.12);
+        }
+
+        .icone-circulo {
+            width: 45px;
+            height: 45px;
+            border-radius: 50%;
+            background-color: #ccc;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-shrink: 0;
+        }
+
+        .icone-circulo img {
+            width: 40px;
+            height: 40px;
+            object-fit: fill;
+        }
+
+        .cor-verde {
+            background-color: #9fb81a;
+        }
+
+        .cor-azul {
+            background-color: #08828f;
+        }
+
+        .texto-card {
+            text-align: left;
+        }
+
+        .texto-card h3 {
+            font-size: 16px;
+            font-weight: bold;
+            color: #000000;
+            margin-bottom: 10px;
+            margin-top: 5px;
+        }
+
+        .texto-card p {
+            font-size: 14px;
+            color: #000000;
+            line-height: 1.4;
+            margin: 0;
+        }
+
+        /* FAQ */
+        .faq {
+            padding: 60px 20px;
+            background-color: #f9f9f9;
+        }
+
+        .faq h2 {
+            text-align: center;
+            font-size: 2.2rem;
+            margin-bottom: 10px;
+            color: #007b8f;
+        }
+
+        .faq .subtitulo {
+            text-align: center;
+            font-size: 1rem;
+            margin-bottom: 40px;
+            color: #333;
+        }
+
+        .faq-item {
+            border-left: 5px solid #9fb81a;
+            background-color: white;
+            border-radius: 8px;
+            margin-bottom: 15px;
+            box-shadow: 0 4px 8px rgba(0,0,0,0.05);
+            overflow: hidden;
+        }
+
+        .faq-question {
+            width: 100%;
+            padding: 18px 20px;
+            background: none;
+            border: none;
+            outline: none;
+            font-size: 1.05rem;
+            font-weight: bold;
+            color: #007b8f;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            cursor: pointer;
+        }
+
+        .faq-icon {
+            font-size: 1.2rem;
+            transition: transform 0.3s;
+        }
+
+        .faq-answer {
+            display: none;
+            padding: 0 20px 15px;
+            font-size: 0.95rem;
+            color: #333;
+        }
+
+        .faq-item.active .faq-answer {
+            display: block;
+        }
+
+        .faq-item.active .faq-icon {
+            content: "-";
+            transform: rotate(180deg);
+        }
+
+        /* CTA */
+        .cta {
+            background-color: #058492;
+            color: white;
+            text-align: center;
+            padding: 60px 30px;
+            border-radius: 30px;
+            margin: 80px 40px;
+        }
+
+        .cta h2 {
+            font-family: 'League Spartan', sans-serif;
+            font-size: 28px;
+            margin-bottom: 15px;
+        }
+
+        .cta p {
+            font-size: 16px;
+            line-height: 1.5;
+            margin-bottom: 30px;
+        }
+
+        .cta .btn-whats {
+            background-color: white;
+            color: #058492;
+            font-weight: bold;
+            padding: 12px 28px;
+            border-radius: 30px;
+            text-decoration: none;
+            transition: background 0.3s ease, transform 0.2s ease;
+        }
+
+        .cta .btn-whats:hover {
+            background-color: #d9f3f5;
+            transform: scale(1.05);
+        }
+
+        /* CONTATO */
+        .contato {
+            padding: 80px 40px;
+            background-color: #f9f9f9;
+        }
+
+        .contato-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 40px;
+            align-items: start;
+        }
+
+        .contato-info h2 {
+            font-family: 'League Spartan', sans-serif;
+            font-size: 28px;
+            margin-bottom: 10px;
+        }
+
+        .lista-info {
+            list-style: none;
+            padding: 0;
+            margin: 20px 0;
+        }
+
+        .lista-info li {
+            margin-bottom: 18px;
+            font-size: 15px;
+            color: #333;
+        }
+
+        .lista-info strong {
+            color: #0e3346;
+        }
+
+        .redes-sociais {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 15px;
+            margin-top: 30px;
+        }
+
+        .redes-sociais img {
+            width: 40px;
+            height: 40px;
+            transition: transform 0.2s ease;
+        }
+
+        .redes-sociais img:hover {
+            transform: scale(1.1);
+        }
+
+        .formulario {
+            background-color: #eaf4f6;
+            padding: 30px;
+            border-radius: 12px;
+            box-shadow: 0 0 10px rgba(0,0,0,0.05);
+        }
+
+        .formulario h3 {
+            font-size: 22px;
+            margin-bottom: 20px;
+            color: #0e3346;
+        }
+
+        .formulario input,
+        .formulario select,
+        .formulario textarea {
+            width: 100%;
+            margin-bottom: 15px;
+            padding: 12px;
+            border: 1px solid #ccc;
+            border-radius: 6px;
+            font-size: 14px;
+            font-family: 'Poppins', sans-serif;
+        }
+
+        .formulario button {
+            background-color: #0599ab;
+            color: white;
+            font-weight: bold;
+            padding: 12px;
+            border: none;
+            border-radius: 8px;
+            cursor: pointer;
+            width: 100%;
+            transition: background 0.3s ease, transform 0.2s;
+        }
+
+        .formulario button:hover {
+            background-color: #08828f;
+            transform: scale(1.02);
+        }
+
+        /* RODAPÉ */
+        .rodape {
+            background-color: #e9f2f3;
+            padding: 60px 40px 20px;
+            text-align: center;
+        }
+
+        .logo-footer {
+            width: 140px;
+            margin: 0 auto 20px;
+            display: block;
+        }
+
+        .missao {
+            font-size: 15px;
+            color: #0e3346;
+            margin-bottom: 40px;
+            max-width: 700px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .rodape-layout {
+            display: grid;
+            grid-template-columns: 1fr 1fr 1fr;
+            align-items: flex-start;
+            gap: 40px;
+            max-width: 1100px;
+            margin: 0 auto;
+            text-align: left;
+        }
+
+        .coluna {
+            min-width: 200px;
+        }
+
+        .coluna h4 {
+            font-size: 16px;
+            color: #0e3346;
+            margin-bottom: 12px;
+        }
+
+        .coluna p,
+        .coluna li {
+            font-size: 14px;
+            color: #333;
+            margin-bottom: 6px;
+            list-style: none;
+        }
+
+        .coluna ul {
+            padding: 0;
+            margin: 0;
+        }
+
+        .coluna a {
+            color: #08828f;
+            text-decoration: none;
+            transition: color 0.3s;
+        }
+
+        .coluna a:hover {
+            color: #0599ab;
+        }
+
+        /* Centraliza a coluna do meio */
+        .central {
+            text-align: center;
+        }
+
+        /* Alinha cursos à esquerda e navegação à direita */
+        .esquerda {
+            text-align: left;
+        }
+        .direita {
+            text-align: right;
+        }
+
+        .rodape-copy {
+            border-top: 1px solid #ccc;
+            margin-top: 40px;
+            padding-top: 15px;
+            font-size: 13px;
+            color: #666;
+        }
+
+        /* ========================================================= */
+        /* MEDIA QUERIES PARA RESPONSIVIDADE (MOBILE-FIRST APPROACH) */
+        /* ========================================================= */
+
+        /* Ajustes para telas menores (smartphones) - max-width: 768px */
+        @media (max-width: 768px) {
+            .container {
+                padding: 0 15px;
+            }
+
+            /* TOPO / HEADER (Menu de Retorno) */
+            .topo-voltar {
+                padding: 8px 15px;
+                justify-content: center;
+                gap: 15px;
+            }
+
+            .btn-voltar {
+                font-size: 0.85rem;
+                padding: 6px 10px;
+                border-radius: 12px;
+                flex-shrink: 0;
+            }
+
+            .logo-header {
+                height: 45px;
+                flex-shrink: 0;
+            }
+
+            /* Padding para o body para compensar o header fixo */
+            body {
+                padding-top: 65px;
+            }
+
+            /* BANNER CURSO */
+            .banner-curso {
+                height: 300px;
+                padding-top: 0;
+            }
+
+            .banner-texto h2 {
+                font-size: 1.8rem;
+                margin-bottom: 5px;
+            }
+
+            .banner-texto p {
+                font-size: 0.9rem;
+            }
+
+            .btn-inscreva {
+                padding: 10px 20px;
+                font-size: 0.95rem;
+                margin-top: 15px;
+            }
+
+            /* JORNADA PÚBLICO */
+            .jornada-publico {
+                flex-direction: column;
+                padding: 40px 15px;
+                gap: 25px;
+            }
+
+            .jornada-coluna, .publico-coluna {
+                flex: 1 1 100%;
+                padding: 20px;
+            }
+
+            .jornada-coluna h3,
+            .publico-coluna h3 {
+                font-size: 1.25rem;
+                margin-bottom: 12px;
+            }
+
+            .jornada-coluna p {
+                font-size: 0.9rem;
+                margin-bottom: 15px;
+            }
+
+            .checklist li,
+            .publico-lista li {
+                font-size: 0.85rem;
+                margin-bottom: 6px;
+            }
+
+            .checklist li span,
+            .publico-lista li span {
+                font-size: 0.95rem;
+                margin-right: 8px;
+            }
+
+            .pre-requisito {
+                margin-top: 25px;
+                padding: 10px 15px;
+                font-size: 0.85rem;
+            }
+
+            .publico-lista li {
+                gap: 10px;
+                margin-bottom: 10px;
+                font-size: 0.9rem;
+            }
+
+            .publico-lista img {
+                width: 18px;
+                height: 18px;
+            }
+
+            /* CONTEÚDO PROGRAMÁTICO */
+            .conteudo-programatico {
+                padding: 40px 15px;
+            }
+            .conteudo-programatico h2 {
+                font-size: 1.8rem;
+            }
+            .conteudo-programatico .subtitulo, .introducao-conteudo {
+                font-size: 0.9rem;
+                margin-bottom: 25px;
+                text-align: left;
+                max-width: 100%;
+            }
+
+            .conteudo-programatico-layout {
+                grid-template-columns: 1fr;
+                gap: 30px;
+                margin-top: 25px;
+            }
+
+            .conteudo-programatico-cta {
+                margin-bottom: 0;
+            }
+            .conteudo-programatico-cta .btn.verde {
+                padding: 10px 25px;
+                font-size: 0.9rem;
+            }
+
+            .conteudo-programatico-grid {
+                grid-template-columns: 1fr;
+                gap: 20px;
+            }
+            .modulo-item {
+                padding: 0;
+                border-left-width: 4px;
+                margin-bottom: 0;
+            }
+            .modulo-question {
+                padding: 12px 15px;
+                font-size: 0.95rem;
+            }
+            .modulo-icon {
+                font-size: 1rem;
+            }
+            .modulo-answer {
+                padding: 0 15px 12px;
+            }
+            .modulo-answer ul li {
+                font-size: 0.85rem;
+                padding-left: 20px;
+            }
+            .modulo-answer ul li::before {
+                left: 0;
+            }
+
+            /* BENEFÍCIOS DO CURSO */
+            .porque {
+                padding: 40px 15px;
+            }
+
+            .porque h2 {
+                font-size: 1.8rem;
+            }
+
+            .porque .subtitulo {
+                font-size: 0.9rem;
+                margin-bottom: 25px;
+            }
+
+            .grid-cards {
+                grid-template-columns: 1fr;
+                gap: 20px;
+                margin-top: 25px;
+            }
+
+            .card-info {
+                padding: 18px;
+                gap: 12px;
+                border-radius: 10px;
+            }
+
+            .icone-circulo {
+                width: 38px;
+                height: 38px;
+            }
+
+            .icone-circulo img {
+                width: 32px;
+                height: 32px;
+            }
+
+            .texto-card h3 {
+                font-size: 14px;
+                margin-bottom: 6px;
+            }
+
+            .texto-card p {
+                font-size: 12px;
+            }
+
+            /* FAQ */
+            .faq {
+                padding: 40px 15px;
+            }
+
+            .faq h2 {
+                font-size: 1.8rem;
+            }
+
+            .faq .subtitulo {
+                font-size: 0.9rem;
+                margin-bottom: 25px;
+            }
+
+            .faq-item {
+                margin-bottom: 10px;
+                border-left-width: 4px;
+            }
+
+            .faq-question {
+                padding: 12px 15px;
+                font-size: 0.95rem;
+            }
+
+            .faq-icon {
+                font-size: 1rem;
+            }
+
+            .faq-answer {
+                padding: 0 15px 10px;
+                font-size: 0.85rem;
+            }
+
+            /* CTA */
+            .cta {
+                padding: 30px 20px;
+                margin: 40px 15px;
+                border-radius: 20px;
+            }
+
+            .cta h2 {
+                font-size: 1.6rem;
+                margin-bottom: 10px;
+            }
+
+            .cta p {
+                font-size: 0.85rem;
+                margin-bottom: 15px;
+            }
+
+            .cta .btn-whats {
+                padding: 10px 20px;
+                border-radius: 20px;
+                font-size: 0.9rem;
+            }
+
+            /* CONTATO */
+            .contato {
+                padding: 40px 15px;
+            }
+
+            .contato-grid {
+                grid-template-columns: 1fr;
+                gap: 30px;
+            }
+
+            .contato-info h2 {
+                font-size: 1.8rem;
+            }
+
+            .lista-info li {
+                margin-bottom: 12px;
+                font-size: 0.9rem;
+            }
+
+            .redes-sociais {
+                justify-content: center;
+                gap: 10px;
+            }
+
+            .redes-sociais img {
+                width: 35px;
+                height: 35px;
+            }
+
+            .formulario {
+                padding: 20px;
+                border-radius: 10px;
+            }
+
+            .formulario h3 {
+                font-size: 1.1rem;
+                margin-bottom: 15px;
+            }
+
+            .formulario input,
+            .formulario select,
+            .formulario textarea {
+                padding: 10px;
+                margin-bottom: 10px;
+                font-size: 0.85rem;
+            }
+
+            .formulario button {
+                padding: 10px;
+                font-size: 0.9rem;
+            }
+
+            /* RODAPÉ */
+            .rodape {
+                padding: 30px 15px 15px;
+            }
+
+            .logo-footer {
+                width: 100px;
+                margin-bottom: 10px;
+            }
+
+            .missao {
+                font-size: 0.85rem;
+                margin-bottom: 20px;
+            }
+
+            .rodape-layout {
+                grid-template-columns: 1fr;
+                gap: 20px;
+                text-align: center;
+            }
+
+            .coluna {
+                margin-bottom: 15px;
+            }
+
+            .coluna h4 {
+                font-size: 1rem;
+                margin-bottom: 8px;
+            }
+
+            .coluna p,
+            .coluna li {
+                font-size: 0.8rem;
+                margin-bottom: 4px;
+            }
+
+            .coluna.central,
+            .coluna.esquerda,
+            .coluna.direita {
+                text-align: center;
+            }
+
+            .rodape-copy {
+                margin-top: 20px;
+                padding-top: 10px;
+                font-size: 0.75rem;
+            }
+        }
+
+        /* Media Query para telas muito pequenas (largura máxima de 480px) */
+        @media (max-width: 480px) {
+            /* Topo/Header */
+            .topo-voltar {
+                padding: 5px 10px;
+                gap: 10px;
+            }
+            .btn-voltar {
+                font-size: 0.75rem;
+                padding: 4px 8px;
+            }
+            .logo-header {
+                height: 35px;
+            }
+            body {
+                padding-top: 55px;
+            }
+
+            /* Banner */
+            .banner-curso {
+                height: 220px;
+            }
+            .banner-texto h2 {
+                font-size: 1.5rem;
+            }
+            .banner-texto p {
+                font-size: 0.8rem;
+            }
+            .btn-inscreva {
+                padding: 8px 15px;
+                font-size: 0.8rem;
+            }
+
+            /* Conteúdo Programático */
+            .conteudo-programatico h2 {
+                font-size: 1.6rem;
+            }
+            .conteudo-programatico .subtitulo {
+                font-size: 0.85rem;
+            }
+            .modulo-item h3 {
+                font-size: 1rem;
+            }
+            .modulo-item p {
+                font-size: 0.8rem;
+            }
+
+            /* Benefícios */
+            .porque h2 {
+                font-size: 1.6rem;
+            }
+            .porque .subtitulo {
+                font-size: 0.85rem;
+            }
+            .card-info {
+                padding: 15px;
+                gap: 10px;
+            }
+            .icone-circulo {
+                width: 32px;
+                height: 32px;
+            }
+            .icone-circulo img {
+                width: 28px;
+                height: 28px;
+            }
+            .texto-card h3 {
+                font-size: 13px;
+            }
+            .texto-card p {
+                font-size: 11px;
+            }
+
+            /* FAQ */
+            .faq h2 {
+                font-size: 1.6rem;
+            }
+            .faq .subtitulo {
+                font-size: 0.85rem;
+            }
+            .faq-question {
+                font-size: 0.9rem;
+                padding: 10px 12px;
+            }
+            .faq-icon {
+                font-size: 0.9rem;
+            }
+            .faq-answer {
+                font-size: 0.8rem;
+                padding: 0 12px 8px;
+            }
+
+            /* CTA */
+            .cta h2 {
+                font-size: 1.4rem;
+            }
+            .cta p {
+                font-size: 0.8rem;
+            }
+            .cta .btn-whats {
+                padding: 8px 15px;
+                font-size: 0.85rem;
+            }
+
+            /* Contato */
+            .contato-info h2 {
+                font-size: 1.6rem;
+            }
+            .lista-info li {
+                font-size: 0.85rem;
+            }
+            .redes-sociais img {
+                width: 30px;
+                height: 30px;
+            }
+            .formulario h3 {
+                font-size: 1rem;
+            }
+            .formulario input, .formulario select, .formulario textarea {
+                font-size: 0.8rem;
+                padding: 8px;
+            }
+            .formulario button {
+                font-size: 0.85rem;
+                padding: 8px;
+            }
+
+            /* Rodapé */
+            .rodape .logo-footer {
+                width: 80px;
+            }
+            .rodape .missao {
+                font-size: 0.8rem;
+            }
+            .rodape .coluna h4 {
+                font-size: 0.9rem;
+            }
+            .rodape .coluna p, .rodape .coluna li {
+                font-size: 0.75rem;
+            }
+            .rodape-copy {
+                font-size: 0.7rem;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <header class="topo-voltar">
+        <a href="../index.html#servicos" class="btn-voltar">← Retornar</a>
+        <img src="../src/images/logo.png" alt="Logo Dronesul" class="logo-header">
+    </header>
+
+    <section class="banner-curso">
+        <img src="../src/images/mapeamento.jpg" alt="Drone de Mapeamento em voo" class="banner-img">
+        <div class="banner-texto">
+            <h2>Curso Profissional de Mapeamento com Drones</h2>
+            <p>Domine as técnicas avançadas de mapeamento aéreo e transforme-se em um especialista certificado, abrindo novas oportunidades no mercado de geotecnologias.</p>
+        </div>
+        <a href="https://api.whatsapp.com/send?phone=5553991269559&text=Ol%C3%A1,%20estou%20no%20site%20da%20Drone%20Sul%20e%20gostaria%20de%20algumas%20informa%C3%A7%C3%B5es…" class="btn-inscreva">Inscreva-se agora</a>
+    </section>
+
+    <section class="jornada-publico">
+        <div class="jornada-coluna">
+            <h3>Comece sua Jornada no Mundo dos Drones</h3>
+            <p>O Curso de Mapeamento com Drone é o passo essencial para sua atuação profissional na área. Aprenda, na prática, desde o planejamento de voo até o processamento de dados, e transforme imagens de drone em mapas precisos com segurança e eficiência.</p>
+
+            <ul class="checklist">
+                <li><span>✓</span> +16 horas de treinamento completo</li>
+                <li><span>✓</span> 12 horas teóricas + 8 horas práticas</li>
+                <li><span>✓</span> Certificado reconhecido pela ANAC</li>
+                <li><span>✓</span> Material didático incluído</li>
+            </ul>
+        </div>
+
+        <div class="publico-coluna">
+            <h3>Para quem é este curso?</h3>
+            <ul class="publico-lista">
+                <li>
+                    <img src="../src/images/icone7.png" alt="Ícone iniciante">
+                    Iniciantes sem experiência prévia com drones
+                </li>
+                <li>
+                    <img src="../src/images/icone7.png" alt="Ícone iniciante">
+                    Entusiastas que desejam profissionalização
+                </li>
+                <li>
+                    <img src="../src/images/icone7.png" alt="Ícone iniciante">
+                    Fotógrafos interessados em fotografia aérea
+                </li>
+                <li>
+                    <img src="../src/images/icone7.png" alt="Ícone iniciante">
+                    Profissionais buscando nova área de atuação
+                </li>
+            </ul>
+
+            <div class="pre-requisito">
+                <strong>Pré-requisitos:</strong><br>
+                Idade mínima de 18 anos
+            </div>
+        </div>
+    </section>
+
+    <section class="conteudo-programatico">
+        <div class="container">
+            <h2>Conteúdo Programático</h2>
+            <p class="subtitulo">Um programa completo e estruturado para formar profissionais de excelência.</p>
+
+            <div class="conteudo-programatico-layout">
+                <div class="conteudo-programatico-info">
+                    <p class="introducao-conteudo">Nosso curso foi cuidadosamente estruturado para cobrir todos os aspectos essenciais do mapeamento com drones, desde os fundamentos teóricos até as técnicas mais avançadas de processamento e análise. Com uma carga horária de 60 horas, divididas entre aulas teóricas e práticas, o programa aborda desde conceitos básicos de fotogrametria até o uso de tecnologias avançadas como RTK/PPK, garantindo uma formação completa e atualizada. Ao final do curso, você estará preparado para planejar, executar e processar mapeamentos profissionais com drones, entregando produtos cartográficos de alta qualidade para diversos setores do mercado.</p>
+
+                    <div class="conteudo-programatico-cta">
+                        <a href="https://api.whatsapp.com/send?phone=5553991269559&text=Ol%C3%A1,%20estou%20no%20site%20da%20Drone%20Sul%20e%20gostaria%20de%20garantir%20minha%20vaga%20no%20curso%20de%20Mapeamento." class="btn verde">Garanta sua vaga</a>
+                    </div>
+                </div>
+
+                <div class="conteudo-programatico-grid">
+                    <div class="modulo-item">
+                        <button class="modulo-question">
+                            <h3>Módulo 1: Introdução ao Mapeamento com Drones</h3>
+                            <span class="modulo-icon">+</span>
+                        </button>
+                        <div class="modulo-answer">
+                            <ul>
+                                <li>Fundamentos de cartografia e sensoriamento remoto</li>
+                                <li>Princípios de cartografia e sistemas de coordenadas</li>
+                                <li>Tipos de drones para mapeamento</li>
+                                <li>Legislação e regulamentação para operação de drones</li>
+                            </ul>
+                        </div>
+                    </div>
+
+                    <div class="modulo-item">
+                        <button class="modulo-question">
+                            <h3>Módulo 2: Equipamentos e Sensores</h3>
+                            <span class="modulo-icon">+</span>
+                        </button>
+                        <div class="modulo-answer">
+                            <ul>
+                                <li>Entenda os drones específicos para mapeamento, câmeras e sensores.</li>
+                            </ul>
+                        </div>
+                    </div>
+
+                    <div class="modulo-item">
+                        <button class="modulo-question">
+                            <h3>Módulo 3: Planejamento e Execução de Voo</h3>
+                            <span class="modulo-icon">+</span>
+                        </button>
+                        <div class="modulo-answer">
+                            <ul>
+                                <li>Como planejar missões de voo eficientes e seguras para coleta de dados.</li>
+                            </ul>
+                        </div>
+                    </div>
+
+                    <div class="modulo-item">
+                        <button class="modulo-question">
+                            <h3>Módulo 4: Pontos de Controle e Georreferenciamento</h3>
+                            <span class="modulo-icon">+</span>
+                        </button>
+                        <div class="modulo-answer">
+                            <ul>
+                                <li>Aprenda a usar Pontos de Controle Terrestre (GCPs) e técnicas de georreferenciamento (RTK/PPK).</li>
+                            </ul>
+                        </div>
+                    </div>
+
+                    <div class="modulo-item">
+                        <button class="modulo-question">
+                            <h3>Módulo 5: Processamento Fotogramétrico</h3>
+                            <span class="modulo-icon">+</span>
+                        </button>
+                        <div class="modulo-answer">
+                            <ul>
+                                <li>Técnicas de processamento de imagens para gerar produtos cartográficos.</li>
+                            </ul>
+                        </div>
+                    </div>
+
+                    <div class="modulo-item">
+                        <button class="modulo-question">
+                            <h3>Módulo 6: Produtos Cartográficos e Aplicações</h3>
+                            <span class="modulo-icon">+</span>
+                        </button>
+                        <div class="modulo-answer">
+                            <ul>
+                                <li>Criação e análise de ortomosaicos, modelos 3D, MDT, MDS e suas aplicações.</li>
+                            </ul>
+                        </div>
+                    </div>
+
+                    <div class="modulo-item">
+                        <button class="modulo-question">
+                            <h3>Módulo 7: (A definir)</h3>
+                            <span class="modulo-icon">+</span>
+                        </button>
+                        <div class="modulo-answer">
+                            <ul>
+                                <li>Conteúdo adicional ou a ser detalhado.</li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="modulo-item">
+                        <button class="modulo-question">
+                            <h3>Módulo 8: (A definir)</h3>
+                            <span class="modulo-icon">+</span>
+                        </button>
+                        <div class="modulo-answer">
+                            <ul>
+                                <li>Conteúdo adicional ou a ser detalhado.</li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="modulo-item">
+                        <button class="modulo-question">
+                            <h3>Módulo 9: (A definir)</h3>
+                            <span class="modulo-icon">+</span>
+                        </button>
+                        <div class="modulo-answer">
+                            <ul>
+                                <li>Conteúdo adicional ou a ser detalhado.</li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="modulo-item">
+                        <button class="modulo-question">
+                            <h3>Módulo 10: (A definir)</h3>
+                            <span class="modulo-icon">+</span>
+                        </button>
+                        <div class="modulo-answer">
+                            <ul>
+                                <li>Conteúdo adicional ou a ser detalhado.</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="porque" id="beneficios">
+        <div class="container">
+            <h2>Benefícios do Curso</h2>
+            <p class="subtitulo">Ao se formar no Curso de Mapeamento com Drone, você terá todas as ferramentas para iniciar sua carreira em topografia e geotecnologias.</p>
+
+            <div class="grid-cards">
+                <div class="card-info">
+                    <div class="icone-circulo cor-verde">
+                        <img src="../src/images/icone3.png" alt="Certificação ANAC">
+                    </div>
+                    <div class="texto-card">
+                        <h3>Certificação ANAC</h3>
+                        <p>Preparação completa para obtenção do certificado ANAC de piloto remoto.</p>
+                    </div>
+                </div>
+
+                <div class="card-info">
+                    <div class="icone-circulo cor-azul">
+                        <img src="../src/images/icone1.png" alt="Certificado Dronesul">
+                    </div>
+                    <div class="texto-card">
+                        <h3>Certificado Dronesul</h3>
+                        <p>Certificado reconhecido pelo mercado, atestando sua capacitação como piloto.</p>
+                    </div>
+                </div>
+
+                <div class="card-info">
+                    <div class="icone-circulo cor-verde">
+                        <img src="../src/images/icone8.png" alt="Material Didático">
+                    </div>
+                    <div class="texto-card">
+                        <h3>Material Didático</h3>
+                        <p>Acesso a material completo, incluindo apostilas e vídeos explicativos.</p>
+                    </div>
+                </div>
+
+                <div class="card-info">
+                    <div class="icone-circulo cor-azul">
+                        <img src="../src/images/icone2.png" alt="Aulas Práticas">
+                    </div>
+                    <div class="texto-card">
+                        <h3>Aulas Práticas</h3>
+                        <p>8 horas de voo com equipamentos profissionais e supervisão individual.</p>
+                    </div>
+                </div>
+
+                <div class="card-info">
+                    <div class="icone-circulo cor-verde">
+                        <img src="../src/images/icone9.png" alt="Suporte Contínuo">
+                    </div>
+                    <div class="texto-card">
+                        <h3>Suporte Contínuo</h3>
+                        <p>Grupo de suporte técnico após a conclusão do curso.</p>
+                    </div>
+                </div>
+
+                <div class="card-info">
+                    <div class="icone-circulo cor-azul">
+                        <img src="../src/images/icone6.png" alt="Networking">
+                    </div>
+                    <div class="texto-card">
+                        <h3>Networking</h3>
+                        <p>Conexão com outros profissionais e oportunidades no mercado.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="faq" id="faq">
+        <div class="container">
+            <h2>Perguntas Frequentes</h2>
+            <p class="subtitulo">Tire suas dúvidas sobre o curso</p>
+
+            <div class="faq-item">
+                <button class="faq-question">
+                    <span>Preciso ter experiência prévia com drones?</span>
+                    <span class="faq-icon">+</span>
+                </button>
+                <div class="faq-answer">
+                    <p>Não é necessário ter experiência prévia com drones. O curso foi estruturado para atender desde iniciantes até profissionais que já atuam com drones e desejam se especializar em mapeamento.Começamos com os fundamentos e avançamos gradualmente para técnicas mais complexas.</p>
+                </div>
+            </div>
+
+            <div class="faq-item">
+                <button class="faq-question">
+                    <span>Preciso ter meu próprio drone para fazer o curso?</span>
+                    <span class="faq-icon">+</span>
+                </button>
+                <div class="faq-answer">
+                    <p>Não é obrigatório possuir um drone próprio. Oferecemos equipamentos de ponta para as aulas práticas.Caso você já tenha um drone, será uma ótima oportunidade para aprender a usá-lo com eficiência no mapeamento.</p>
+                </div>
+            </div>
+
+            <div class="faq-item">
+                <button class="faq-question">
+                    <span>Quais softwares são utilizados no curso?</span>
+                    <span class="faq-icon">+</span>
+                </button>
+                <div class="faq-answer">
+                    <p>Utilizamos os softwares mais renomados e atualizados do mercado para processamento fotogramétrico e análise de dados, como o Pix4Dmapper e o Agisoft Metashape, entre outros.</p>
+                </div>
+            </div>
+
+            <div class="faq-item">
+                <button class="faq-question">
+                    <span>O curso tem certificado?</span>
+                    <span class="faq-icon">+</span>
+                </button>
+                <div class="faq-answer">
+                    <p>Sim. Ao concluir o curso, você receberá um certificado Dronesul, reconhecido no mercado de trabalho.Além disso, o curso te prepara para a obtenção do certificado ANAC.</p>
+                </div>
+            </div>
+
+            <div class="faq-item">
+                <button class="faq-question">
+                    <span>Onde acontecem as aulas práticas?</span>
+                    <span class="faq-icon">+</span>
+                </button>
+                <div class="faq-answer">
+                    <p>As aulas práticas são realizadas em áreas abertas e controladas, com toda a segurança e suporte de nossos instrutores qualificados.O local exato será informado antes do início das aulas.</p>
+                </div>
+            </div>
+
+            <div class="faq-item">
+                <button class="faq-question">
+                    <span>Existe suporte após o término do curso?</span>
+                    <span class="faq-icon">+</span>
+                </button>
+                <div class="faq-answer">
+                    <p>Sim, oferecemos um grupo de suporte técnico exclusivo para alunos formados, onde você poderá tirar dúvidas e compartilhar experiências com outros profissionais e com a nossa equipe.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <script>
+        document.querySelectorAll('.modulo-question').forEach(button => {
+            button.addEventListener('click', () => {
+                const item = button.parentElement;
+                item.classList.toggle('active');
+
+                const icon = button.querySelector('.modulo-icon');
+                icon.textContent = item.classList.contains('active') ? '−' : '+';
+            });
+        });
+
+        document.querySelectorAll('.faq-question').forEach(button => {
+            button.addEventListener('click', () => {
+                const item = button.parentElement;
+                item.classList.toggle('active');
+
+                const icon = button.querySelector('.faq-icon');
+                icon.textContent = item.classList.contains('active') ? '−' : '+';
+            });
+        });
+    </script>
+
+    <section class="cta">
+        <div class="container">
+            <h2>Pronto para decolar sua carreira?</h2>
+            <p>Entre em contato hoje mesmo e agende uma visita às nossas instalações.<br>O primeiro voo de demonstração é gratuito!</p>
+            <a href="https://api.whatsapp.com/send?phone=5553991269559&text=Olá,%20estou%20no%20site%20da%20Drone%20Sul%20e%20gostaria%20de%20algumas%20informa%C3%A7%C3%B5es…" class="btn-whats">Fale Conosco</a>
+        </div>
+    </section>
+
+    <section class="contato" id="contato">
+        <div class="container contato-grid">
+
+            <div class="contato-info">
+                <h2>Entre em contato</h2>
+                <p>Estamos à disposição para esclarecer dúvidas e ajudar a escolher o serviço ideal para você.</p>
+
+                <ul class="lista-info">
+                    <li><strong>Endereço</strong><br>Praça 20 de Setembro, 301 - Centro - Pelotas/RS</li>
+                    <li><strong>Telefone</strong><br>(53) 99126-9559</li>
+                    <li><strong>Email</strong><br>contato@dronesul.com.br</li>
+                    <li><strong>Horário de Atendimento</strong><br>Segunda a Sexta: 8h às 18h</li>
+                </ul>
+
+                <div class="redes-sociais">
+                    <a href="https://www.facebook.com/people/Dronesul/61563505297543/" target="_blank"><img src="../src/images/facebook.png" alt="Facebook"></a>
+                    <a href="https://www.instagram.com/dronesul_/" target="_blank"><img src="../src/images/instagram.png" alt="Instagram"></a>
+                    <a href="https://www.linkedin.com/company/dronesull/" target="_blank"><img src="../src/images/linkedin.png" alt="LinkedIn"></a>
+                    <a href="https://api.whatsapp.com/send?phone=5553991269559&text=Olá,%20estou%20no%20site%20da%20Drone%20Sul%20e%20gostaria%20de%20algumas%20informa%C3%A7%C3%B5es…" target="_blank"><img src="../src/images/whatsapp.png" alt="WhatsApp"></a>
+                    <a href="https://www.youtube.com/@Dronesul-c7n" target="_blank"><img src="../src/images/youtube.png" alt="YouTube"></a>
+                    <a href="https://www.tiktok.com/@dronesul_?is_from_webapp=1&sender_device=pc" target="_blank"><img src="../src/images/tiktok.png" alt="TikTok"></a>
+                </div>
+            </div>
+
+            <form action="https://formsubmit.co/contato@dronesul.com.br" method="POST" class="formulario">
+                <h3>Envie uma mensagem</h3>
+                <input type="text" name="nome" placeholder="Nome completo" required>
+                <input type="email" name="email" placeholder="Email" required>
+                <input type="tel" name="telefone" placeholder="Telefone">
+                <select name="servico">
+                    <option value="">Serviço de interesse</option>
+                    <option value="Pilotagem">Curso de Pilotagem</option>
+                    <option value="Mapeamento">Curso de Mapeamento</option>
+                    <option value="Pulverização">Pulverização</option>
+                    <option value="Assistência Técnica">Assistência Técnica</option>
+                </select>
+                <textarea name="mensagem" rows="5" placeholder="Como podemos ajudar?"></textarea>
+                <button type="submit">Enviar Mensagem</button>
+            </form>
+        </div>
+    </section>
+
+    <footer class="rodape">
+        <img src="../src/images/logo.png" alt="Logo Dronesul" class="logo-footer">
+
+        <p class="missao">
+            A Dronesul foi criada para ajudar as pessoas a realizarem seus sonhos de pilotar Drones.<br>
+            Nossa missão é ajudá-lo a ser um piloto de drone inteligente e confiante.
+        </p>
+
+        <div class="rodape-layout">
+            <div class="coluna">
+                <h4>Cursos</h4>
+                <ul>
+                    <li><a href="#">Curso Básico</a></li>
+                    <li><a href="#">Curso Avançado</a></li>
+                    <li><a href="#">Curso Profissional</a></li>
+                    <li><a href="#">Curso de Mapeamento</a></li>
+                    <li><a href="#">Curso de Pulverização</a></li>
+                </ul>
+            </div>
+
+            <div class="coluna central">
+                <h4>Contato</h4>
+                <p>Praça 20 de Setembro, 301 - Centro - Pelotas/RS</p>
+                <p>(53) 99126-9559</p>
+                <p>contato@dronesul.com.br</p>
+                <p>Segunda a Sexta: 8h às 18h</p>
+            </div>
+
+            <div class="coluna direita">
+                <h4>Navegação</h4>
+                <ul>
+                    <li><a href="#home">Home</a></li>
+                    <li><a href="#servicos">Serviços</a></li>
+                    <li><a href="#beneficios">Benefícios</a></li>
+                    <li><a href="#depoimentos">Depoimentos</a></li>
+                    <li><a href="#galeria">Galeria</a></li>
+                    <li><a href="#contato">Contato</a></li>
+                </ul>
+            </div>
+        </div>
+
+        <p class="rodape-copy">
+            © Copyright | Todos os Direitos Reservados | Desenvolvido por CodeCraftBrendaLM
+        </p>
+    </footer>
+
+</body>
+</html>
