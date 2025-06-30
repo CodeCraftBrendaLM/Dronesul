@@ -75,10 +75,10 @@
             align-items: center;
             text-align: center;
             color: white;
-            background-color: #007b8f; /* ADICIONADO: Cor de fundo azul */
+            background-color: #007b8f; /* Fundo azul sólido */
         }
 
-        .banner-assistencia-img { /* Esta regra não será mais usada se a <img> for removida, mas manter por segurança */
+        .banner-assistencia-img { /* Não usada se a <img> for removida no HTML */
             width: 100%;
             height: 100%;
             object-fit: cover;
@@ -126,55 +126,85 @@
         /* SEÇÃO SOBRE A ASSISTÊNCIA */
         .sobre-assistencia {
             padding: 60px 20px;
-            max-width: 1000px;
+            max-width: 1200px; /* Aumentei para o container da galeria */
             margin: 0 auto;
             text-align: center;
         }
 
         .sobre-assistencia h2 {
             font-size: 2.2rem;
-            color: #9fb81a;
+            color: #007b8f; /* Altera cor para azul Dronesul */
             margin-bottom: 15px;
         }
 
         .sobre-assistencia p {
             font-size: 1rem;
             line-height: 1.6;
-            color: #000000;
+            color: #333;
             margin-bottom: 30px;
         }
 
-        .sobre-assistencia h3 {
+        .sobre-assistencia h3 { /* Estilo para o "Mais de 70 drones..." */
             color: #08828f;
+            font-size: 1.5rem; /* Ajustado para um tamanho adequado */
+            margin-top: 40px; /* Espaço antes do título da galeria */
+            margin-bottom: 10px;
+        }
+        .sobre-assistencia p:last-of-type { /* Para o "Confira algumas fotos" */
+            font-size: 1.1rem;
+            color: #555;
+            margin-bottom: 30px;
         }
 
-        /* Grade da galeria com 3 colunas e centralização */
-.galeria-grid {
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    gap: 30px;
-    justify-content: center;
-    max-width: 1200px;
-    margin: 0 auto;
-}
+        /* GALERIA - APLICAR AO .gallery */
+        .gallery {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr); /* 3 colunas iguais no desktop */
+            gap: 20px; /* Espaçamento entre as imagens */
+            margin-top: 0; /* Ajustado, já que h3/p já dão margem */
+            max-width: 100%; /* Garante que não transborde */
+            margin-left: auto;
+            margin-right: auto;
+        }
 
-.galeria-grid img {
-    width: 100%;
-    max-width: 380px;
-    height: 250px;
-    object-fit: cover;
-    border-radius: 16px;
-    border: 2px solid #08828f;
-    transition: transform 0.3s ease, box-shadow 0.3s ease;
-}
+        .gallery img {
+            width: 100%;
+            height: 250px; /* Altura fixa para as imagens no desktop */
+            object-fit: cover;
+            border-radius: 8px;
+            border: 2px solid #08828f; /* Borda azul padrão */
+            box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
 
-/* Efeito de movimento ao passar o mouse */
-.galeria-grid img:hover {
-    transform: scale(1.05) translateY(-4px);
-    box-shadow: 0 12px 24px rgba(0, 0, 0, 0.15);
-}
+        .gallery img:hover {
+            transform: scale(1.03) translateY(-3px); /* Efeito de hover mais suave */
+            box-shadow: 0 8px 16px rgba(0,0,0,0.2);
+        }
 
+        /* CTA NO MEIO DA PÁGINA */
+        .cta-meio {
+            background-color: #e9f2f3;
+            padding: 60px 20px;
+            text-align: center;
+            margin: 60px 0;
+        }
 
+        .cta-meio h2 {
+            font-size: 2rem;
+            color: #007b8f;
+            margin-bottom: 15px;
+        }
+
+        .cta-meio p {
+            font-size: 1.1rem;
+            line-height: 1.6;
+            color: #333;
+            margin-bottom: 30px;
+            max-width: 700px;
+            margin-left: auto;
+            margin-right: auto;
+        }
 
         /* FAQ */
         .faq {
@@ -457,6 +487,19 @@
             font-size: 13px;
             color: #666;
         }
+        @media (max-width: 991px) {
+            /* Galeria - Breakpoint para tablets/desktops menores */
+            .gallery {
+                grid-template-columns: repeat(2, 1fr); /* 2 colunas para telas menores que 991px */
+                gap: 20px;
+            }
+
+            .gallery img {
+                max-width: 100%;
+                height: 200px; /* Altura ajustada para 2 colunas */
+            }
+        }
+
 
         /* ========================================================= */
         /* MEDIA QUERIES PARA RESPONSIVIDADE (MOBILE-FIRST APPROACH) */
@@ -529,7 +572,7 @@
             }
 
             .gallery {
-                grid-template-columns: repeat(2, 1fr); /* 2 colunas em tablets/mobile */
+                grid-template-columns: 1fr; /* 1 coluna no mobile */
                 gap: 15px;
                 margin-top: 25px;
             }
@@ -850,8 +893,8 @@
     <section class="banner-assistencia">
         <img src="../src/images/assistencia_banner.jpg" alt="Drone em manutenção" class="banner-assistencia-img">
         <div class="banner-assistencia-texto">
-            <h2>Assistência Técnica</h2>
-            <p>Além de formar os melhores pilotos com nossos cursos profissionais, a Dronesul também cuida do seu equipamento. Conte com nossa assistência técnica especializada para manter seu drone sempre pronto para o trabalho.</p>
+            <h2>Assistência Técnica Especializada em Drones</h2>
+            <p>Além de formar os melhores pilotos com nossos cursos profissionais, a DroneSul também cuida do seu equipamento. Conte com nossa assistência técnica especializada para manter seu drone sempre pronto para o trabalho.</p>
             <a href="https://api.whatsapp.com/send?phone=5553991269559&text=Olá,%20estou%20no%20site%20da%20Drone%20Sul%20e%20gostaria%20de%20solicitar%20um%20or%C3%A7amento%20para%20assist%C3%AAncia%20t%C3%A9cnica." class="btn-fale-conosco-banner">Fale Conosco</a>
         </div>
     </section>
@@ -864,22 +907,29 @@
             <p> Confira algumas fotos</p>
 
             <div class="gallery">
-                <img src="../src/images/assistencia.jpg" alt="Drone em manutenção">
-                <img src="../src/images/2.jpg" alt="Componentes de drone">
-                <img src="../src/images/3.jpg" alt="Técnico trabalhando">
-                <img src="../src/images/4.jpg" alt="Reparo de drone">
-                <img src="../src/images/5.jpg" alt="Bancada de trabalho">
-                <img src="../src/images/6.jpg" alt="Teste de drone">
-                <img src="../src/images/7.jpg" alt="Detalhe do reparo">
-                <img src="../src/images/8.jpg" alt="Técnico com drone">
-                <img src="../src/images/9.jpg" alt="Drone desmontado">
-                <img src="../src/images/10.jpg" alt="Ferramentas de precisão">
-                <img src="../src/images/11.jpg" alt="Reparo de bateria">
-                <img src="../src/images/12.jpg" alt="Drone inspecionado">
+                <img src="../src/images/assistencia_galeria_1.jpg" alt="Drone em manutenção">
+                <img src="../src/images/assistencia_galeria_2.jpg" alt="Componentes de drone">
+                <img src="../src/images/assistencia_galeria_3.jpg" alt="Técnico trabalhando">
+                <img src="../src/images/assistencia_galeria_4.jpg" alt="Reparo de drone">
+                <img src="../src/images/assistencia_galeria_5.jpg" alt="Bancada de trabalho">
+                <img src="../src/images/assistencia_galeria_6.jpg" alt="Teste de drone">
+                <img src="../src/images/assistencia_galeria_7.jpg" alt="Detalhe do reparo">
+                <img src="../src/images/assistencia_galeria_8.jpg" alt="Técnico com drone">
+                <img src="../src/images/assistencia_galeria_9.jpg" alt="Drone desmontado">
+                <img src="../src/images/assistencia_galeria_10.jpg" alt="Ferramentas de precisão">
+                <img src="../src/images/assistencia_galeria_11.jpg" alt="Reparo de bateria">
+                <img src="../src/images/assistencia_galeria_12.jpg" alt="Drone inspecionado">
             </div>
         </div>
     </section>
 
+    <section class="cta-meio">
+        <div class="container">
+            <h2>Pronto para colocar seu Drone no ar?</h2>
+            <p>Entre em contato hoje mesmo e solicite seu orçamento.<br>Conte com nosso serviço especializado!</p>
+            <a href="https://api.whatsapp.com/send?phone=5553991269559&text=Olá,%20estou%20no%20site%20da%20Drone%20Sul%20e%20gostaria%20de%20solicitar%20um%20or%C3%A7amento%20para%20assist%C3%AAncia%20t%C3%A9cnica." class="btn-whats">Fale Conosco</a>
+        </div>
+    </section>
 
     <section class="faq" id="faq">
         <div class="container">
@@ -929,7 +979,6 @@
     </section>
 
     <script>
-        // Script para o FAQ (já existente, mantido)
         document.querySelectorAll('.faq-question').forEach(button => {
             button.addEventListener('click', () => {
                 const item = button.parentElement;
@@ -943,8 +992,8 @@
 
     <section class="cta">
         <div class="container">
-            <h2>Pronto para colocar seu Drone no ar?</h2>
-            <p>Entre em contato hoje mesmo e solicite seu orçamento.<br>Conte com nosso serviço especializado!</p>
+            <h2>Pronto para decolar sua carreira?</h2>
+            <p>Entre em contato hoje mesmo e agende uma visita às nossas instalações.<br>O primeiro voo de demonstração é gratuito!</p>
             <a href="https://api.whatsapp.com/send?phone=5553991269559&text=Olá,%20estou%20no%20site%20da%20Drone%20Sul%20e%20gostaria%20de%20algumas%20informa%C3%A7%C3%B5es…" class="btn-whats">Fale Conosco</a>
         </div>
     </section>
@@ -1036,25 +1085,6 @@
             © Copyright | Todos os Direitos Reservados | Desenvolvido por CodeCraftBrendaLM
         </p>
     </footer>
-
-    <style>
-        @media (max-width: 600px) {
-  .topo-voltar {
-    flex-direction: row;
-    justify-content: space-between;
-    flex-wrap: nowrap;
-  }
-
-  .btn-voltar {
-    font-size: 0.9rem;
-    padding: 8px 12px;
-  }
-
-  .logo-header {
-    height: 50px; /* ajuste de tamanho se quiser */
-  }
-}
-    </style>
 
 </body>
 </html>
