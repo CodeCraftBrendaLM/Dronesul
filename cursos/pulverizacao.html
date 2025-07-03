@@ -210,157 +210,154 @@
 
         /* CONTEÚDO PROGRAMÁTICO */
         .conteudo-programatico {
-            padding: 60px 20px;
-            max-width: 1200px;
-            margin: 0 auto;
-            background-color: #f9f9f9;
-        }
+    padding: 60px 20px;
+    max-width: 1200px;
+    margin: 0 auto;
+    background-color: #f9f9f9;
+    text-align: center; /* Centraliza o h2 e p.subtitulo */
+}
 
-        .conteudo-programatico h2 {
-            text-align: center;
-            font-size: 2.2rem;
-            color: #007b8f;
-            margin-bottom: 10px;
-        }
+.conteudo-programatico h2 {
+    font-size: 2.2rem;
+    color: #007b8f;
+    margin-bottom: 10px;
+}
 
-        .conteudo-programatico .subtitulo {
-            text-align: center;
-            font-size: 1rem;
-            color: #333;
-            margin-bottom: 20px;
-        }
+.conteudo-programatico .subtitulo {
+    font-size: 1rem;
+    color: #333;
+    margin-bottom: 40px;
+}
 
-        /* Novo contêiner para o layout de 2 colunas */
-        .conteudo-programatico-layout {
-            display: grid;
-            grid-template-columns: 2fr 1fr;
-            gap: 40px;
-            align-items: start;
-            margin-top: 40px;
-        }
+/* Novo contêiner para o texto e o botão centralizados */
+.conteudo-programatico-introducao {
+    text-align: center; /* Centraliza o texto e o botão */
+    margin-bottom: 40px; /* Espaço abaixo do botão antes dos módulos */
+    max-width: 800px; /* Limita a largura do texto para melhor leitura */
+    margin-left: auto; /* Centraliza o bloco */
+    margin-right: auto; /* Centraliza o bloco */
+}
 
-        .conteudo-programatico-info {
-            text-align: left;
-        }
+.introducao-conteudo {
+    font-size: 1rem;
+    line-height: 1.6;
+    color: #555;
+    margin: 0 auto 30px auto; /* Centraliza e adiciona margem inferior */
+}
 
-        .introducao-conteudo {
-            font-size: 1rem;
-            line-height: 1.6;
-            color: #555;
-            text-align: left;
-            max-width: none;
-            margin: 0 0 30px 0;
-        }
+.conteudo-programatico-btn { /* Estilo para o botão "Garanta sua vaga" */
+    background-color: #9fb81a;
+    color: white;
+    padding: 12px 30px;
+    border-radius: 25px;
+    text-decoration: none;
+    font-weight: bold;
+    transition: background-color 0.3s ease, transform 0.2s ease;
+    display: inline-block; /* Para permitir centralização com text-align */
+}
 
-        .conteudo-programatico-cta {
-            text-align: left;
-            margin-top: 0;
-        }
+.conteudo-programatico-btn:hover {
+    background-color: #7d990f;
+    transform: scale(1.05);
+}
 
-        .conteudo-programatico-cta .btn.verde {
-            background-color: #9fb81a;
-            color: white;
-            padding: 12px 30px;
-            border-radius: 25px;
-            text-decoration: none;
-            font-weight: bold;
-            transition: background-color 0.3s ease, transform 0.2s ease;
-            display: inline-block;
-        }
+/* NOVO CONTÊINER PARA OS MÓDULOS EM 2 COLUNAS */
+.modulos-duas-colunas {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr); /* 2 colunas iguais */
+    gap: 30px; /* Espaçamento entre as colunas de módulos */
+    margin-top: 40px; /* Espaçamento da seção de introdução */
+}
 
-        .conteudo-programatico-cta .btn.verde:hover {
-            background-color: #7d990f;
-            transform: scale(1.05);
-        }
+.modulos-coluna {
+    display: flex;
+    flex-direction: column;
+    gap: 15px; /* Espaçamento entre os módulos dentro da coluna */
+}
 
-        .conteudo-programatico-grid {
-            display: grid;
-            grid-template-columns: 1fr;
-            gap: 15px;
-            margin-top: 0;
-        }
 
-        .modulo-item {
-            background-color: white;
-            border-radius: 8px;
-            box-shadow: 0 4px 8px rgba(0,0,0,0.05);
-            overflow: hidden;
-            border-left: 5px solid #007b8f;
-            display: flex;
-            flex-direction: column;
-        }
+/* Módulos individuais e seus estilos */
+.modulo-item {
+    background-color: white;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.05);
+    overflow: hidden;
+    border-left: 5px solid #007b8f;
+    display: flex;
+    flex-direction: column;
+}
 
-        .modulo-question {
-            width: 100%;
-            padding: 18px 20px;
-            background: none;
-            border: none;
-            outline: none;
-            font-size: 1.05rem;
-            font-weight: bold;
-            color: #007b8f;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            cursor: pointer;
-            text-align: left;
-        }
+.modulo-question {
+    width: 100%;
+    padding: 18px 20px;
+    background: none;
+    border: none;
+    outline: none;
+    font-size: 1.05rem;
+    font-weight: bold;
+    color: #007b8f;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    cursor: pointer;
+    text-align: left;
+}
 
-        .modulo-question h3 {
-            margin: 0;
-            font-size: inherit;
-            color: inherit;
-            flex-grow: 1;
-        }
+.modulo-question h3 {
+    margin: 0;
+    font-size: inherit;
+    color: inherit;
+    flex-grow: 1;
+}
 
-        .modulo-icon {
-            font-size: 1.2rem;
-            transition: transform 0.3s;
-            color: #9fb81a;
-            flex-shrink: 0;
-            margin-left: 10px;
-        }
+.modulo-icon {
+    font-size: 1.2rem;
+    transition: transform 0.3s;
+    color: #9fb81a;
+    flex-shrink: 0;
+    margin-left: 10px;
+}
 
-        .modulo-answer {
-            display: none;
-            padding: 0 20px 15px;
-            font-size: 0.95rem;
-            color: #333;
-            flex-grow: 1;
-        }
+.modulo-answer {
+    display: none;
+    padding: 0 20px 15px;
+    font-size: 0.95rem;
+    color: #333;
+    flex-grow: 1;
+}
 
-        .modulo-item.active .modulo-answer {
-            display: block;
-        }
+.modulo-item.active .modulo-answer {
+    display: block;
+}
 
-        .modulo-item.active .modulo-icon {
-            transform: rotate(180deg);
-        }
+.modulo-item.active .modulo-icon {
+    transform: rotate(180deg);
+}
 
-        .modulo-answer ul {
-            list-style: none;
-            padding: 0;
-            margin-top: 10px;
-        }
+.modulo-answer ul {
+    list-style: none;
+    padding: 0;
+    margin-top: 10px;
+}
 
-        .modulo-answer ul li {
-            font-size: 0.9rem;
-            color: #555;
-            margin-bottom: 5px;
-            padding-left: 25px;
-            position: relative;
-            line-height: 1.5;
-        }
+.modulo-answer ul li {
+    font-size: 0.9rem;
+    color: #555;
+    margin-bottom: 5px;
+    padding-left: 25px;
+    position: relative;
+    line-height: 1.5;
+}
 
-        .modulo-answer ul li::before {
-            content: '✓';
-            color: #9fb81a;
-            font-weight: bold;
-            position: absolute;
-            left: 0;
-            top: 0;
-            line-height: inherit;
-        }
+.modulo-answer ul li::before {
+    content: '✓';
+    color: #9fb81a;
+    font-weight: bold;
+    position: absolute;
+    left: 0;
+    top: 0;
+    line-height: inherit;
+}
 
         /* BENEFÍCIOS DO CURSO */
         .porque {
@@ -1299,143 +1296,165 @@
     </section>
 
     <section class="conteudo-programatico">
-        <div class="container">
-            <h2>Conteúdo Programático</h2>
-            <p class="subtitulo">Um programa completo e estruturado para formar profissionais de excelência.</p>
+    <div class="container">
+        <h2>Conteúdo Programático</h2>
+        <p class="subtitulo">Um programa completo e estruturado para formar profissionais de excelência em pulverização com drones.</p>
 
-            <div class="conteudo-programatico-layout">
-                <div class="conteudo-programatico-info">
-                    <p class="introducao-conteudo">Nosso curso foi cuidadosamente estruturado para cobrir todos os aspectos essenciais da pulverização com drones, desde os fundamentos técnicos até as técnicas mais avançadas de aplicação e segurança. Com uma carga horária de 60 horas, divididas entre aulas teóricas e práticas, o programa aborda desde conceitos básicos de calibração e manejo de produtos até o uso de tecnologias avançadas de planejamento de voo e mapeamento para otimização, garantindo uma formação completa e atualizada. Ao final do curso, você estará preparado para planejar, executar e monitorar operações de pulverização profissional com drones, otimizando a aplicação de defensivos e insumos em diversos setores do agronegócio.</p>
+        <div class="conteudo-programatico-introducao">
+            <p class="introducao-conteudo">Nosso curso de Pulverização com Drones oferece treinamento abrangente, desde a teoria fundamental até a prática avançada no campo. Com 40 horas de carga horária (10h teóricas e 30h práticas), você aprenderá sobre legislação, calibração de equipamentos, técnicas de aplicação e análise de resultados. O programa inclui estudos de caso, planejamento de missões e operação real de drones de pulverização. Ao final, você estará capacitado para otimizar a aplicação de defensivos e fertilizantes, promovendo a sustentabilidade e a eficiência na agricultura moderna.</p>
 
-                    <div class="conteudo-programatico-cta">
-                        <a href="https://api.whatsapp.com/send?phone=5553991269559&text=Ol%C3%A1,%20estou%20no%20site%20da%20Drone%20Sul%20e%20gostaria%20de%20garantir%20minha%20vaga%20no%20curso%20de%20Mapeamento." class="btn verde">Garanta sua vaga</a>
+            <a href="https://api.whatsapp.com/send?phone=5553991269559&text=Ol%C3%A1,%20estou%20no%20site%20da%20Drone%20Sul%20e%20gostaria%20de%20garantir%20minha%20vaga%20no%20curso%20de%20Pulveriza%C3%A7%C3%A3o." class="btn verde conteudo-programatico-btn">Garanta sua vaga</a>
+        </div>
+        
+        <div class="modulos-duas-colunas">
+            <div class="modulos-coluna">
+                <div class="modulo-item">
+                    <button class="modulo-question">
+                        <h3>Módulo 1: Introdução à Pulverização com Drones</h3>
+                        <span class="modulo-icon">+</span>
+                    </button>
+                    <div class="modulo-answer">
+                        <ul>
+                            <li>Vantagens da pulverização aérea com drones</li>
+                            <li>Componentes de um sistema de pulverização com drones</li>
+                            <li>Tipos de drones e seus usos na agricultura</li>
+                            <li>Legislação e regulamentação da pulverização aérea (ANAC, MAPA)</li>
+                        </ul>
                     </div>
                 </div>
+                <div class="modulo-item">
+                    <button class="modulo-question">
+                        <h3>Módulo 2: Equipamentos e Calibração</h3>
+                        <span class="modulo-icon">+</span>
+                    </button>
+                    <div class="modulo-answer">
+                        <ul>
+                            <li>Manutenção e inspeção de drones agrícolas</li>
+                            <li>Seleção e uso de bicos e reservatórios</li>
+                            <li>Calibração do sistema de pulverização</li>
+                            <li>Preparação de calda e segurança na manipulação de produtos</li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="modulo-item">
+                    <button class="modulo-question">
+                        <h3>Módulo 3: Planejamento de Missão</h3>
+                        <span class="modulo-icon">+</span>
+                    </button>
+                    <div class="modulo-answer">
+                        <ul>
+                            <li>Ferramentas de planejamento de voo (aplicativos e softwares)</li>
+                            <li>Definição de rotas, altura de voo e espaçamento de linha</li>
+                            <li>Análise de topografia e obstáculos</li>
+                            <li>Manejo integrado de pragas e doenças (MIP/MID)</li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="modulo-item">
+                    <button class="modulo-question">
+                        <h3>Módulo 4: Operação Prática e Segurança</h3>
+                        <span class="modulo-icon">+</span>
+                    </button>
+                    <div class="modulo-answer">
+                        <ul>
+                            <li>Técnicas de decolagem e pouso com drones carregados</li>
+                            <li>Pilotagem autônoma e manual para pulverização</li>
+                            <li>Protocolos de segurança em campo</li>
+                            <li>Primeiros socorros e emergências</li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="modulo-item">
+                    <button class="modulo-question">
+                        <h3>Módulo 5: Técnicas de Aplicação</h3>
+                        <span class="modulo-icon">+</span>
+                    </button>
+                    <div class="modulo-answer">
+                        <ul>
+                            <li>Pulverização em diferentes culturas (grãos, frutas, hortaliças)</li>
+                            <li>Controle de deriva e uniformidade de aplicação</li>
+                            <li>Aplicação em áreas de difícil acesso</li>
+                            <li>Otimização de tempo e recursos</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
 
-                <div class="conteudo-programatico-grid">
-                    <div class="modulo-item">
-                        <button class="modulo-question">
-                            <h3>Módulo 1: Introdução ao Mapeamento com Drones</h3>
-                            <span class="modulo-icon">+</span>
-                        </button>
-                        <div class="modulo-answer">
-                            <ul>
-                                <li>Fundamentos de cartografia e sensoriamento remoto</li>
-                                <li>Princípios de cartografia e sistemas de coordenadas</li>
-                                <li>Tipos de drones para mapeamento</li>
-                                <li>Legislação e regulamentação para operação de drones</li>
-                            </ul>
-                        </div>
+            <div class="modulos-coluna">
+                <div class="modulo-item">
+                    <button class="modulo-question">
+                        <h3>Módulo 6: Análise de Dados e Relatórios</h3>
+                        <span class="modulo-icon">+</span>
+                    </button>
+                    <div class="modulo-answer">
+                        <ul>
+                            <li>Coleta e análise de dados pós-pulverização</li>
+                            <li>Elaboração de relatórios de aplicação</li>
+                            <li>Monitoramento da eficácia da pulverização</li>
+                            <li>Integração com sistemas de gestão agrícola</li>
+                        </ul>
                     </div>
-
-                    <div class="modulo-item">
-                        <button class="modulo-question">
-                            <h3>Módulo 2: Equipamentos e Sensores</h3>
-                            <span class="modulo-icon">+</span>
-                        </button>
-                        <div class="modulo-answer">
-                            <ul>
-                                <li>Entenda os drones específicos para mapeamento, câmeras e sensores.</li>
-                            </ul>
-                        </div>
+                </div>
+                <div class="modulo-item">
+                    <button class="modulo-question">
+                        <h3>Módulo 7: Tecnologias Avançadas</h3>
+                        <span class="modulo-icon">+</span>
+                    </button>
+                    <div class="modulo-answer">
+                        <ul>
+                            <li>Sistemas RTK/PPK em pulverização</li>
+                            <li>Sensores multiespectrais para análise de lavouras</li>
+                            <li>Inteligência artificial e automação na agricultura</li>
+                            <li>Drones para monitoramento de saúde da planta</li>
+                        </ul>
                     </div>
-
-                    <div class="modulo-item">
-                        <button class="modulo-question">
-                            <h3>Módulo 3: Planejamento e Execução de Voo</h3>
-                            <span class="modulo-icon">+</span>
-                        </button>
-                        <div class="modulo-answer">
-                            <ul>
-                                <li>Como planejar missões de voo eficientes e seguras para coleta de dados.</li>
-                            </ul>
-                        </div>
+                </div>
+                <div class="modulo-item">
+                    <button class="modulo-question">
+                        <h3>Módulo 8: Sustentabilidade e Boas Práticas</h3>
+                        <span class="modulo-icon">+</span>
+                    </button>
+                    <div class="modulo-answer">
+                        <ul>
+                            <li>Minimização de impacto ambiental da pulverização</li>
+                            <li>Uso consciente de defensivos</li>
+                            <li>Descarte correto de resíduos</li>
+                            <li>Ética profissional na agricultura de precisão</li>
+                        </ul>
                     </div>
-
-                    <div class="modulo-item">
-                        <button class="modulo-question">
-                            <h3>Módulo 4: Pontos de Controle e Georreferenciamento</h3>
-                            <span class="modulo-icon">+</span>
-                        </button>
-                        <div class="modulo-answer">
-                            <ul>
-                                <li>Aprenda a usar Pontos de Controle Terrestre (GCPs) e técnicas de georreferenciamento (RTK/PPK).</li>
-                            </ul>
-                        </div>
+                </div>
+                <div class="modulo-item">
+                    <button class="modulo-question">
+                        <h3>Módulo 9: Manutenção e Armazenamento</h3>
+                        <span class="modulo-icon">+</span>
+                    </button>
+                    <div class="modulo-answer">
+                        <ul>
+                            <li>Limpeza e conservação do drone e acessórios</li>
+                            <li>Armazenamento seguro de baterias e equipamentos</li>
+                            <li>Diagnóstico de pequenos problemas e soluções</li>
+                            <li>Atualizações de firmware e software</li>
+                        </ul>
                     </div>
-
-                    <div class="modulo-item">
-                        <button class="modulo-question">
-                            <h3>Módulo 5: Processamento Fotogramétrico</h3>
-                            <span class="modulo-icon">+</span>
-                        </button>
-                        <div class="modulo-answer">
-                            <ul>
-                                <li>Técnicas de processamento de imagens para gerar produtos cartográficos.</li>
-                            </ul>
-                        </div>
-                    </div>
-
-                    <div class="modulo-item">
-                        <button class="modulo-question">
-                            <h3>Módulo 6: Produtos Cartográficos e Aplicações</h3>
-                            <span class="modulo-icon">+</span>
-                        </button>
-                        <div class="modulo-answer">
-                            <ul>
-                                <li>Criação e análise de ortomosaicos, modelos 3D, MDT, MDS e suas aplicações.</li>
-                            </ul>
-                        </div>
-                    </div>
-
-                    <div class="modulo-item">
-                        <button class="modulo-question">
-                            <h3>Módulo 7: (A definir)</h3>
-                            <span class="modulo-icon">+</span>
-                        </button>
-                        <div class="modulo-answer">
-                            <ul>
-                                <li>Conteúdo adicional ou a ser detalhado.</li>
-                            </ul>
-                        </div>
-                    </div>
-                    <div class="modulo-item">
-                        <button class="modulo-question">
-                            <h3>Módulo 8: (A definir)</h3>
-                            <span class="modulo-icon">+</span>
-                        </button>
-                        <div class="modulo-answer">
-                            <ul>
-                                <li>Conteúdo adicional ou a ser detalhado.</li>
-                            </ul>
-                        </div>
-                    </div>
-                    <div class="modulo-item">
-                        <button class="modulo-question">
-                            <h3>Módulo 9: (A definir)</h3>
-                            <span class="modulo-icon">+</span>
-                        </button>
-                        <div class="modulo-answer">
-                            <ul>
-                                <li>Conteúdo adicional ou a ser detalhado.</li>
-                            </ul>
-                        </div>
-                    </div>
-                    <div class="modulo-item">
-                        <button class="modulo-question">
-                            <h3>Módulo 10: (A definir)</h3>
-                            <span class="modulo-icon">+</span>
-                        </button>
-                        <div class="modulo-answer">
-                            <ul>
-                                <li>Conteúdo adicional ou a ser detalhado.</li>
-                            </ul>
-                        </div>
+                </div>
+                <div class="modulo-item">
+                    <button class="modulo-question">
+                        <h3>Módulo 10: Oportunidades de Mercado</h3>
+                        <span class="modulo-icon">+</span>
+                    </button>
+                    <div class="modulo-answer">
+                        <ul>
+                            <li>Modelos de negócio em pulverização com drones</li>
+                            <li>Serviços para diferentes setores (agricultura, silvicultura)</li>
+                            <li>Como precificar seus serviços</li>
+                            <li>Marketing e prospecção de clientes</li>
+                        </ul>
                     </div>
                 </div>
             </div>
         </div>
-    </section>
+    </div>
+</section>
 
     <section class="porque" id="beneficios">
         <div class="container">
