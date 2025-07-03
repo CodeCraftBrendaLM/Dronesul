@@ -895,7 +895,7 @@
     .modulo-answer ul li {
         font-size: 0.8rem;
     }
-}
+
 
             /* BENEFÍCIOS DO CURSO */
             .porque {
@@ -912,7 +912,7 @@
       }
 
       .grid-cards {
-        grid-template-columns: repeat(3, 1fr);
+        grid-template-columns: 1fr; /* Uma coluna */
         gap: 20px;
         margin-top: 25px;
       }
@@ -997,6 +997,7 @@
                 border-radius: 20px;
                 font-size: 0.9rem;
             }
+        }
 
             /* CONTATO - Estilos para Desktop */
     .contato {
@@ -1728,6 +1729,41 @@
             © Copyright | Todos os Direitos Reservados | Desenvolvido por CodeCraftBrendaLM
         </p>
     </footer>
+
+    <style>
+        @media (max-width: 768px) {
+  .rodape-layout {
+    grid-template-columns: 1fr;
+    text-align: center;
+    gap: 20px;
+  }
+
+  .esquerda, .direita, .central {
+    text-align: center;
+  }
+
+  .coluna {
+    min-width: auto;
+  }
+}
+
+@media (max-width: 600px) {
+  .topo-voltar {
+    flex-direction: row;
+    justify-content: space-between;
+    flex-wrap: nowrap;
+  }
+
+  .btn-voltar {
+    font-size: 0.9rem;
+    padding: 8px 12px;
+  }
+
+  .logo-header {
+    height: 50px; /* ajuste de tamanho se quiser */
+  }
+}
+    </style>
 
 </body>
 </html>
