@@ -181,10 +181,19 @@
 
 /* Container do texto ao lado do ícone */
 .texto-card {
-    text-align: center;
+    text-align: left;
 }
 
-/* Título do benefício */
+
+    .texto-card ul li {
+      margin-bottom: 10px;
+      font-size: 0.95rem;
+      color: #000000;
+      list-style: none; /* Removido para usar o customizado no mobile */
+      text-align: left; 
+    }
+
+/* Título do serviço */
 .texto-card h3 {
     font-size: 16px;
     font-weight: bold;
@@ -192,10 +201,10 @@
     margin-bottom: 6px;
 }
 
-/* Descrição do benefício */
+/* Descrição do serviço */
 .texto-card p {
     font-size: 14px;
-    color: #333333;
+    color: #000000ff;
     line-height: 1.4;
     margin: 0;
 }
@@ -928,7 +937,7 @@
     <div class="grid-cards">
       <div class="card-info">
         <div class="icone-circulo cor-verde">
-          <img src="../src/images/icone1.png" alt="Instrutores">
+          <img src="../src/images/icone10.png" alt="Instrutores">
         </div>
         <div class="texto-card">
           <h3>Diagnóstico e Orçamento</h3>
@@ -944,7 +953,7 @@
 
       <div class="card-info">
         <div class="icone-circulo cor-azul">
-          <img src="../src/images/icone2.png" alt="Equipamentos">
+          <img src="../src/images/icone11.png" alt="Equipamentos">
         </div>
         <div class="texto-card">
           <h3>Reparo de Componentes</h3>
@@ -963,7 +972,7 @@
 
       <div class="card-info">
         <div class="icone-circulo cor-verde">
-          <img src="../src/images/icone3.png" alt="Certificado">
+          <img src="../src/images/icone12.png" alt="Certificado">
         </div>
         <div class="texto-card">
           <h3>Calibração e Ajustes</h3>
