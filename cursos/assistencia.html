@@ -123,6 +123,83 @@
             background-color: #08828f;
         }
 
+        /*seção serviços realizados*/
+        .grid-cards {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 30px;
+    margin-top: 40px;
+}
+
+/* Card branco com borda arredondada e ícone à esquerda  (movimento)*/
+.card-info {
+    background-color: #ffffff;
+    border: 2px solid #08828f;
+    border-radius: 12px;
+    padding: 20px;
+    display: flex;
+    align-items: flex-start;
+    gap: 20px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    cursor: default;
+}
+
+.card-info:hover {
+    transform: translateY(-6px);
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.12);
+}
+
+/* Círculo que envolve o ícone (pode ter cor verde ou azul) */
+.icone-circulo {
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    background-color: #ccc;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+}
+
+/* Ícone PNG dentro do círculo */
+.icone-circulo img {
+    width: 50px;
+    height: 50px;
+    object-fit: fill;
+}
+
+/* Cor de fundo verde dos círculos (intercalado) */
+.cor-verde {
+    background-color: #9fb81a;
+}
+
+/* Cor de fundo azul dos círculos (intercalado) */
+.cor-azul {
+    background-color: #08828f;
+}
+
+/* Container do texto ao lado do ícone */
+.texto-card {
+    text-align: left;
+}
+
+/* Título do benefício */
+.texto-card h3 {
+    font-size: 16px;
+    font-weight: bold;
+    color: #0e3346;
+    margin-bottom: 6px;
+}
+
+/* Descrição do benefício */
+.texto-card p {
+    font-size: 14px;
+    color: #333333;
+    line-height: 1.4;
+    margin: 0;
+}
+
         /* SEÇÃO SOBRE A ASSISTÊNCIA */
         .sobre-assistencia {
             padding: 60px 20px;
@@ -844,6 +921,68 @@
         </div>
     </section>
 
+    <section class="porque" id="beneficios">
+  <div class="container">
+    <h2>Serviços realizados</h2>
+
+    <div class="grid-cards">
+      <div class="card-info">
+        <div class="icone-circulo cor-verde">
+          <img src="src/images/icone1.png" alt="Instrutores">
+        </div>
+        <div class="texto-card">
+          <h3>Diagnóstico e Orçamento</h3>
+          <p>Realizamos uma análise completa do seu drone para identificar todos os problemas e fornecer um orçamento detalhado e transparente antes de iniciar qualquer reparo.</p>
+          <ul>
+          <li>Diagnóstico visual e eletrônico</li>
+          <li>Testes de funcionamento</li>
+          <li>Orçamento sem compromisso</li>
+          <li>Prazo estimado para reparo</li>
+        </ul>
+        </div>
+      </div>
+
+      <div class="card-info">
+        <div class="icone-circulo cor-azul">
+          <img src="src/images/icone2.png" alt="Equipamentos">
+        </div>
+        <div class="texto-card">
+          <h3>Reparo de Componentes</h3>
+          <p>Consertamos ou substituímos componentes danificados do seu drone, utilizando peças originais ou de qualidade equivalente para garantir o melhor desempenho.</p>
+          <ul>
+          <li>Substituição de hélices</li>
+          <li>Reparo de motores</li>
+          <li>Manutenção de gimbal</li>
+          <li>Troca de câmeras</li>
+          <li>Reparo de casco e estrutura</li>
+          <li>Substituição de trens de pouso</li>
+          <li>Reparo de placas eletrônicas</li>
+        </ul>
+        </div>
+      </div>
+
+      <div class="card-info">
+        <div class="icone-circulo cor-verde">
+          <img src="src/images/icone3.png" alt="Certificado">
+        </div>
+        <div class="texto-card">
+          <h3>Calibração e Ajustes</h3>
+          <p>Realizamos calibrações precisas para garantir que seu drone funcione corretamente e com estabilidade durante o voo.</p>
+          <ul>
+          <li>Calibração de sensores (GPS, bússola, IMU)</li>
+          <li>Calibração de gimbal</li>
+          <li>Ajuste de controladores de voo</li>
+          <li>Balanceamento de hélices</li>
+          <li>Configuração de parâmetros de voo</li>
+        </ul>
+        </div>
+      </div>
+      
+      </div>
+    </div>
+  </div>
+</section>
+
     <section class="sobre-assistencia">
         <div class="container">
             <h2>Confie em quem entende do assunto.</h2>
@@ -870,51 +1009,51 @@
 
 
     <section class="faq" id="faq">
-        <div class="container">
-            <h2>Perguntas Frequentes</h2>
-            <p class="subtitulo">Tire suas dúvidas sobre o serviço de assistência</p>
+  <div class="container">
+    <h2>Perguntas Frequentes</h2>
+    <p class="subtitulo">Tire suas dúvidas sobre o curso antes de se inscrever</p>
 
-            <div class="faq-item">
-                <button class="faq-question">
-                    <span>Quais tipos de drones vocês reparam?</span>
-                    <span class="faq-icon">+</span>
-                </button>
-                <div class="faq-answer">
-                    <p>Realizamos reparos em drones de diversas marcas e modelos, desde drones recreativos até equipamentos profissionais para mapeamento, pulverização e inspeção. Entre em contato para verificar a compatibilidade do seu modelo.</p>
-                </div>
-            </div>
+    <div class="faq-item">
+      <button class="faq-question">
+        <span>Preciso ter experiência prévia com drones?</span>
+        <span class="faq-icon">+</span>
+      </button>
+      <div class="faq-answer">
+        <p>Não! O curso é básico e voltado para iniciantes. Você aprenderá tudo do zero.</p>
+      </div>
+    </div>
 
-            <div class="faq-item">
-                <button class="faq-question">
-                    <span>Quanto tempo leva um reparo?</span>
-                    <span class="faq-icon">+</span>
-                </button>
-                <div class="faq-answer">
-                    <p>O tempo de reparo varia de acordo com a complexidade do problema e a disponibilidade de peças. Após o diagnóstico, forneceremos uma estimativa precisa do prazo de entrega.</p>
-                </div>
-            </div>
+    <div class="faq-item">
+      <button class="faq-question">
+        <span>O curso é presencial ou online?</span>
+        <span class="faq-icon">+</span>
+      </button>
+      <div class="faq-answer">
+        <p>O curso é presencial, com aulas práticas supervisionadas por instrutores qualificados.</p>
+      </div>
+    </div>
 
-            <div class="faq-item">
-                <button class="faq-question">
-                    <span>Vocês oferecem garantia pelo serviço?</span>
-                    <span class="faq-icon">+</span>
-                </button>
-                <div class="faq-answer">
-                    <p>Sim, todos os nossos serviços de assistência técnica possuem garantia. O período da garantia será informado no orçamento e varia de acordo com o tipo de reparo e peças utilizadas.</p>
-                </div>
-            </div>
+    <div class="faq-item">
+      <button class="faq-question">
+        <span>Posso parcelar o pagamento do curso?</span>
+        <span class="faq-icon">+</span>
+      </button>
+      <div class="faq-answer">
+        <p>Sim, aceitamos parcelamento no cartão em até 10x.</p>
+      </div>
+    </div>
 
-            <div class="faq-item">
-                <button class="faq-question">
-                    <span>É necessário agendar para levar o drone?</span>
-                    <span class="faq-icon">+</span>
-                </button>
-                <div class="faq-answer">
-                    <p>Recomendamos que você entre em contato previamente para agendar sua visita. Assim, podemos garantir um atendimento rápido e eficiente, evitando esperas desnecessárias.</p>
-                </div>
-            </div>
-        </div>
-    </section>
+    <div class="faq-item">
+      <button class="faq-question">
+        <span>Recebo certificado após o curso?</span>
+        <span class="faq-icon">+</span>
+      </button>
+      <div class="faq-answer">
+        <p>Sim. Você receberá um certificado de conclusão que o capacita como piloto.</p>
+      </div>
+    </div>
+  </div>
+</section>
 
     <script>
         // Script para o FAQ (já existente, mantido)
@@ -981,44 +1120,6 @@
 
     <footer class="rodape">
         <img src="../src/images/logo.png" alt="Logo Dronesul" class="logo-footer">
-
-        <p class="missao">
-            A Dronesul foi criada para ajudar as pessoas a realizarem seus sonhos de pilotar Drones.<br>
-            Nossa missão é ajudá-lo a ser um piloto de drone inteligente e confiante.
-        </p>
-
-        <div class="rodape-layout">
-            <div class="coluna">
-                <h4>Cursos</h4>
-                <ul>
-                    <li><a href="#">Curso Básico</a></li>
-                    <li><a href="#">Curso Avançado</a></li>
-                    <li><a href="#">Curso Profissional</a></li>
-                    <li><a href="#">Curso de Mapeamento</a></li>
-                    <li><a href="#">Curso de Pulverização</a></li>
-                </ul>
-            </div>
-
-            <div class="coluna central">
-                <h4>Contato</h4>
-                <p>Praça 20 de Setembro, 301 - Centro - Pelotas/RS</p>
-                <p>(53) 99126-9559</p>
-                <p>contato@dronesul.com.br</p>
-                <p>Segunda a Sexta: 8h às 18h</p>
-            </div>
-
-            <div class="coluna direita">
-                <h4>Navegação</h4>
-                <ul>
-                    <li><a href="#home">Home</a></li>
-                    <li><a href="#servicos">Serviços</a></li>
-                    <li><a href="#beneficios">Benefícios</a></li>
-                    <li><a href="#depoimentos">Depoimentos</a></li>
-                    <li><a href="#galeria">Galeria</a></li>
-                    <li><a href="#contato">Contato</a></li>
-                </ul>
-            </div>
-        </div>
 
         <p class="rodape-copy">
             © Copyright | Todos os Direitos Reservados | Desenvolvido por CodeCraftBrendaLM
