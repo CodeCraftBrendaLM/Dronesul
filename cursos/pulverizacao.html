@@ -644,89 +644,41 @@
 
         /* RODAPÉ */
         .rodape {
-            background-color: #e9f2f3;
-            padding: 60px 40px 20px;
-            text-align: center;
-        }
+    background-color: #e9f2f3;
+    padding: 5px 20px 5px;
+    text-align: center;
+}
 
-        .logo-footer {
-            width: 140px;
-            margin: 0 auto 20px;
-            display: block;
-        }
+.logo-footer {
+    width: 140px;
+    margin: -25px auto -30px;
+    display: block;
+}
 
-        .missao {
-            font-size: 15px;
-            color: #0e3346;
-            margin-bottom: 40px;
-            max-width: 700px;
-            margin-left: auto;
-            margin-right: auto;
-        }
+.rodape-layout {
+    display: grid;
+    align-items: flex-start;
+    gap: 40px;
+    max-width: 1100px;
+    margin: 0 auto;
+    text-align: left;
+}
 
-        .rodape-layout {
-            display: grid;
-            grid-template-columns: 1fr 1fr 1fr;
-            align-items: flex-start;
-            gap: 40px;
-            max-width: 1100px;
-            margin: 0 auto;
-            text-align: left;
-        }
 
-        .coluna {
-            min-width: 200px;
-        }
+.rodape-copy {
+    border-top: 1px solid #ccc;
+    margin-top: 10px;
+    padding-top: 15px;
+    font-size: 13px;
+    color: #666;
+}
 
-        .coluna h4 {
-            font-size: 16px;
-            color: #0e3346;
-            margin-bottom: 12px;
-        }
-
-        .coluna p,
-        .coluna li {
-            font-size: 14px;
-            color: #333;
-            margin-bottom: 6px;
-            list-style: none;
-        }
-
-        .coluna ul {
-            padding: 0;
-            margin: 0;
-        }
-
-        .coluna a {
-            color: #08828f;
-            text-decoration: none;
-            transition: color 0.3s;
-        }
-
-        .coluna a:hover {
-            color: #0599ab;
-        }
-
-        /* Centraliza a coluna do meio */
-        .central {
-            text-align: center;
-        }
-
-        /* Alinha cursos à esquerda e navegação à direita */
-        .esquerda {
-            text-align: left;
-        }
-        .direita {
-            text-align: right;
-        }
-
-        .rodape-copy {
-            border-top: 1px solid #ccc;
-            margin-top: 40px;
-            padding-top: 15px;
-            font-size: 13px;
-            color: #666;
-        }
+/* No seu main.css */
+footer.rodape { /* Adicionando o seletor 'footer' para aumentar a especificidade */
+    background-color: #e9f2f3;
+    padding: 1px 0px 1px; /* Seus valores desejados */
+    text-align: center;
+}
 
         /* ========================================================= */
         /* MEDIA QUERIES PARA RESPONSIVIDADE (MOBILE-FIRST APPROACH) */
@@ -1582,7 +1534,7 @@
     <section class="cta">
         <div class="container">
             <h2>Pronto para decolar sua carreira?</h2>
-            <p>Entre em contato hoje mesmo e agende uma visita às nossas instalações.<br>O primeiro voo de demonstração é gratuito!</p>
+            <p>Entre em contato hoje mesmo e agende uma visita às nossas instalações.</p>
             <a href="https://api.whatsapp.com/send?phone=5553991269559&text=Olá,%20estou%20no%20site%20da%20Drone%20Sul%20e%20gostaria%20de%20algumas%20informa%C3%A7%C3%B5es…" class="btn-whats">Fale Conosco</a>
         </div>
     </section>

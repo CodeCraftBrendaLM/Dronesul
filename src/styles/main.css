@@ -648,28 +648,18 @@ body {
 
 .rodape {
     background-color: #e9f2f3;
-    padding: 60px 40px 20px;
+    padding: 5px 20px 5px;
     text-align: center;
 }
 
 .logo-footer {
     width: 140px;
-    margin: 0 auto 20px;
+    margin: -25px auto -30px;
     display: block;
-}
-
-.missao {
-    font-size: 15px;
-    color: #0e3346;
-    margin-bottom: 40px;
-    max-width: 700px;
-    margin-left: auto;
-    margin-right: auto;
 }
 
 .rodape-layout {
     display: grid;
-    grid-template-columns: 1fr 1fr 1fr;
     align-items: flex-start;
     gap: 40px;
     max-width: 1100px;
@@ -677,59 +667,22 @@ body {
     text-align: left;
 }
 
-.coluna {
-    min-width: 200px;
-}
-
-.coluna h4 {
-    font-size: 16px;
-    color: #0e3346;
-    margin-bottom: 12px;
-}
-
-.coluna p,
-.coluna li {
-    font-size: 14px;
-    color: #333;
-    margin-bottom: 6px;
-    list-style: none;
-}
-
-.coluna ul {
-    padding: 0;
-    margin: 0;
-}
-
-.coluna a {
-    color: #08828f;
-    text-decoration: none;
-    transition: color 0.3s;
-}
-
-.coluna a:hover {
-    color: #0599ab;
-}
-
-/* Centraliza a coluna do meio */
-.central {
-    text-align: center;
-}
-
-/* Alinha cursos à esquerda e navegação à direita */
-.esquerda {
-    text-align: left;
-}
-.direita {
-    text-align: right;
-}
 
 .rodape-copy {
     border-top: 1px solid #ccc;
-    margin-top: 40px;
+    margin-top: 10px;
     padding-top: 15px;
     font-size: 13px;
     color: #666;
 }
+
+/* No seu main.css */
+footer.rodape { /* Adicionando o seletor 'footer' para aumentar a especificidade */
+    background-color: #e9f2f3;
+    padding: 1px 0px 1px; /* Seus valores desejados */
+    text-align: center;
+}
+
 
 /* =============================== */
 /* ESTILOS PARA MOBILE MENU (Hambúrguer)   */
@@ -955,7 +908,7 @@ body {
     }
 
     /* Seções com padding geral */
-    .servicos, .porque, .depoimentos, .galeria, .contato, .cta, .rodape {
+    .servicos, .porque, .depoimentos, .galeria, .contato, .cta {
         padding: 60px 20px;
     }
 
@@ -1125,11 +1078,5 @@ body {
         font-size: 12px;
     }
 
-    #servicos,
-    #beneficios,
-    #depoimentos,
-    #galeria,
-    #contato {
-        scroll-margin-top: 90px;
-    }
+   
 }
