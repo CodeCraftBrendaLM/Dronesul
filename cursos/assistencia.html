@@ -229,7 +229,7 @@
         .gallery {
             display: grid;
             grid-template-columns: repeat(3, 1fr); /* FORÇA 3 COLUNAS POR LINHA */
-            gap: 20px;
+            gap: 35px;
             margin-top: 40px;
         }
 
@@ -239,6 +239,14 @@
             object-fit: cover; /* Garante que a imagem preencha o espaço sem distorcer, cortando se necessário */
             border-radius: 8px; /* Bordas arredondadas */
             box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+            border: 2px solid #08828f;
+            transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out; 
+            cursor: pointer; /* Indica que a imagem é interativa */
+        }
+
+        .gallery img:hover {
+            transform: scale(1.05); /* Aumenta a imagem em 5% */
+            box-shadow: 0 8px 16px rgba(0,0,0,0.2); /* Sombra mais intensa para dar a impressão de elevação */
         }
 
 
