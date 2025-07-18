@@ -80,8 +80,8 @@ body {
 
 /* Botão "Fale Conosco" DESKTOP */
 .btn.fale-conosco-desktop { /* Nova classe para o botão de desktop */
-    background-color: #0599ab;
-    color: white;
+    background-color: #9fb81a;
+    color: #ffffff;
     font-weight: bold;
     padding: 10px 18px;
     border-radius: 8px;
@@ -90,7 +90,8 @@ body {
 }
 
 .btn.fale-conosco-desktop:hover {
-    background-color: #08828f;
+    background-color: #ffffff;
+    color:#ffffff;
     transform: scale(1.05);
 }
 
