@@ -234,10 +234,10 @@
         }
 
         .gallery img {
-            width: 100%;
-            height: 250px; /* Altura fixa para as imagens da galeria no desktop */
-            object-fit: cover;
-            border-radius: 8px;
+            width: 100%; /* Garante que a imagem ocupe 100% da largura da sua célula do grid */
+            aspect-ratio: 1 / 1; /* FORÇA A PROPORÇÃO 1:1 (QUADRADA) */
+            object-fit: cover; /* Garante que a imagem preencha o espaço sem distorcer, cortando se necessário */
+            border-radius: 8px; /* Bordas arredondadas */
             box-shadow: 0 4px 8px rgba(0,0,0,0.1);
         }
 
@@ -578,7 +578,7 @@ footer.rodape { /* Adicionando o seletor 'footer' para aumentar a especificidade
 
             /* SEÇÃO SOBRE A ASSISTÊNCIA */
             .sobre-assistencia {
-                padding: 40px 15px;
+                padding: 50px 50px 50px;
             }
 
             .sobre-assistencia h2 {
@@ -591,14 +591,19 @@ footer.rodape { /* Adicionando o seletor 'footer' para aumentar a especificidade
                 margin-bottom: 20px;
             }
 
+
             .gallery {
-                grid-template-columns: repeat(2, 1fr); /* 2 colunas em tablets/mobile */
-                gap: 15px;
-                margin-top: 25px;
+                grid-template-columns: repeat(2, 1fr); /* Duas colunas para tablets */
+                gap: 15px; /* Ajuste o espaçamento */
             }
 
             .gallery img {
-                height: 180px; /* Ajusta altura da imagem da galeria no mobile */
+            width: 100%; /* Ajusta altura da imagem da galeria no mobile */
+            aspect-ratio: 1 / 1; /* FORÇA A PROPORÇÃO 1:1 (QUADRADA) */
+            object-fit: cover; /* Garante que a imagem preencha o espaço sem distorcer, cortando se necessário */
+            border-radius: 8px; /* Bordas arredondadas */
+            box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+
             }
 
             /* CTA NO MEIO DA PÁGINA */
@@ -813,14 +818,13 @@ footer.rodape { /* Adicionando o seletor 'footer' para aumentar a especificidade
             }
             .sobre-assistencia p {
                 font-size: 0.85rem;
+                padding: 30px 15px;
             }
             .gallery {
                 grid-template-columns: 1fr;
                 gap: 10px;
             }
-            .gallery img {
-                height: 120px;
-            }
+            
 
             /* CTA Meio */
             .cta-meio h2 {
