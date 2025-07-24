@@ -1490,7 +1490,148 @@ footer.rodape { /* Adicionando o seletor 'footer' para aumentar a especificidade
         </form>
     </div>
 </section>
+<style> 
+    /* Estilos para a seção do formulário */
+.formulario-inscricao {
+    padding: 80px 0; /* Aumenta o espaçamento interno superior e inferior */
+    background-color: #f0f4f8; /* Uma cor de fundo mais suave e moderna */
+    text-align: center; /* Centraliza o texto e o formulário */
+}
 
+.formulario-inscricao .container {
+    max-width: 700px; /* Largura máxima do conteúdo para melhor leitura */
+    margin: 0 auto; /* Centraliza o container */
+    padding: 0 25px; /* Espaçamento interno nas laterais */
+}
+
+.formulario-inscricao h2 {
+    font-size: 2.8em; /* Aumenta o tamanho do título */
+    color: #2c3e50; /* Cor de título mais escura e profissional */
+    margin-bottom: 15px;
+    font-weight: 700; /* Negrito para o título */
+}
+
+.formulario-inscricao .subtitulo {
+    font-size: 1.3em;
+    color: #555;
+    margin-bottom: 50px; /* Aumenta o espaçamento abaixo do subtítulo */
+    line-height: 1.5; /* Melhor espaçamento entre linhas */
+}
+
+/* Estilos para o formulário em si */
+.form-curso {
+    background-color: #ffffff; /* Fundo branco para o formulário */
+    padding: 50px; /* Aumenta o padding interno do formulário */
+    border-radius: 12px; /* Bordas mais arredondadas */
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.1); /* Sombra mais pronunciada */
+    text-align: left; /* Alinha o texto dos campos à esquerda */
+    border: 1px solid #e0e0e0; /* Borda sutil */
+}
+
+/* Estilos para cada grupo de campo (label + input) */
+.form-group {
+    margin-bottom: 25px; /* Aumenta o espaçamento entre os grupos de campo */
+}
+
+.form-group label {
+    display: block; /* Faz o label ocupar a linha inteira */
+    font-weight: 600; /* Deixa o label um pouco mais negrito */
+    margin-bottom: 10px; /* Espaçamento entre label e input */
+    color: #444; /* Cor do label */
+    font-size: 1.05em;
+}
+
+.form-group input[type="text"],
+.form-group input[type="email"],
+.form-group input[type="tel"],
+.form-group input[type="text"] /* Para o campo de endereço */ {
+    width: 100%; /* Ocupa 100% da largura do pai */
+    padding: 14px 18px; /* Aumenta o padding interno dos campos */
+    border: 1px solid #ccc; /* Cor da borda mais neutra */
+    border-radius: 7px; /* Bordas dos campos arredondadas */
+    font-size: 1.1em; /* Tamanho da fonte dos campos */
+    box-sizing: border-box; /* Garante que padding e borda não aumentem a largura total */
+    transition: border-color 0.3s ease, box-shadow 0.3s ease; /* Transição suave para foco */
+}
+
+/* Estilo para o campo em foco */
+.form-group input[type="text"]:focus,
+.form-group input[type="email"]:focus,
+.form-group input[type="tel"]:focus {
+    border-color: #2ecc71; /* Cor da borda ao focar */
+    box-shadow: 0 0 8px rgba(46, 204, 113, 0.3); /* Sombra ao focar */
+    outline: none; /* Remove o contorno padrão do navegador */
+}
+
+/* Estilo para o botão de envio */
+.btn.verde {
+    display: block; /* Faz o botão ocupar a largura total do formulário */
+    width: 100%; /* Garante que ocupe 100% */
+    padding: 18px 30px; /* Aumenta o padding do botão */
+    background-color: #2ecc71; /* Verde mais vibrante */
+    color: white;
+    text-decoration: none;
+    border: none;
+    border-radius: 8px; /* Bordas mais arredondadas para o botão */
+    font-size: 1.2em; /* Aumenta o tamanho da fonte do botão */
+    font-weight: 600; /* Deixa o texto do botão mais negrito */
+    cursor: pointer;
+    transition: background-color 0.3s ease, transform 0.2s ease; /* Transições suaves */
+    margin-top: 30px; /* Espaço acima do botão */
+    letter-spacing: 0.5px; /* Pequeno espaçamento entre as letras */
+}
+
+.btn.verde:hover {
+    background-color: #27ae60; /* Verde um pouco mais escuro ao passar o mouse */
+    transform: translateY(-2px); /* Efeito de leve levantamento ao passar o mouse */
+}
+
+/* Media Queries para Responsividade (ajuste para telas menores) */
+@media (max-width: 768px) {
+    .formulario-inscricao {
+        padding: 50px 0;
+    }
+    .formulario-inscricao h2 {
+        font-size: 2.2em;
+    }
+    .formulario-inscricao .subtitulo {
+        font-size: 1.1em;
+        margin-bottom: 30px;
+    }
+    .form-curso {
+        padding: 30px;
+        margin: 0 15px; /* Adiciona uma margem nas laterais em telas menores */
+    }
+    .form-group {
+        margin-bottom: 20px;
+    }
+    .form-group label {
+        font-size: 1em;
+    }
+    .form-group input[type="text"],
+    .form-group input[type="email"],
+    .form-group input[type="tel"] {
+        padding: 10px 12px;
+        font-size: 1em;
+    }
+    .btn.verde {
+        padding: 15px 20px;
+        font-size: 1.1em;
+    }
+}
+
+@media (max-width: 480px) {
+    .formulario-inscricao h2 {
+        font-size: 1.8em;
+    }
+    .formulario-inscricao .subtitulo {
+        font-size: 0.95em;
+    }
+    .form-curso {
+        padding: 20px;
+    }
+}
+</style>
     
     <section class="faq" id="faq">
         <div class="container">
