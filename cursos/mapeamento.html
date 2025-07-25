@@ -1814,6 +1814,34 @@ footer.rodape { /* Adicionando o seletor 'footer' para aumentar a especificidade
   }
 }
     </style>
+<script>
+    document.querySelectorAll('.modulo-question').forEach(button => {
+        console.log('Botão de módulo encontrado:', button); // Verifica se o botão é encontrado
+        button.addEventListener('click', () => {
+            console.log('Clique no botão de módulo detectado!'); // Verifica se o clique é detectado
+            const item = button.parentElement;
+            console.log('Elemento pai (modulo-item):', item); // Verifica se o pai é o correto
+            item.classList.toggle('active');
+            console.log('Classe active após toggle:', item.classList.contains('active')); // Verifica o estado da classe
 
+            const icon = button.querySelector('.modulo-icon');
+            icon.textContent = item.classList.contains('active') ? '−' : '+';
+        });
+    });
+
+    document.querySelectorAll('.faq-question').forEach(button => {
+        console.log('Botão de FAQ encontrado:', button); // Verifica se o botão é encontrado
+        button.addEventListener('click', () => {
+            console.log('Clique no botão de FAQ detectado!'); // Verifica se o clique é detectado
+            const item = button.parentElement;
+            console.log('Elemento pai (faq-item):', item); // Verifica se o pai é o correto
+            item.classList.toggle('active');
+            console.log('Classe active após toggle:', item.classList.contains('active')); // Verifica o estado da classe
+
+            const icon = button.querySelector('.faq-icon');
+            icon.textContent = item.classList.contains('active') ? '−' : '+';
+        });
+    });
+</script>
 </body>
 </html>
