@@ -1446,23 +1446,100 @@ footer.rodape { /* Adicionando o seletor 'footer' para aumentar a especificidade
     <h2>Softwares Profissionais</h2>
     <p class="subtitulo">Domine as ferramentas mais avançadas do mercado.</p>
 
-    <!-- Grade com os cards dos cursos -->
-    <div class="grade-servicos">
+    <div class="card-servicos-unico">
 
-      <!-- Curso 1 -->
-      <div class="card-servicos">
+      <div id="card-unico-dji">
         <img src="../src/images/dji.jpg" alt="Software DJI Terra">
         <h3>DJI Terra</h3>
         <p>Plataforma completa para mapeamento e modelagem 3D</p>
-          <ul>
-                <li>Planejamento de missões automatizadas</li>
-                <li>Processamento de dados em tempo real</li>
-                <li>Geração de ortomosaicos e modelos 3D</li>
+        <ul>
+          <li>Planejamento de missões automatizadas</li>
+          <li>Processamento de dados em tempo real</li>
+          <li>Geração de ortomosaicos e modelos 3D</li>
         </ul>
-          
       </div>
-     </div>
+
+    </div>
+  </div>
 </section>
+
+<style> 
+.servicos {
+    background-color: #e9f2f3;
+    padding: 80px 40px;
+    text-align: center;
+}
+
+/* Título da seção cursos */
+.servicos h2 {
+    font-family: 'League Spartan', sans-serif;
+    font-size: 36px;
+    margin-bottom: 10px;
+    color: #0e3346;
+}
+
+/* Subtítulo da seção */
+.subtitulo {
+    font-size: 18px;
+    margin-bottom: 40px;
+    color: #0e3346;
+}
+
+/* Centraliza o card único para a nova estrutura */
+.card-servicos-unico {
+    display: flex;
+    justify-content: center;
+}
+
+/* Card individual de curso (para a estrutura original de vários cards) */
+.grade-servicos {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 30px;
+}
+
+.card-servicos, #card-unico-dji {
+    background: white;
+    border-radius: 12px;
+    overflow: hidden;
+    box-shadow: 0 0 15px rgba(0,0,0,0.1);
+    transition: transform 0.3s ease;
+    padding-bottom: 20px;
+}
+
+/* Efeito hover no card */
+.card-servicos:hover {
+    transform: scale(1.05);
+}
+
+/* Estilo para o card único - ajuste o width conforme necessário */
+#card-unico-dji {
+    width: 50%;
+}
+
+/* Imagem do card */
+.card-servicos img, #card-unico-dji img {
+    width: 100%;
+    height: 200px;
+    object-fit: cover;
+    display: block;
+    border-bottom: 5px solid #08828f;
+}
+
+/* Título do card */
+.card-servicos h3, #card-unico-dji h3 {
+    font-size: 20px;
+    color: #08828f;
+    margin: 20px 0 10px;
+}
+
+/* Parágrafo do card */
+.card-servicos p, #card-unico-dji p {
+    padding: 0 20px;
+    font-size: 14px;
+    color: #333;
+}
+</style>
     
 
     <section class="faq" id="faq">
