@@ -145,7 +145,7 @@ body {
 
 /* Título do banner */
 .banner h1 {
-    font-family: 'League Spartan', sans-serif;
+    font-family: 'Poppins', sans-serif;
     font-size: 42px;
     line-height: 1.2;
     margin-bottom: 15px;
@@ -224,7 +224,7 @@ body {
 
 /* Título da seção cursos */
 .servicos h2 {
-    font-family: 'League Spartan', sans-serif;
+    font-family: 'Poppins', sans-serif;
     font-size: 36px;
     margin-bottom: 10px;
     color: #0e3346;
@@ -307,7 +307,7 @@ body {
 }
 
 .porque h2 {
-    font-family: 'League Spartan', sans-serif;
+    font-family: 'Poppins', sans-serif;
     font-size: 36px;
     margin-bottom: 10px;
     color: #0e3346;
@@ -417,7 +417,7 @@ body {
 }
 
 .depoimentos h2 {
-    font-family: 'League Spartan', sans-serif;
+    font-family: 'Poppins', sans-serif;
     font-size: 32px;
     margin-bottom: 10px;
     color: #ffffff;
@@ -473,7 +473,7 @@ body {
 }
 
 .galeria h2 {
-    font-family: 'League Spartan', sans-serif;
+    font-family: 'Poppins', sans-serif;
     font-size: 32px;
     color: #0e3346;
     margin-bottom: 10px;
@@ -528,7 +528,7 @@ body {
 }
 
 .cta h2 {
-    font-family: 'League Spartan', sans-serif;
+    font-family: 'Poppins', sans-serif;
     font-size: 28px;
     margin-bottom: 15px;
 }
@@ -567,7 +567,7 @@ body {
 }
 
 .contato-info h2 {
-        font-family: 'League Spartan', sans-serif;
+        font-family: 'Poppins', sans-serif;
         font-size: 28px;
         margin-bottom: 10px;
         color: #0e3346;
