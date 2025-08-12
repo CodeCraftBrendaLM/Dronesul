@@ -1537,6 +1537,86 @@
     font-size: 14px;
     color: #333;
 }
+
+
+/* Para telas menores que 991px  */
+@media (max-width: 991px) {
+    .grade-servicos {
+        /* Muda o grid para 2 colunas em tablets */
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+/* Para telas menores que 768px (versão para celular) */
+@media (max-width: 768px) {
+    .servicos {
+        padding: 50px 20px; /* Reduz o padding da seção para telas menores */
+    }
+
+    .servicos h2 {
+        font-size: 28px; /* Reduz o tamanho do título */
+    }
+
+    .subtitulo {
+        font-size: 16px; /* Reduz o tamanho do subtítulo */
+        margin-bottom: 30px;
+    }
+
+    .grade-servicos {
+        /* Muda o grid para apenas 1 coluna, empilhando os cards verticalmente */
+        grid-template-columns: 1fr;
+        gap: 20px; /* Reduz o espaçamento entre os cards */
+    }
+
+    /* O card único também precisa ocupar 100% da largura em telas menores */
+    #card-unico-dji {
+        width: 100%; /* Faz com que o card único ocupe a largura total */
+    }
+}
+
+@media (max-width: 480px) {
+    /* Ajustes gerais para a seção de serviços */
+    .servicos {
+        padding: 40px 15px; /* Reduz ainda mais o padding nas laterais */
+    }
+
+    .servicos h2 {
+        font-size: 24px; /* Título menor para não quebrar a linha */
+    }
+
+    .subtitulo {
+        font-size: 14px; /* Subtítulo menor para telas pequenas */
+        margin-bottom: 20px;
+    }
+
+    /* Ajustes para os cards */
+    .card-servicos, #card-unico-dji {
+        border-radius: 8px; /* Bordas um pouco menos arredondadas */
+    }
+
+    .card-servicos img, #card-unico-dji img {
+        height: 150px; /* Reduz a altura das imagens para economizar espaço vertical */
+    }
+
+    .card-servicos h3, #card-unico-dji h3 {
+        font-size: 18px; /* Reduz o tamanho do título do card */
+        margin-top: 15px;
+        margin-bottom: 5px;
+    }
+
+    .card-servicos p, #card-unico-dji p {
+        font-size: 13px; /* Reduz o tamanho do texto do parágrafo */
+    }
+
+    #card-unico-dji ul {
+        margin-top: 15px;
+    }
+
+    #card-unico-dji li {
+        font-size: 13px; /* Tamanho da fonte dos itens da lista */
+        margin-bottom: 5px;
+    }
+}
 </style>
     
 
